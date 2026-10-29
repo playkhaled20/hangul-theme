@@ -1,0 +1,23 @@
+// Luxury tech skin over Raed — opt-in via body.tech-lux (setting tech_lux). Uses merchant's --color-primary; no external fonts/CDNs.
+body.tech-lux{
+  --lux-ink:#07090f;--lux-panel:#0e121b;--lux-line:rgba(255,255,255,.08);--lux-text:#e9edf5;--lux-mute:#9aa3b5;
+  --lux-metal:linear-gradient(135deg,#f5f1e8 0%,#c9b99a 35%,#8e98a8 70%,#e7ecf3 100%);
+  --lux-glow:color-mix(in srgb,var(--color-primary) 55%,transparent);
+  background:radial-gradient(1200px 600px at 85% -10%,color-mix(in srgb,var(--color-primary) 18%,transparent),transparent 60%),var(--lux-ink);color:var(--lux-text);
+  .main-nav-container,.store-header,header .top-navbar{background:rgba(10,13,20,.72)!important;backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--lux-line);color:var(--lux-text)}
+  .s-block__title h2,.s-block__title h3,h1.section-title{background:var(--lux-metal);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.2px}
+  .s-product-card-entry,.tk-card{background:linear-gradient(180deg,#121826,#0b0f18)!important;border:1px solid var(--lux-line);border-radius:18px;overflow:hidden;
+    transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s;color:var(--lux-text)}
+  .s-product-card-entry:hover{transform:translateY(-4px);border-color:var(--lux-glow);box-shadow:0 18px 40px -18px var(--lux-glow),0 0 0 1px var(--lux-glow)}
+  .s-product-card-image{background:radial-gradient(circle at 50% 40%,#1c2333,#0b0f18)}
+  .s-product-card-content-title a{color:var(--lux-text)}.s-product-card-price,.tk-card span{color:#d9c7a3}
+  .btn--primary,.s-button-primary,salla-add-product-button .s-button-element{background:linear-gradient(135deg,var(--color-primary),color-mix(in srgb,var(--color-primary) 60%,#fff))!important;border:0;border-radius:12px;box-shadow:0 8px 24px -10px var(--lux-glow)}
+  .store-footer{background:#05070b;border-top:1px solid var(--lux-line);color:var(--lux-mute)}
+  .breadcrumbs,.s-breadcrumb-wrapper{color:var(--lux-mute)}
+  input,select,textarea{background:var(--lux-panel);color:var(--lux-text);border-color:var(--lux-line)}
+  .tk-fab{background:rgba(14,18,27,.8);backdrop-filter:blur(10px);border-color:var(--lux-line)}
+  .tk-fab:hover{box-shadow:0 0 0 1px var(--lux-glow),0 10px 30px -12px var(--lux-glow)}
+  .tk-sheet__box{background:linear-gradient(180deg,#0f1420,#07090f);border:1px solid var(--lux-line)}
+  .tk-sheet h3{background:var(--lux-metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+}
+@media (prefers-reduced-motion:reduce){body.tech-lux .s-product-card-entry{transition:none}body.tech-lux .s-product-card-entry:hover{transform:none}}

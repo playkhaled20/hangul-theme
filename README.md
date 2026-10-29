@@ -30,3 +30,13 @@ Add a feature to a store: add its id to the type list. New feature: create `tech
 
 ## Build
 `pnpm install && pnpm run prod` → `public/tech.js`, `public/tech.css`.
+
+## Design — Luxury tech
+Dark graphite canvas, glass (blurred) header, titanium/champagne metallic headings, glowing product cards that follow the merchant's **primary colour** (`--color-primary`), champagne prices, gradient primary buttons. Toggle: `tech_lux` setting (on by default). Respects `prefers-reduced-motion`. File: `src/assets/styles/tech/_lux.scss`.
+
+## Salla policy compliance
+- Built on official **Raed** (Twilight, MIT) — Salla web components (`salla-*`), cart/checkout/payment flows untouched.
+- No external scripts, fonts or CDNs; no tracking; all processing (voice, images) runs in the browser via standard Web APIs with user action (camera/mic only on tap).
+- Merchant-controlled via twilight settings (store type, every feature on/off, luxury skin); fonts/colours stay on Salla's own settings.
+- RTL/Arabic first + English; accessible dialogs (role=dialog, Esc to close, aria-labels).
+- Before publishing: set `author_email` in twilight.json, add screenshots, and pass Twilight CI.

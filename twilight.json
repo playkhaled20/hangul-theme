@@ -25,6 +25,17 @@
   ],
   "settings": [
     {
+      "id": "tech_lux",
+      "type": "boolean",
+      "format": "switch",
+      "label": "التصميم الفاخر الداكن · Luxury tech skin",
+      "description": "واجهة داكنة فاخرة بلمسة معدنية تتبع اللون الأساسي للمتجر",
+      "icon": "sicon-star",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
       "id": "squar_photo_bg_image_size",
       "type": "items",
       "format": "dropdown-list",
@@ -1327,5 +1338,6 @@
   "description": {
     "ar": "مجموعة كبيرة من المزايا لدعم تجارتك وتقديم تجربة تسوق مثيرة لعملائك",
     "en": "A wide range of features to support your business and provide an exciting shopping experience for your customers"
-  }
+  },
+  "author_email": ""
 }
