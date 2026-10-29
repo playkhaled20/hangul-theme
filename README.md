@@ -1,4 +1,4 @@
-# Techno «تقني» — Salla theme for tech stores
+# Rayeq «رايق» — Salla theme for tech stores
 
 Private, standalone theme for **digital cards, electronics, phones, computers, electronic games, audio, accessories, smart home, cameras, software**.
 Base: Salla *Raed* (MIT, see LICENSE). Tech features: radical tech-only rewrites, originally inspired by the «اضافاتنا» library (github.com/playkhaled20/idhafatina) — this repo is an **independent copy**; editing here never changes the library or any other theme.

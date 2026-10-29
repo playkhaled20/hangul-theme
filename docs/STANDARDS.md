@@ -1,5 +1,5 @@
 # معيار ثيمات خالد الدائم · Khaled's Permanent Theme Standard
-> يطبّق تلقائياً على كل ثيم جديد بدون ما يعيده خالد. المرجع الحي: Taqni (/workspace/techno-theme, playkhaled20/techno-theme).
+> يطبّق تلقائياً على كل ثيم جديد بدون ما يعيده خالد. المرجع الحي: Rayeq «رايق» (/workspace/techno-theme, playkhaled20/techno-theme).
 
 ## 0. قواعد لا تُكسر
 - لا رفع/نشر/Partners/Twilight CI حتى يقول خالد «كله مضبوط». commits محلية فقط، بدون push.
