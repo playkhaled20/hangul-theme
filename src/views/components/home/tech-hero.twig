@@ -8,4 +8,5 @@
     </div>
     {% if component.image %}<img src="{{ component.image }}" alt="{{ component.title }}" loading="eager" width="700" height="520">{% endif %}
   </div>
+  {% include 'pages.partials.tech-gallery' with {gallery: component.gallery, q: 'iphone,galaxy,laptop,لابتوب,جوال,ايفون', n: 12} %}
 </section>

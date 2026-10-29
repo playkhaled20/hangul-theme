@@ -1,4 +1,5 @@
 <section component-id="{{ componentId }}" class="s-block ts container" data-testid="tech-gaming-fps">
   <div class="ig-panel"><span class="ig-kicker">مختبر الأداء</span><h2 class="text-2xl font-bold mb-4">{{ component.title ?: 'كم إطار راح تحصل؟' }}</h2>
   <div class="ts-fps">{% for g in component.games %}<div><b>{{ g.game }}</b><div class="ig-bar"><i style="--v:{{ min(100, g.fps / 2.4) }}"></i></div><span class="ig-num" style="font-size:20px">{{ g.fps }}<small>FPS</small></span></div>{% endfor %}</div></div>
+  {% include 'pages.partials.tech-gallery' with {gallery: component.gallery, q: 'بلايستيشن,playstation,ps5,xbox,تحكم,قيمنق,gaming,سماعة', n: 8} %}
 </section>

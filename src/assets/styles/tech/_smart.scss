@@ -45,3 +45,14 @@ $pals:(gold:(#c9a24b,#ecd398),blue:(#3b82f6,#d8b46a),cyan:(#22d3ee,#d8b46a),viol
 .tk-pv button small{margin-inline-start:6px;opacity:.6}.tk-pv button.on{background:var(--ig-acc,#3b82f6);border-color:transparent;color:#fff}.tk-pv button:disabled{opacity:.35}
 .tk-pv__hint{opacity:.55;white-space:nowrap}.tk-has-pv .tk-fabs{bottom:72px}.tk-has-pv{padding-bottom:64px}
 @media(max-width:768px){.tk-pv{flex-wrap:wrap}.tk-pv__hint{display:none}}
+
+// Luxury section image strip (6–12, store's own photos)
+.tg{display:grid;grid-template-columns:repeat(var(--tg-n,6),minmax(0,1fr));gap:12px;margin-top:22px;
+  &:empty{display:none}
+  .tg-i{position:relative;aspect-ratio:1;border-radius:18px;overflow:hidden;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);box-shadow:0 10px 30px -12px rgba(0,0,0,.6);transition:transform .35s,border-color .35s}
+  .tg-i:hover{transform:translateY(-4px);border-color:var(--ig-gold,#d4af37)}
+  img{width:100%;height:100%;object-fit:cover}
+  span{position:absolute;inset:auto 0 0;padding:18px 10px 8px;font-size:11px;font-weight:700;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.8));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
+@media (max-width:768px){.tg{grid-template-columns:repeat(3,1fr)}}
+@media (prefers-reduced-motion:reduce){.tg .tg-i{transition:none}}

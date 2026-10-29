@@ -1062,6 +1062,45 @@
               ]
             }
           ]
+        },
+        {
+          "id": "gallery",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
+          "item_label": "صورة",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "id": "gallery.image",
+              "label": "الصورة",
+              "format": "image",
+              "value": null,
+              "required": false,
+              "description": "800×800 WebP"
+            },
+            {
+              "type": "string",
+              "id": "gallery.label",
+              "label": "العنوان",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "gallery.url",
+              "label": "الرابط",
+              "format": "text",
+              "value": null,
+              "required": false
+            }
+          ]
         }
       ]
     },
@@ -1211,6 +1250,45 @@
               "multilanguage": true
             }
           ]
+        },
+        {
+          "id": "gallery",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
+          "item_label": "صورة",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "id": "gallery.image",
+              "label": "الصورة",
+              "format": "image",
+              "value": null,
+              "required": false,
+              "description": "800×800 WebP"
+            },
+            {
+              "type": "string",
+              "id": "gallery.label",
+              "label": "العنوان",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "gallery.url",
+              "label": "الرابط",
+              "format": "text",
+              "value": null,
+              "required": false
+            }
+          ]
         }
       ]
     },
@@ -1263,6 +1341,45 @@
           "value": [],
           "required": false,
           "maxLength": 8
+        },
+        {
+          "id": "gallery",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
+          "item_label": "صورة",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "id": "gallery.image",
+              "label": "الصورة",
+              "format": "image",
+              "value": null,
+              "required": false,
+              "description": "800×800 WebP"
+            },
+            {
+              "type": "string",
+              "id": "gallery.label",
+              "label": "العنوان",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "gallery.url",
+              "label": "الرابط",
+              "format": "text",
+              "value": null,
+              "required": false
+            }
+          ]
         }
       ]
     },
@@ -1387,6 +1504,45 @@
               ]
             }
           ]
+        },
+        {
+          "id": "gallery",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
+          "item_label": "صورة",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "id": "gallery.image",
+              "label": "الصورة",
+              "format": "image",
+              "value": null,
+              "required": false,
+              "description": "800×800 WebP"
+            },
+            {
+              "type": "string",
+              "id": "gallery.label",
+              "label": "العنوان",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "gallery.url",
+              "label": "الرابط",
+              "format": "text",
+              "value": null,
+              "required": false
+            }
+          ]
         }
       ]
     },
@@ -1478,6 +1634,45 @@
           "value": null,
           "required": false,
           "multilanguage": true
+        },
+        {
+          "id": "gallery",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
+          "item_label": "صورة",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "id": "gallery.image",
+              "label": "الصورة",
+              "format": "image",
+              "value": null,
+              "required": false,
+              "description": "800×800 WebP"
+            },
+            {
+              "type": "string",
+              "id": "gallery.label",
+              "label": "العنوان",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "gallery.url",
+              "label": "الرابط",
+              "format": "text",
+              "value": null,
+              "required": false
+            }
+          ]
         }
       ]
     },
@@ -1537,6 +1732,45 @@
               "required": false,
               "minimum": 0,
               "maximum": 999
+            }
+          ]
+        },
+        {
+          "id": "gallery",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
+          "item_label": "صورة",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "id": "gallery.image",
+              "label": "الصورة",
+              "format": "image",
+              "value": null,
+              "required": false,
+              "description": "800×800 WebP"
+            },
+            {
+              "type": "string",
+              "id": "gallery.label",
+              "label": "العنوان",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "gallery.url",
+              "label": "الرابط",
+              "format": "text",
+              "value": null,
+              "required": false
             }
           ]
         }
@@ -1616,6 +1850,45 @@
               "multilanguage": true
             }
           ]
+        },
+        {
+          "id": "gallery",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
+          "item_label": "صورة",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "id": "gallery.image",
+              "label": "الصورة",
+              "format": "image",
+              "value": null,
+              "required": false,
+              "description": "800×800 WebP"
+            },
+            {
+              "type": "string",
+              "id": "gallery.label",
+              "label": "العنوان",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "gallery.url",
+              "label": "الرابط",
+              "format": "text",
+              "value": null,
+              "required": false
+            }
+          ]
         }
       ]
     },
@@ -1679,6 +1952,45 @@
               "required": false,
               "minimum": 0,
               "maximum": 999
+            }
+          ]
+        },
+        {
+          "id": "gallery",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
+          "item_label": "صورة",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "id": "gallery.image",
+              "label": "الصورة",
+              "format": "image",
+              "value": null,
+              "required": false,
+              "description": "800×800 WebP"
+            },
+            {
+              "type": "string",
+              "id": "gallery.label",
+              "label": "العنوان",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "gallery.url",
+              "label": "الرابط",
+              "format": "text",
+              "value": null,
+              "required": false
             }
           ]
         }

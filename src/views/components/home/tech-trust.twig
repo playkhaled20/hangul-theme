@@ -4,4 +4,5 @@
   <div class="ts-stats">{% for m in component.metrics %}{% set v = min(100, max(0, m.value)) %}
     <div class="ig-panel flex items-center gap-4"><div class="ig-ring{{ loop.index is odd ? ' gold' : '' }}" style="--v:{{ v }};width:84px"><b>{{ v }}<small>%</small></b></div>
     <div><b>{{ v >= 90 ? 'استثنائي' : (v >= 80 ? 'ممتاز' : 'جيد') }}</b><small class="block opacity-70">{{ m.label }}</small></div></div>{% endfor %}</div>
+  {% include 'pages.partials.tech-gallery' with {gallery: component.gallery, q: '', n: 8} %}
 </section>

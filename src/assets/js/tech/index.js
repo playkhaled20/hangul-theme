@@ -20,5 +20,6 @@ const render = type => { const off = ` ${d.body.dataset.techOff || ''} `; d.body
   for (const [id, [i, l, imp]] of Object.entries(F)) if (enabled(id)) fab(id, i, T(l), () => run(imp));
   if (pdp()) for (const [id, [i, l, imp]] of Object.entries(PDP)) if (enabled(id)) fab(id, i, T(l), () => run(imp)); };
 async function boot() { const type = await detect(); render(type); if (pdp() && enabled('bundle')) run(() => import('./bundle'));
+  if (document.querySelector('.tg')) import('./gallery').then(m => m.default()).catch(e => console.warn('[tech] gallery', e));
   import('./preview').then(m => m.default(type, render)).catch(e => console.warn('[tech] preview', e)); }
 d.readyState === 'loading' ? d.addEventListener('DOMContentLoaded', boot) : boot();
