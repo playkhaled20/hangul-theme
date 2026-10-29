@@ -1,7 +1,8 @@
 // presets (tech): detects which tech store type this is from product/category names; sets body[data-tech-type].
 import { d, $$, norm, products, text } from './kit';
-export const TYPES = ['digital_cards', 'electronics', 'phones', 'computers', 'gaming', 'audio', 'accessories', 'smarthome', 'cameras', 'software'];
+export const TYPES = ['electronics', 'digital_cards', 'phones', 'computers', 'gaming', 'audio', 'accessories', 'smarthome', 'cameras', 'software'];
 export const WORDS = {
+  electronics: /(الكترونيات|إلكترونيات|electronics|تلفزيون|شاشه سمارت|tv|ساعه ذكيه|smart watch|جهاز|اجهزه|ثلاجه|مكيف|غساله|appliance)/g,
   digital_cards: /(بطاقه|بطاقات|كود|شحن|رصيد|itunes|ايتونز|psn|steam|google play|gift card|voucher|netflix|stc pay|اشتراك)/g,
   phones: /(جوال|هاتف|ايفون|iphone|galaxy|جالكسي|سامسونج|شاومي|pixel|phone)/g,
   computers: /(لابتوب|كمبيوتر|حاسب|macbook|laptop|pc|معالج|gpu|ssd|شاشه)/g,

@@ -1,15 +1,15 @@
 {
   "name": {
-    "ar": "رايق",
-    "en": "Rayeq"
+    "ar": "هانغول",
+    "en": "Hangul"
   },
   "version": "0.1.0",
   "repository": "https://github.com/playkhaled20/techno-theme",
   "author_email": "",
   "support_url": "https://salla.com/",
   "description": {
-    "ar": "ثيم تقني لمتاجر البطاقات الرقمية والأجهزة الإلكترونية والألعاب، مبني على رائد",
-    "en": "Tech theme for digital cards, electronics and gaming stores, built on Raed"
+    "ar": "هانغول: ثيم فاخر بروح التقنية الكورية الحديثة، مصمم لمتاجر الإلكترونيات أولاً، ويدعم الجوالات والكمبيوتر والألعاب والصوتيات والبطاقات الرقمية وكل الفئات التقنية",
+    "en": "Hangul: a luxury theme with a modern Korean-tech vibe, built for electronics stores first, plus phones, computers, gaming, audio, digital cards and every tech category"
   },
   "features": [
     "mega-menu",
@@ -414,14 +414,14 @@
           "key": "tt-auto"
         },
         {
-          "label": "بطاقات رقمية",
-          "value": "digital_cards",
-          "key": "tt-digital_cards"
-        },
-        {
           "label": "إلكترونيات شاملة",
           "value": "electronics",
           "key": "tt-electronics"
+        },
+        {
+          "label": "بطاقات رقمية",
+          "value": "digital_cards",
+          "key": "tt-digital_cards"
         },
         {
           "label": "جوالات",
@@ -466,7 +466,8 @@
       ],
       "source": "Manual",
       "required": false,
-      "multichoice": false
+      "multichoice": false,
+      "description": "الإلكترونيات هي الفئة الأساسية للثيم؛ «تلقائي» يكتشف النوع من قوائم ومنتجات متجرك."
     },
     {
       "id": "tech_f_stylist",
