@@ -35,9 +35,20 @@
       "id": "tech_lux",
       "type": "boolean",
       "format": "switch",
-      "label": "التصميم الفاخر الداكن · Luxury tech skin",
+      "label": "الواجهة الفاتحة البسيطة · Light retail skin",
       "description": "واجهة داكنة فاخرة بلمسة معدنية تتبع اللون الأساسي للمتجر",
       "icon": "sicon-star",
+      "value": false,
+      "selected": false,
+      "required": false
+    },
+    {
+      "id": "tech_ig",
+      "type": "boolean",
+      "format": "switch",
+      "label": "نمط الإنفوجرافيك الفاخر · Luxury infographic",
+      "description": "أقسام إنفوجرافيك داكنة فاخرة للمواصفات والمقارنات",
+      "icon": "sicon-chart",
       "value": true,
       "selected": true,
       "required": false
