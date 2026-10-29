@@ -1,0 +1,11 @@
+<section component-id="{{ componentId }}" class="s-block ts container" data-testid="tech-hero">
+  <div class="ts-hero">
+    <div><span class="ig-chip live">{{ component.chip ?: 'وصل حديثاً' }}</span>
+      <h1>{{ component.title ?: 'التقنية التي تستحقها بأرقام واضحة' }}</h1><p class="opacity-70 my-4">{{ component.description }}</p>
+      {% set u = component.url is iterable ? (component.url.url ?? '') : component.url %}
+      <a class="ig-btn" href="{{ u ?: '/products' }}">{{ component.button ?: 'تسوّق الآن' }}</a>
+      <div class="ts-stats mt-6">{% for s in component.stats %}<div class="ig-panel"><div class="ig-num">{{ s.value }}<small>{{ s.unit }}</small></div><small>{{ s.label }}</small></div>{% endfor %}</div>
+    </div>
+    {% if component.image %}<img src="{{ component.image }}" alt="{{ component.title }}" loading="eager" width="700" height="520">{% endif %}
+  </div>
+</section>

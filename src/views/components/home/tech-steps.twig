@@ -1,0 +1,4 @@
+<section component-id="{{ componentId }}" class="s-block ts container" data-testid="tech-steps">
+  <div class="ts-h"><div><span class="ig-kicker">{{ component.kicker ?: 'كيف تصلك' }}</span><h2>{{ component.title ?: 'من الطلب إلى يدك' }}</h2></div></div>
+  <div class="ts-steps">{% for s in component.steps %}<div class="ig-step"><b>{{ loop.index }}</b><div><strong>{{ s.title }}</strong><p class="opacity-70 text-sm">{{ s.text }}</p></div></div>{% endfor %}</div>
+</section>

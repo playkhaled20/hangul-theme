@@ -1,5 +1,5 @@
 @use "lux";
-@use "infographic";
+@use "infographic"; @use "smart";
 :root{--tk-acc:var(--color-primary,#2563eb);--tk-bg:#0b1220;--tk-fg:#e6edf7;--tk-card:#111a2e}
 .tk-fabs{position:fixed;inset-inline-end:14px;bottom:84px;z-index:60;display:flex;flex-direction:column;gap:8px}
 .tk-fab{display:flex;align-items:center;gap:6px;background:var(--tk-bg);color:var(--tk-fg);border:1px solid #23304d;border-radius:999px;padding:8px 12px;font-size:13px;box-shadow:0 6px 18px #0004;cursor:pointer}

@@ -1,0 +1,5 @@
+<section component-id="{{ componentId }}" class="s-block ts container" data-testid="tech-compare">
+  <div class="ig-panel"><div class="ts-h"><div><span class="ig-kicker">مقارنة ذكية</span><h2>{{ component.a_name }} <span class="opacity-50">VS</span> {{ component.b_name }}</h2></div></div>
+  {% for r in component.rows %}<div class="ts-row"><div class="l ig-bar{{ r.a >= r.b ? ' gold' : '' }}"><i style="--v:{{ r.a }}"></i></div><span>{{ r.label }}</span><div class="ig-bar{{ r.b > r.a ? ' gold' : '' }}"><i style="--v:{{ r.b }}"></i></div></div>{% endfor %}
+  {% if component.verdict %}<p class="mt-4"><b class="ig-kicker">الخلاصة · </b>{{ component.verdict }}</p>{% endif %}</div>
+</section>

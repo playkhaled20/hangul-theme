@@ -221,7 +221,9 @@
                     </h2>
                 {% endif %}
 
-                {% if product.rating %}
+                {% if theme.settings.get('tech_ig', true) is not same as(false) %}
+                    {% include 'pages.partials.product.tech-pulse' %}
+                {% elseif product.rating %}
                     <salla-rating-stars data-testid="store-product-rating" value="{{ product.rating.stars }}"
                                         reviews="{{ product.rating.count }}"></salla-rating-stars>
                 {% endif %}
@@ -296,7 +298,7 @@
                                 <span>{{ pluralize('pages.products.sold_times', product.sold_quantity)|raw }}</span>
                             </div>
                         {% endif %}
-                        {% if product.can_show_remained_quantity %}
+                        {% if product.can_show_remained_quantity and theme.settings.get('tech_ig', true) is same as(false) %}
                             <div class="px-4 rtl:even:border-r ltr:even:border-l even:border-gray-200">
                                 <i class="!text-red-800 sicon-box-bankers rtl:ml-1.5 ltr:mr-1.5"></i>
                                 {{ trans('pages.products.remained') }}
