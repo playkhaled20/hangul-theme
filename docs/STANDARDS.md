@@ -2,7 +2,7 @@
 > يطبّق تلقائياً على كل ثيم جديد بدون ما يعيده خالد. المرجع الحي: Taqni (/workspace/techno-theme, playkhaled20/techno-theme).
 
 ## 0. قواعد لا تُكسر
-- لا رفع/نشر/Partners/Twilight CI حتى يقول خالد «كله مضبوط». commits محلية فقط، والدفع (push) فقط إذا احتاجه الحفظ.
+- لا رفع/نشر/Partners/Twilight CI حتى يقول خالد «كله مضبوط». commits محلية فقط، بدون push.
 - بهاء (fooz1980k-sudo/aneeq-theme) لا يُلمس: master/review/publish/stash. لا force push أبداً. تحقّق بعد كل جلسة: HEAD + status + stash.
 - مكتبة اضافاتنا (playkhaled20/idhafatina) للقراءة/النسخ فقط؛ لا تتعدل من داخل ثيم.
 - لا دفع أموال، لا طلب كلمات مرور.
