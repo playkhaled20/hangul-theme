@@ -16,5 +16,5 @@ salla theme preview                # Salla CLI preview on a demo store
 Install: push to GitHub → Salla Partners → Themes → link repo → preview/publish.
 
 ## Placeholders
-- `author_email` = fooz1980k@gmail.com, `repository` = github.com/playkhaled20/hangul-theme
+- `author_email`, `repository` in twilight.json / package.json → REPLACE_ME
 - Screenshots: add to `/screenshots/` (desktop 1440×900, mobile) — mockups in `/preview/`.
