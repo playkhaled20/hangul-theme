@@ -51,90 +51,23 @@
 #}
 <!DOCTYPE html>
 <html lang="{{ language.code }}" dir="{{ theme.is_rtl ? 'rtl' : 'ltr' }}">
-<!-- بسم الله الرحمن الرحيم -->
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{ theme.settings.set('placeholder', 'images/placeholder.png') }}
-
-    <script defer data-cfasync="false" crossorigin="anonymous" src="{{ 'product-card.js'|asset }}"></script>
-    <script defer src="{{ 'main-menu.js'|asset }}"></script>
-    {% if theme.settings.get('enable_add_product_toast', true) %}
-        <script defer src="{{ 'add-product-toast.js'|asset }}"></script>
-    {% endif %}
-
-    {% block head_scripts %}{% endblock %}
-
-
-    <script data-cfasync="false">
-        window.header_is_sticky = "{{theme.settings.get('header_is_sticky', 'Default Value')}}"
-        window.imageZoom = "{{theme.settings.get('imageZoom')}}"
-        window.can_access_wallet = {{ user.can_access_wallet | json_encode }}
-        window.enable_more_menu = "{{ theme.settings.get('enable_more_menu', true) }}"
-        window.enable_add_product_toast = "{{ theme.settings.get('enable_add_product_toast', true) }}"
-        window.notify_when_available_in_card = "{{ theme.settings.get('notify_when_available_in_card', true) }}"
-    </script>
-    
-    {% hook 'head:start' %}
-    {% hook head %}
-    {% block styles %}{% endblock %}
-    <link rel="stylesheet" href="{{ 'app.css' | asset }}">
-    <link rel="stylesheet" href="{{ theme.font.path|cdn }}"/>
-    <link rel="stylesheet" href="{{ 'fonts/sallaicons.css'|cdn }}"/>
-    
-    <style>
-        :root {
-            --font-main: '{{theme.font.name}}';
-            --color-primary: {{ theme.color.primary }};
-            --color-primary-dark: {{ theme.color.darker(0.15) }};
-            --color-primary-light: {{ theme.color.lighter(0.15) }};
-            --color-primary-reverse: {{ theme.color.reverse_text }};
-            /* Theme specific variables */
-            --s-radius: .75rem;
-        }
-    </style>
-    {# tracking services, custom css feature. #}
-    {% hook 'head:end' %}
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% hook 'head:start' %}{% hook head %}{% block styles %}{% endblock %}
+<link rel="stylesheet" href="{{ 'app.css' | asset }}">
+{% hook 'head:end' %}
 </head>
-{% set ocS = theme.settings.get('oc_skin_on') %}{% set ocI = theme.settings.get('oc_ink_on') %}
-{% set ocBg = theme.settings.get('oc_bg', 'graphite') %}{% if ocBg is iterable %}{% set ocBg = (ocBg|first).value %}{% endif %}
-{% set ocAc = theme.settings.get('oc_accent', 'champagne') %}{% if ocAc is iterable %}{% set ocAc = (ocAc|first).value %}{% endif %}
-{% set ocVe = theme.settings.get('oc_vertical', 'auto') %}{% if ocVe is iterable %}{% set ocVe = (ocVe|first).value %}{% endif %}
-{% set ocOff = '' %}{% for a in ['stylist','voice','listen','tryon','recolour','photocoach','colorbook','look','quiz','undertone','giftfinder','presets'] %}{% if theme.settings.get('oc_addon_' ~ a, true) == false %}{% set ocOff = ocOff ~ a ~ ',' %}{% endif %}{% endfor %}
-<body id="app" data-oc-skin="{{ ocS ? '1' : '0' }}" data-oc-ink="{{ ocI ? '1' : '0' }}" style="{% if ocS %}--oc-skin:{{ theme.settings.get('oc_skin_color','#16161a') }};{% endif %}{% if ocI %}--oc-ink:{{ theme.settings.get('oc_ink_color','#d9b779') }};{% endif %}" data-oc-store="{{ store.name }}" data-oc-bg="{{ (ocBg ?: 'graphite')|replace({'bg-':''}) }}" data-oc-cc="{{ theme.settings.get('oc_customer_color', true) == false ? 0 : 1 }}" data-oc-addons="{{ theme.settings.get('oc_addons', true) == false ? 0 : 1 }}" data-oc-addon-off="{{ ocOff }}" data-oc-img="{{ 'images/oc/electronics-featured.webp'|asset }}" data-oc-accent="{{ ocAc ?: 'champagne' }}" data-oc-vertical="{{ ocVe ?: 'auto' }}" class="theme-raed overflow-x-hidden{{ theme.settings.get('oc_cinema', true) == false ? '' : ' oc' }}{{ theme.settings.get('oc_grain', true) == false ? '' : ' oc-grain' }}{{ theme.settings.get('oc_smart_ratings', true) == false ? '' : ' oc-smart' }} {% hook 'body:classes' %}
-  {{ theme.settings.get('footer_is_dark') ? ' footer-is-dark' : ' footer-is-light' }}
-  {{ theme.settings.get('topnav_is_dark') ? ' topnav-is-dark' : '' }}
-  {{ theme.settings.get('sticky_add_to_cart') ? ' is-sticky-product-bar' : '' }}
-  ">
-<noscript>
-    To get full functionality of this site you need to enable JavaScript. Here is how
-    <a href="https://www.enable-javascript.com/" rel="noreferrer"
-       target="_blank">To enable JavaScript on webpage</a>.
-</noscript>
+<body id="app" class="theme-raed">
 <div class="app-inner flex flex-col min-h-full">
-    {% hook 'body:start' %}
-    {% component 'header.header' %}
-    <main id="main-content" role="main"{{ (page.slug == 'product.single' or page.slug starts with 'product.index') ? ' class="flex flex-col space-y-8 sm:space-y-16"' : '' }}>
-    {% block content %}{% endblock %}
-    </main>
-    {% component 'footer.footer' %}
+{% hook 'body:start' %}
+{% component 'header.header' %}
+<main id="main-content" role="main">{% block content %}{% endblock %}</main>
+{% component 'footer.footer' %}
 </div>
 {% hook 'body:end' %}
-{% if theme.settings.get('enable_add_product_toast', true) %}
-    <salla-add-product-toast data-testid="store-add-product-toast"></salla-add-product-toast>
-{% endif %}
 <script defer crossorigin="anonymous" src="{{ 'app.js' | asset }}"></script>
 <link rel="stylesheet" href="{{ 'obsidian.css' | asset }}">
 <script defer crossorigin="anonymous" src="{{ 'obsidian.js' | asset }}"></script>
-
-{# Twilight Components #}
-<salla-offer-modal data-testid="store-offer-modal"></salla-offer-modal>
-<salla-search data-testid="store-search-modal"></salla-search>
-<salla-login-modal data-testid="store-login-modal"></salla-login-modal>
-{% if store.scope %}
-    <salla-scopes data-testid="store-scopes" selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>
-{% endif %}
 {% block scripts %}{% endblock %}
 </body>
 </html>
