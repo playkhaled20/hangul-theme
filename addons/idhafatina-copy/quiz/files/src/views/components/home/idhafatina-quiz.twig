@@ -1,0 +1,13 @@
+{% set fk_t = theme.settings.get('idhafatina_store_type', 'auto') %}{% if fk_t is iterable %}{% set fk_t = fk_t.value is defined ? fk_t.value : fk_t|first %}{% endif %}{% if fk_t is iterable %}{% set fk_t = 'auto' %}{% endif %}{% set fk = {'men': 'fashion', 'abaya': 'fashion', 'kids': 'fashion', 'shoesbags': 'fashion', 'fashion': 'fashion', 'jewelry': 'fashion'}[fk_t]|default('gen') %}
+{% set bg_ok = component.bg_color is not empty and component.bg_color is not iterable and component.bg_color matches '/^#[0-9a-fA-F]{3,8}$/' %}{% set tc_ok = component.text_color is not empty and component.text_color is not iterable and component.text_color matches '/^#[0-9a-fA-F]{3,8}$/' %}
+<section component-id="{{ componentId }}" class="idhafatina-f idhafatina-quiz" id="idhafatina-quiz" data-idhafatina-feature="quiz"{% if bg_ok %} style="background-color:{{ component.bg_color }}"{% endif %}>
+<div class="idhafatina-wrap">
+{% if not component.hide_header %}<header class="idhafatina-head center">
+<span class="idhafatina-eyebrow">{% set kk = component.eyebrow|default(trans('idhafatina.fam.' ~ fk ~ '_quiz_e')) %}<span class="latin{{ kk matches '/[A-Za-z]/' ? '' : ' k-ar' }}" data-fk="quiz_e"{% if component.eyebrow %} data-m{% endif %}>{{ kk }}</span></span>
+{%set tpk%}{%include 'components.idhafatina-tp' with {s:'quiz'}%}{%endset%}{%set tpk=tpk|split('¦')%}
+<h2{% if tc_ok %} style="color:{{ component.text_color }}"{% endif %} data-fk="quiz_t"{% if component.title or tpk[1] is defined %} data-m{% endif %}{% if tpk[1] is defined %} data-tp="{{ tpk[0] }}"{% endif %}>{{ tpk[1] ?? component.title|default(trans('idhafatina.fam.' ~ fk ~ '_quiz_t')) }}</h2>
+<p{% if tc_ok %} style="color:{{ component.text_color }}"{% endif %} data-fk="quiz_d"{% if component.description %} data-m{% endif %}>{{ component.description|default(trans('idhafatina.fam.' ~ fk ~ '_quiz_d')) }}</p>
+</header>{% endif %}
+<div class="idhafatina-quiz-ui" aria-live="polite"></div>
+</div>
+</section>

@@ -1,0 +1,12 @@
+{% set bg_ok = component.bg_color is not empty and component.bg_color is not iterable and component.bg_color matches '/^#[0-9a-fA-F]{3,8}$/' %}{% set tc_ok = component.text_color is not empty and component.text_color is not iterable and component.text_color matches '/^#[0-9a-fA-F]{3,8}$/' %}
+<section component-id="{{ componentId }}" class="idhafatina-f idhafatina-gf" id="idhafatina-giftfinder" data-idhafatina-feature="giftfinder"{% if bg_ok %} style="background-color:{{ component.bg_color }}"{% endif %}>
+<div class="idhafatina-wrap">
+{% if not component.hide_header %}<header class="idhafatina-head center">
+<span class="idhafatina-eyebrow">{% set kk = component.eyebrow|default(trans('idhafatina.kicker.giftfinder')) %}<span class="latin{{ kk matches '/[A-Za-z]/' ? '' : ' k-ar' }}"{% if component.eyebrow %} data-m data-dv="{{ trans('idhafatina.kicker.giftfinder')|e }}"{% endif %}>{{ kk }}</span></span>
+{%set tpk%}{%include 'components.idhafatina-tp' with {s:'giftfinder'}%}{%endset%}{%set tpk=tpk|split('¦')%}
+<h2{% if tc_ok %} style="color:{{ component.text_color }}"{% endif %}{% if tpk[1] is defined %} data-tp="{{ tpk[0] }}"{% endif %}{% if component.title and tpk[1] is not defined %} data-m data-dv="{{ trans('idhafatina.giftfinder.t1')|e }}"{% endif %}>{{ tpk[1] ?? component.title|default(trans('idhafatina.giftfinder.t1')) }}</h2>
+<p{% if tc_ok %} style="color:{{ component.text_color }}"{% endif %}{% if component.description %} data-m data-dv="{{ trans('idhafatina.giftfinder.t2')|e }}"{% endif %}>{{ component.description|default(trans('idhafatina.giftfinder.t2')) }}</p>
+</header>{% endif %}
+<div class="idhafatina-gf-ui"></div>
+</div>
+</section>

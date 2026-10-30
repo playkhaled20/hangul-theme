@@ -1,0 +1,84 @@
+{
+  "ar": {
+    "js": {
+      "photocoach": {
+        "s1": "الإضاءة",
+        "s2": "غامقة شوي: قرّب من الشباك وطفّ الفلاش",
+        "s3": "فيه لمعة محروقة: ابعد عن الشمس المباشرة أو جرب ظل خفيف",
+        "s4": "الإضاءة حلوة ✓",
+        "s5": "الوضوح",
+        "s6": "مهزوزة شوي: ثبّت إيدك على الطاولة واضغط على @d بالشاشة عشان يركّز",
+        "s7": "واضحة ✓",
+        "s8": "الخلفية",
+        "s9": "الخلفية مزحومة: حطها على قماش سادة أو طاولة فاتحة",
+        "s10": "الخلفية هادية ✓",
+        "s11": "المسافة",
+        "s12": "حجم @d صغير بالصورة: قرّب لين تعبي نص الصورة تقريبًا",
+        "s13": "قريب مرة: ابعد شوي عشان يبان كل شي بالصورة",
+        "s14": "المسافة مضبوطة ✓",
+        "s15": "☀️ ضو نهار من الشباك",
+        "s16": "🧺 خلفية سادة",
+        "s17": "📐 من فوق أو بزاوية 45°",
+        "s18": "🚫 بدون فلاش",
+        "s19": "📸 صوّر أو اختر صورة",
+        "s20": "نقيس الإضاءة والوضوح والخلفية والمسافة من بكسلات الصورة في جوالك (مو ذكاء اصطناعي)، فخذها نصيحة. الصورة ما تطلع من جوالك إلا إذا شاركتها أنت، ونستأذنك قبل ننشر أي صورة.",
+        "s21": "صورتك",
+        "s22": "شاركنا صورتك",
+        "s23": "بالواتساب",
+        "s24": "صورة تجنن! 🤍",
+        "s25": "من",
+        "s26": "تمام",
+        "s27": "هلا",
+        "s28": "🤍 وصلني طلبي وهذي صورته 📸 (بأرسل الصورة الحين)",
+        "s29": "@n من"
+      }
+    },
+    "twig": {
+      "photocoach": {
+        "t1": "صوّر منتجك صح",
+        "t2": "وصلك طلبك؟ صوّره ونقول لك كيف يطلع أحلى: الإضاءة والوضوح والخلفية والمسافة."
+      }
+    }
+  },
+  "en": {
+    "js": {
+      "photocoach": {
+        "s1": "Lighting",
+        "s2": "A bit dark: move closer to a window and turn off the flash",
+        "s3": "There's glare: move out of direct sun or try light shade",
+        "s4": "Lighting looks good ✓",
+        "s5": "Sharpness",
+        "s6": "A bit shaky: rest your hand on the table and tap @d on the screen to focus",
+        "s7": "Sharp ✓",
+        "s8": "Background",
+        "s9": "The background is busy: place it on plain fabric or a light table",
+        "s10": "Background is calm ✓",
+        "s11": "Distance",
+        "s12": "@d looks small in the photo: get closer until it fills about half the frame",
+        "s13": "Too close: step back a little so everything shows in the photo",
+        "s14": "Distance is right ✓",
+        "s15": "☀️ Daylight from a window",
+        "s16": "🧺 Plain background",
+        "s17": "📐 From above or at a 45° angle",
+        "s18": "🚫 No flash",
+        "s19": "📸 Take or choose a photo",
+        "s20": "We measure lighting, sharpness, background and distance from the photo's pixels on your phone (not AI), so take it as advice. The photo never leaves your phone unless you share it, and we ask your permission before publishing any photo.",
+        "s21": "Your photo",
+        "s22": "Share your photo with us",
+        "s23": "on WhatsApp",
+        "s24": "Amazing photo! 🤍",
+        "s25": "of",
+        "s26": "Okay",
+        "s27": "Hi",
+        "s28": "🤍 My order arrived and here's its photo 📸 (sending the photo now)",
+        "s29": "@n from"
+      }
+    },
+    "twig": {
+      "photocoach": {
+        "t1": "Photograph your product right",
+        "t2": "Got your order? Photograph it and we'll tell you how to make it look better: lighting, sharpness, background and distance."
+      }
+    }
+  }
+}

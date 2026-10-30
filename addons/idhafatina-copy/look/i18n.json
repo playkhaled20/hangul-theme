@@ -1,0 +1,56 @@
+{
+  "ar": {
+    "js": {},
+    "twig": {
+      "look": {
+        "t5": "صورتك ما تنحفظ، تنقرا في جهازك بس",
+        "t11": "الاقتراحات مبنية على ألوان المنتجات كما هي موصوفة في صفحاتها.",
+        "c1": "أسود",
+        "c2": "أبيض",
+        "c3": "بيج",
+        "c4": "كحلي",
+        "c5": "وردي",
+        "c6": "أخضر",
+        "c7": "عنابي",
+        "c8": "رمادي",
+        "m1": "ذهبي، فضي، عاجي، شفاف، أحمر",
+        "m2": "ذهبي، وردي، أزرق، أسود",
+        "m3": "عاجي، بني، ذهبي، أسود",
+        "m4": "فضي، عاجي، شفاف، ذهبي",
+        "m5": "عاجي، فضي، شفاف، وردي",
+        "m6": "ذهبي، عاجي، بني",
+        "m7": "ذهبي، أسود، عاجي، أحمر",
+        "m8": "فضي، وردي، بنفسجي، أسود"
+      }
+    }
+  },
+  "en": {
+    "js": {
+      "look": {
+        "t5": "Your photo isn't saved; it's read on your device only"
+      }
+    },
+    "twig": {
+      "look": {
+        "t5": "Your photo isn't saved; it's read on your device only",
+        "t11": "Suggestions are based on the product colours as described on their pages.",
+        "c1": "Black",
+        "c2": "White",
+        "c3": "Beige",
+        "c4": "Navy",
+        "c5": "Pink",
+        "c6": "Green",
+        "c7": "Burgundy",
+        "c8": "Grey",
+        "m1": "gold, silver, ivory, clear, red",
+        "m2": "gold, pink, blue, black",
+        "m3": "ivory, brown, gold, black",
+        "m4": "silver, ivory, clear, gold",
+        "m5": "ivory, silver, clear, pink",
+        "m6": "gold, ivory, brown",
+        "m7": "gold, black, ivory, red",
+        "m8": "silver, pink, purple, black"
+      }
+    }
+  }
+}

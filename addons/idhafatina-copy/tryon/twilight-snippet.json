@@ -1,0 +1,16 @@
+{
+  "settings": [
+    {
+      "type": "boolean",
+      "icon": "sicon-toggle-off",
+      "label": "جرّبها على يدك: تجربة القطعة بالكاميرا أو بصورة",
+      "description": "الكاميرا والصور تشتغل في جهاز العميل فقط، ما ينرفع شي.",
+      "id": "idhafatina_f_tryon",
+      "format": "switch",
+      "required": false,
+      "value": true,
+      "selected": true
+    }
+  ],
+  "components": []
+}

@@ -1,0 +1,128 @@
+import { vt, VERTICALS, ICONS, detect } from './verticals';
+import { customerColor, PALETTES } from './colors';
+import { bindBrand } from './brand';
+import { buildSmart } from './smart';
+import { mountAddons } from './addons';
+const B = document.body, isAr = (document.documentElement.lang || 'ar').startsWith('ar');
+const tr = (ar,en) => isAr ? ar : en;
+
+/* ---------- vertical: setting > preview choice > auto-detect from real menu/category/product names ---------- */
+function applyVertical(v){
+  const V = VERTICALS[v] || VERTICALS.electronics;
+  B.dataset.ocV = v; B.style.setProperty('--oc-v-acc', V.acc);
+  document.querySelectorAll('[data-oc-hero-art]').forEach(el => el.innerHTML = ICONS[v] || ICONS.electronics);
+  document.querySelectorAll('[data-oc-hero-sub]').forEach(el => { if(!el.dataset.custom) el.textContent = vt(V.hero); });
+  document.querySelectorAll('[data-oc-hud]').forEach(el => el.innerHTML = (V.specs||[]).map(([l,n],i)=>`<div class="oc-hud__row" style="--w:${n}%;--d:${i*.15}s"><span>${vt(l)}</span><i></i><b>${n}</b></div>`).join(''));
+  document.querySelectorAll('[data-oc-vname]').forEach(el => el.textContent = isAr ? V.ar : V.en);
+  const ML = {featured:tr('مختارات','Featured'),bestsellers:tr('الأكثر مبيعاً في','Bestsellers ·'),new:tr('وصل حديثاً في','New in'),deals:tr('عروض','Deals ·'),bundle:tr('أكمل طقم','Complete the kit ·')};
+  document.querySelectorAll('[data-oc-vtitle]').forEach(el => { if(!el.dataset.custom) el.textContent = `${ML[el.dataset.ocVtitle]||''} ${isAr?V.ar:V.en}`; });
+  document.querySelectorAll('[data-oc-vfilter]').forEach(sec => { const f = sec.dataset.ocVfilter; sec.hidden = f !== 'auto' && f !== v && isPreview(); filterCards(sec); });
+}
+function currentTexts(){ return [...document.querySelectorAll('.main-menu a, .oc-cat b, .s-product-card-content-title, h1')].map(e=>e.textContent); }
+function resolveVertical(){
+  const set = B.dataset.ocVertical;
+  const pv = isPreview() && (new URLSearchParams(location.search).get('oc_type') || sessionStorage.getItem('oc_type'));
+  return pv || (set && set !== 'auto' ? set : detect(currentTexts()));
+}
+
+/* ---------- preview picker (white system) — only on demo/preview hosts or ?oc_preview=1 ---------- */
+function isPreview(){
+  const h = location.hostname, q = new URLSearchParams(location.search);
+  return q.has('oc_preview') || /salla\.design|demo|preview|localhost/.test(h) || window.salla?.config?.get?.('store.preview');
+}
+function buildPicker(){
+  if (!isPreview() || document.querySelector('.oc-pk')) return;
+  const counts = {}; const titles = currentTexts().join(' ').toLowerCase();
+  for (const [k,v] of Object.entries(VERTICALS)) counts[k] = v.kw.reduce((n,w)=>n+(titles.split(w.toLowerCase()).length-1),0);
+  const el = document.createElement('div'); el.className='oc-pk'; el.setAttribute('dir', isAr?'rtl':'ltr');
+  el.innerHTML = `<button class="oc-pk__fab" aria-expanded="false"><span>${ICONS[B.dataset.ocV]||''}</span>${tr('نوع المتجر','Store type')}</button>
+  <div class="oc-pk__sheet" role="dialog" aria-label="${tr('معاينة نوع المتجر','Preview store type')}">
+    <header><b>${tr('معاينة حسب نوع المتجر','Preview by store type')}</b><small>${tr('اختر النوع ليتحول الثيم بالكامل — للمعاينة فقط','Pick a type to transform the whole theme — preview only')}</small></header>
+    <div class="oc-pk__bar"><span>${tr('الكشف التلقائي','Auto-detect')}: <b>${isAr?VERTICALS[detect(currentTexts())].ar:VERTICALS[detect(currentTexts())].en}</b></span><button data-k="__auto">${tr('إعادة للتلقائي','Reset')}</button></div><div class="oc-pk__grid">${Object.entries(VERTICALS).map(([k,v])=>`<button data-k="${k}" class="${k===B.dataset.ocV?'is-on':''}" style="--a:${v.acc}"><i>${ICONS[k]}</i><b>${isAr?v.ar:v.en}</b><small>${counts[k]?counts[k]+' '+tr('مطابقة','matches'):tr('عرض النمط','skin only')}</small></button>`).join('')}</div>
+  </div>`;
+  const list=document.createElement('div'); list.className='oc-pk__list';
+  list.innerHTML=`<label>${tr('النوع المختار','Selected type')}</label><select>${Object.entries(VERTICALS).map(([k,v])=>`<option value="${k}"${k===B.dataset.ocV?' selected':''}>${isAr?v.ar:v.en}</option>`).join('')}</select><label>${tr('لون التاجر (معاينة)','Merchant colour (preview)')}</label><div class="oc-pk__bg">${Object.entries(PALETTES).sort((a,b)=>a[1][5]<b[1][5]?-1:1).map(([k,p])=>`<button data-bg="${k}" style="--c:${p[2]}" title="${isAr?p[3]:p[4]}"></button>`).join('')}</div>`;
+  (el.querySelector('.oc-pk__sheet')||el).appendChild(list);
+  document.body.appendChild(el);
+  list.querySelector('select').onchange=e=>el.querySelector(`.oc-pk__grid [data-k="${e.target.value}"]`)?.click();
+  list.querySelectorAll('[data-bg]').forEach(b=>b.onclick=()=>{B.dataset.ocBg=b.dataset.bg;sessionStorage.setItem('oc_pbg',b.dataset.bg);});
+  if(sessionStorage.getItem('oc_pbg')) B.dataset.ocBg=sessionStorage.getItem('oc_pbg');
+  const fab = el.querySelector('.oc-pk__fab');
+  fab.onclick = () => { const o = el.classList.toggle('is-open'); fab.setAttribute('aria-expanded', o); };
+  el.querySelectorAll('[data-k]').forEach(b => b.onclick = () => {
+    const k = b.dataset.k==='__auto' ? detect(currentTexts()) : b.dataset.k; b.dataset.k==='__auto' ? sessionStorage.removeItem('oc_type') : sessionStorage.setItem('oc_type', k); applyVertical(k); B.classList.add('oc-swap'); setTimeout(()=>B.classList.remove('oc-swap'),600);
+    el.querySelectorAll('[data-k]').forEach(x=>x.classList.toggle('is-on', x.dataset.k===k)); fab.querySelector('span').innerHTML = ICONS[k]; list.querySelector('select').value=k; document.dispatchEvent(new CustomEvent('oc:type',{detail:k}));
+  });
+}
+
+/* ---------- vertical-only sections: hide cards that don't match this vertical (fallback: show all) ---------- */
+function filterCards(sec){
+  const V = VERTICALS[sec.dataset.ocVfilter === 'auto' ? B.dataset.ocV : sec.dataset.ocVfilter]; if(!V) return;
+  const cards = [...sec.querySelectorAll('custom-salla-product-card')];
+  const hit = cards.filter(c => V.kw.some(w => (c.textContent||'').toLowerCase().includes(w.toLowerCase())));
+  cards.forEach(c => c.style.display = hit.length && !hit.includes(c) ? 'none' : '');
+  const tot = sec.querySelector('[data-oc-bundle-total]');
+  if (tot) { const sum = (hit.length?hit:cards).reduce((n,c)=>n+(+(c.product?.price?.amount ?? c.product?.price ?? 0)||0),0); tot.textContent = sum ? `${tr('الطقم','Kit')} ${Math.round(sum*.9).toLocaleString('en')} ${tr('ر.س','SAR')} · ${tr('وفّر','save')} 10%` : ''; }
+}
+
+/* ---------- smart product cards: trust ring + stock meter instead of stars/raw qty ---------- */
+function decorate(card){
+  if (!B.classList.contains('oc-smart') || card.querySelector('.oc-card-intel')) return;
+  const p = card.product; const body = card.querySelector('.s-product-card-content'); if(!p || !body) return;
+  card.querySelectorAll('salla-rating-stars, .s-product-card-rating').forEach(e=>e.remove());
+  const stars = p.rating?.stars || 0, cnt = p.rating?.count || 0;
+  // Bayesian trust: few reviews are pulled toward a neutral prior, so 5★ from 1 review < 4.8★ from 300.
+  const trust = stars ? Math.round(((stars*cnt + 4.2*8)/(cnt+8))*20) : 0;
+  const sold = p.sold_quantity || 0, demand = sold>200?96:sold>50?78:sold>10?52:sold?28:12;
+  const out = p.is_out_of_stock, q = p.quantity;
+  const stock = out ? 0 : (q == null ? 100 : q >= 50 ? 95 : q >= 20 ? 75 : q >= 6 ? 45 : 18);
+  const verdict = out ? tr('نفد','Sold out') : stock>=90 ? tr('متوفر بثقة','In stock') : stock>=70 ? tr('توفر جيد','Good') : stock>=40 ? tr('الكمية تقل','Running low') : tr('آخر القطع','Last units');
+  const div = document.createElement('div'); div.className='oc-card-intel';
+  div.innerHTML = `<div class="oc-gauge" style="--v:${trust}"><svg viewBox="0 0 36 36"><circle class="t" cx="18" cy="18" r="15.9"/><circle class="v" cx="18" cy="18" r="15.9" pathLength="100"/></svg><b>${trust?trust+'%':'—'}</b></div>
+  <div class="oc-meters"><div class="oc-meter ${stock<40&&stock>0?'is-low':''}"><span>${tr('المخزون','Stock')}<em>${verdict}</em></span><i style="--w:${stock}%"></i></div>
+  <div class="oc-meter oc-meter--d"><span>${tr('الطلب','Demand')}<em>${demand>70?tr('رائج','Hot'):demand>40?tr('نشط','Active'):tr('هادئ','Calm')}</em></span><i style="--w:${demand}%"></i></div></div>`;
+  if (stock>0 && stock<40) card.classList.add('oc-urgent');
+  body.insertBefore(div, body.querySelector('.s-product-card-content-sub, .s-product-card-content-footer') || null);
+  const badge = p.is_on_sale ? tr('عرض خاص','Deal') : (p.is_new || p.promotion?.title) ? (p.promotion?.title || tr('جديد','New')) : null;
+  if (badge && !card.querySelector('.oc-badge')) { const s=document.createElement('span'); s.className='oc-badge'; s.textContent=badge; card.prepend(s); }
+}
+
+/* ---------- live category auto-bind from the merchant's real categories ---------- */
+async function autoCats(){
+  for (const grid of document.querySelectorAll('[data-oc-autocats="1"]')) {
+    try {
+      const r = await salla.api.request('categories', {}, 'get'); const list = (r?.data || []).slice(0, +grid.dataset.limit || 8);
+      grid.innerHTML = list.map(c => `<a class="oc-cat" href="${c.url}"><span class="oc-cat__ic" data-oc-icon="${c.name}"></span><b>${c.name}</b></a>`).join('');
+    } catch(e) {
+      const links = [...document.querySelectorAll('.main-menu > li > a')].slice(0, 8);
+      grid.innerHTML = links.map(a => `<a class="oc-cat" href="${a.href}"><span class="oc-cat__ic" data-oc-icon="${a.textContent.trim()}"></span><b>${a.textContent.trim()}</b></a>`).join('');
+    }
+    iconize(grid);
+  }
+}
+function iconize(root=document){ root.querySelectorAll('[data-oc-icon]').forEach(el => { if(!el.innerHTML) el.innerHTML = ICONS[detect([el.dataset.ocIcon])] || ICONS.electronics; }); }
+
+/* ---------- smart quantity: pack-size chips drive the native salla-quantity-input ---------- */
+function packs(){
+  const qi = document.querySelector('.product-form salla-quantity-input, salla-quantity-input'); if(!qi || document.querySelector('.oc-packs')) return;
+  const sizes = (B.dataset.ocPacks || '1,2,3,5').split(',').map(Number).filter(Boolean);
+  const w = document.createElement('div'); w.className='oc-packs';
+  w.innerHTML = sizes.map(n=>`<button type="button" data-n="${n}">${n===1?tr('قطعة','1 unit'):n+' '+tr('قطع','units')}</button>`).join('');
+  qi.parentElement.insertBefore(w, qi);
+  w.onclick = e => { const b = e.target.closest('button'); if(!b) return; const inp = qi.querySelector('input') || qi; inp.value = b.dataset.n; inp.dispatchEvent(new Event('change',{bubbles:true})); w.querySelectorAll('button').forEach(x=>x.classList.toggle('is-on',x===b)); };
+}
+
+async function boot(){
+  if(B.dataset.ocBg) B.dataset.ocBg=B.dataset.ocBg.replace(/^bg-/,'');
+  customerColor(isAr);
+  let st=null; try{ st=await buildSmart(isAr); }catch(e){}
+  // live: if merchant left vertical on auto, the dominant type comes from the real store read
+  applyVertical(isPreview()||B.dataset.ocVertical!=='auto'||!st ? resolveVertical() : st.main); buildPicker(); autoCats(); iconize(); packs();
+  try{ mountAddons(st, isAr); }catch(e){}
+  bindBrand(); document.addEventListener('oc:brand', bindBrand);
+  document.querySelectorAll('custom-salla-product-card').forEach(decorate);
+  let busy=false; const mo=new MutationObserver(() => { if(busy) return; busy=true; setTimeout(()=>{ mo.disconnect(); document.querySelectorAll('custom-salla-product-card').forEach(decorate); document.querySelectorAll('[data-oc-vfilter]').forEach(filterCards); bindBrand(); mo.takeRecords(); mo.observe(document.body,{childList:true,subtree:true}); busy=false; },120); });
+  mo.observe(document.body, {childList:true, subtree:true});
+}
+document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', boot) : boot();
+document.addEventListener('theme::ready', () => { document.querySelectorAll('custom-salla-product-card').forEach(decorate); });

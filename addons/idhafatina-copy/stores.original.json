@@ -1,0 +1,16 @@
+{
+  "_doc": "أي إضافة ذكية تنضاف لأي نوع متجر. عدّل القوائم بحرية. الأنواع = TYPES في presets.js (store_type).",
+  "always": ["stylist", "voice", "listen", "presets"],
+  "types": {
+    "general":   ["giftfinder", "quiz", "photocoach"],
+    "men":       ["look", "quiz", "giftfinder", "recolour"],
+    "abaya":     ["look", "undertone", "recolour", "tryon", "quiz"],
+    "kids":      ["colorbook", "recolour", "giftfinder"],
+    "shoesbags": ["look", "recolour", "tryon"],
+    "jewelry":   ["tryon", "undertone", "giftfinder", "recolour"],
+    "gifts":     ["giftfinder", "quiz", "photocoach"],
+    "perfume":   ["quiz", "giftfinder"],
+    "furniture": ["recolour", "photocoach"],
+    "textiles":  ["recolour", "undertone", "look"]
+  }
+}

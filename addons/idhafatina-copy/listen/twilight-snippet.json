@@ -1,0 +1,16 @@
+{
+  "settings": [
+    {
+      "type": "boolean",
+      "icon": "sicon-toggle-off",
+      "label": "اسمع الوصف: الجوال يقرأ اسم المنتج وسعره ووصفه بصوت",
+      "description": "الصوت من الجهاز وجودته تختلف.",
+      "id": "idhafatina_f_listen",
+      "format": "switch",
+      "required": false,
+      "value": true,
+      "selected": true
+    }
+  ],
+  "components": []
+}

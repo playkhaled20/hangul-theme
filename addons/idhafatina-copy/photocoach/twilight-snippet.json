@@ -1,0 +1,129 @@
+{
+  "settings": [],
+  "components": [
+    {
+      "key": "142f2e3e-d201-5ef2-919c-81c61e0ff0cb",
+      "title": {
+        "ar": "صوّر منتجك صح",
+        "en": "Photo coach"
+      },
+      "icon": "sicon-camera",
+      "path": "home.idhafatina-photocoach",
+      "fields": [
+        {
+          "type": "string",
+          "icon": "sicon-format-text-alt",
+          "label": "عنوان لاتيني",
+          "id": "eyebrow",
+          "format": "text",
+          "required": false,
+          "value": "",
+          "description": null,
+          "placeholder": null,
+          "minLength": 0,
+          "maxLength": 200
+        },
+        {
+          "type": "string",
+          "icon": "sicon-format-text-alt",
+          "label": "العنوان",
+          "id": "title",
+          "format": "text",
+          "required": false,
+          "value": "",
+          "description": null,
+          "placeholder": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "multilanguage": true
+        },
+        {
+          "type": "items",
+          "format": "dropdown-list",
+          "id": "title_pick",
+          "label": "اقتراحات العنوان",
+          "description": "«منتج» تتبدّل حسب نوعك (عطر، جهاز…). عنوانك المكتوب يتقدّم عليه.",
+          "icon": "sicon-list",
+          "source": "Manual",
+          "required": false,
+          "selected": [
+            {
+              "label": "تلقائي",
+              "value": "auto",
+              "key": "a7e3c1d0-5b2f-4c8e-9d1a-7031a0150000"
+            }
+          ],
+          "options": [
+            {
+              "label": "تلقائي",
+              "value": "auto",
+              "key": "a7e3c1d0-5b2f-4c8e-9d1a-7031a0150000"
+            },
+            {
+              "label": "1) صوّر منتجك صح",
+              "value": "tp1",
+              "key": "a7e3c1d0-5b2f-4c8e-9d1a-7031a0150001"
+            },
+            {
+              "label": "2) صوّر منتجك باحتراف",
+              "value": "tp2",
+              "key": "a7e3c1d0-5b2f-4c8e-9d1a-7031a0150002"
+            },
+            {
+              "label": "3) مدرّب الصور",
+              "value": "tp3",
+              "key": "a7e3c1d0-5b2f-4c8e-9d1a-7031a0150003"
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "icon": "sicon-typography",
+          "label": "الوصف",
+          "id": "description",
+          "format": "textarea",
+          "required": false,
+          "value": "",
+          "description": null,
+          "placeholder": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "icon": "sicon-format-text-alt",
+          "label": "لون الخلفية (اختياري)",
+          "id": "bg_color",
+          "format": "color",
+          "required": false,
+          "value": "",
+          "description": "لون خلفية هذا القسم. اتركه فاضي لاتباع ألوان الثيم.",
+          "placeholder": "#FFFFFF"
+        },
+        {
+          "type": "string",
+          "icon": "sicon-format-text-alt",
+          "label": "لون العنوان والوصف (اختياري)",
+          "id": "text_color",
+          "format": "color",
+          "required": false,
+          "value": "",
+          "description": "لون عنوان القسم ووصفه. اتركه فاضي لاتباع ألوان الثيم، وتأكد أنه واضح على لون الخلفية.",
+          "placeholder": "#1A1A1A"
+        },
+        {
+          "type": "boolean",
+          "icon": "sicon-toggle-off",
+          "label": "إخفاء ترويسة القسم (العنوان والوصف)",
+          "description": "فعّله لإظهار الأداة فقط بدون العنوان والوصف.",
+          "id": "hide_header",
+          "format": "switch",
+          "required": false,
+          "value": false,
+          "selected": false
+        }
+      ]
+    }
+  ]
+}

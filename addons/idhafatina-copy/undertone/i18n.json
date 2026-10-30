@@ -1,0 +1,74 @@
+{
+  "ar": {
+    "js": {
+      "undertone": {
+        "s1": "أي أجواء ألوان تريّحك؟",
+        "s2": "دافية: عسلي وبيج وبني",
+        "s3": "باردة: أزرق ورمادي وبنفسجي",
+        "s4": "خليط حلو",
+        "s5": "أي لمعة تفضّل؟",
+        "s6": "ذهبية دافئة",
+        "s7": "فضية باردة",
+        "s8": "الاثنين حلوين",
+        "s9": "وش نوع الإضاءة اللي تحبها حولك؟",
+        "s10": "إضاءة صفراء دافئة",
+        "s11": "إضاءة بيضاء مضيئة",
+        "s12": "أي إضاءة",
+        "s13": "دافئة",
+        "s14": "تحب الدفا: الشامبين والعسلي والبني والنود تناسب ذوقك، واللؤلؤي العاجي يعطيها نعومة.",
+        "s15": "الفضي الثلجي لحاله ممكن يبرّدها، لو تحبه خله مع لمسة ذهبية.",
+        "s16": "باردة",
+        "s17": "ذوقك ينوّر مع الفضي والشفاف والكحلي والليلكي والفوشي، والأسود معه فخم.",
+        "s18": "البرتقالي والذهبي الأصفر القوي ممكن يطلعون باهتين مع ذوقك.",
+        "s19": "محايدة",
+        "s20": "أغلب الألوان تمشي معك، وأحلاها الوردي الهادي والبيج واللؤلؤي والرمادي الدافئ.",
+        "s21": "جرّب أي لون، بس الألوان الفاقعة جدًا خلها للمسة صغيرة.",
+        "s22": "قاعدة تنسيق عامة يستخدمها المنسقون، مو تحليل شخصي ولا نستخدم كاميرا أو صور. الإضاءة تغيّر الإحساس، وفي الأخير اللون اللي تحبه هو اللي يناسبك. إجاباتك تنحفظ في جوالك بس.",
+        "s23": "ذوقك اللوني غالبًا",
+        "s24": "أعد من جديد",
+        "s25": "ما عندنا @s بهالألوان حاليًا، اسألنا بالواتساب 🤍",
+        "s26": "نجهّز @p…",
+        "s27": "جاوب الثلاث أسئلة ونقول لك الألوان اللي تناسبك (",
+        "s28": "من 3)"
+      }
+    },
+    "twig": {
+      "undertone": {}
+    }
+  },
+  "en": {
+    "js": {
+      "undertone": {
+        "s1": "Which colour mood relaxes you?",
+        "s2": "Warm: honey, beige and brown",
+        "s3": "Cool: blue, grey and purple",
+        "s4": "A nice mix",
+        "s5": "Which shimmer do you prefer?",
+        "s6": "Warm gold",
+        "s7": "Cool silver",
+        "s8": "Both look good",
+        "s9": "What kind of lighting do you like around you?",
+        "s10": "Warm yellow light",
+        "s11": "Bright white light",
+        "s12": "Any light",
+        "s13": "Warm",
+        "s14": "You love warmth: champagne, honey, brown and nude suit your taste, and ivory pearl adds softness.",
+        "s15": "Icy silver alone can cool it down; if you like it, pair it with a touch of gold.",
+        "s16": "Cool",
+        "s17": "Your taste shines with silver, clear, navy, lilac and fuchsia, and black looks rich with it.",
+        "s18": "Strong orange and yellow gold can look washed out with your taste.",
+        "s19": "Neutral",
+        "s20": "Most colours work for you, and the best are soft pink, beige, pearl and warm grey.",
+        "s21": "Try any colour, just keep very bright ones for a small touch.",
+        "s22": "A general colour-matching rule stylists use, not a personal analysis, and we use no camera or photos. Lighting changes the feel, and in the end the colour you love is the one that suits you. Your answers are saved on your phone only.",
+        "s23": "Your colour mood is probably",
+        "s24": "Start over",
+        "s25": "We have no @s in these colours right now, ask us on WhatsApp 🤍",
+        "s26": "Getting @p ready…",
+        "s27": "Answer the three questions and we'll tell you the colours that suit you (",
+        "s28": "of 3)"
+      }
+    },
+    "twig": {}
+  }
+}

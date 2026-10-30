@@ -1,0 +1,48 @@
+{
+  "ar": {
+    "js": {
+      "colorbook": {
+        "s1": "@i",
+        "s2": "@n 🤍",
+        "s3": "لوّنها على ذوقك 🖍️  ·",
+        "s4": "متجرنا",
+        "s5": "صفحة تلوين للصغيرة",
+        "s6": "لين يوصلك الطلب، خلّ طفلك يلوّن الرسمة على ورق 🖍️",
+        "s7": "معاينة صفحة التلوين",
+        "s8": "نرسمها لك…",
+        "s9": "اسم الصغيرة (اختياري)",
+        "s10": "مثلًا: جود",
+        "s11": "خطوط أقل ← → خطوط أكثر",
+        "s12": "كمية الخطوط",
+        "s13": "اطبعها A4",
+        "s14": "حفظ صورة",
+        "s15": "الرسمة تتسوى تلقائي من صورة @d في جوالك، فبعض الخطوط ممكن تطلع ناقصة أو زايدة (حرّك «الخطوط» لين تعجبك). للتلوين بس، مو شكل @d بالضبط، وما نرفع أي شي.",
+        "s16": "ما قدرنا نرسم هالصورة، جرّب بعدين."
+      }
+    },
+    "twig": {}
+  },
+  "en": {
+    "js": {
+      "colorbook": {
+        "s1": "@i",
+        "s2": "@n 🤍",
+        "s3": "Colour it your way 🖍️  ·",
+        "s4": "Our store",
+        "s5": "A colouring page for your little one",
+        "s6": "Until @y arrives, let your child colour the drawing on paper 🖍️",
+        "s7": "Colouring page preview",
+        "s8": "Drawing it for you…",
+        "s9": "Child's name (optional)",
+        "s10": "e.g. Jood",
+        "s11": "Fewer lines ← → More lines",
+        "s12": "Amount of lines",
+        "s13": "Print it on A4",
+        "s14": "Save image",
+        "s15": "The drawing is made automatically from @d's photo on your phone, so some lines may be missing or extra (move «Lines» until you like it). For colouring only, not the exact shape of @d, and we upload nothing.",
+        "s16": "We couldn't draw this image; try again later."
+      }
+    },
+    "twig": {}
+  }
+}

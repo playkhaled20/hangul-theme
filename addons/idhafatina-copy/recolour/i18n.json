@@ -1,0 +1,74 @@
+{
+  "ar": {
+    "js": {
+      "recolour": {
+        "s1": "وردي",
+        "s2": "فوشي",
+        "s3": "ليلكي",
+        "s4": "كحلي",
+        "s5": "سماوي",
+        "s6": "فيروزي",
+        "s7": "زيتي",
+        "s8": "عنابي",
+        "s9": "شامبين",
+        "s10": "أسود",
+        "s11": "عاجي",
+        "s12": "فضي",
+        "s13": "لوّنها على ذوقك",
+        "s14": "باللون الأصلي",
+        "s15": "الأصل",
+        "s16": "معاينة بلون جديد",
+        "s17": "نلوّنها لك…",
+        "s18": "اختر اللون",
+        "s19": "خلّ السلسلة والإطار الذهبي مثل ما هي",
+        "s20": "أبيها بهاللون بالواتساب",
+        "s21": "حفظ الصورة",
+        "s22": "هذي صورة المنتج نفسه ملوّنة في جوالك، مو عينة حقيقية: اللون الحقيقي ممكن يطلع أفتح أو أغمق شوي، وقص الخلفية تلقائي وممكن يطلع فيه أطراف. وجود اللون ووقت التجهيز نأكدها لك بالواتساب قبل الطلب.",
+        "s23": "بلون",
+        "s24": "هلا",
+        "s25": "🤍 أبي «",
+        "s26": "» بس بلون",
+        "s27": ". متوفر؟",
+        "s28": "والسلسلة/الإطار مثل ما هي",
+        "s29": "ما قدرنا نفتح الصورة للتلوين هنا، أرسل لنا اللون بالواتساب وحنا نوريك 🤍"
+      }
+    },
+    "twig": {}
+  },
+  "en": {
+    "js": {
+      "recolour": {
+        "s1": "Pink",
+        "s2": "Fuchsia",
+        "s3": "Lilac",
+        "s4": "Navy",
+        "s5": "Sky blue",
+        "s6": "Turquoise",
+        "s7": "Olive",
+        "s8": "Burgundy",
+        "s9": "Champagne",
+        "s10": "Black",
+        "s11": "Ivory",
+        "s12": "Silver",
+        "s13": "Recolour it your way",
+        "s14": "In the original colour",
+        "s15": "Original",
+        "s16": "Preview in a new colour",
+        "s17": "Colouring it for you…",
+        "s18": "Pick the colour",
+        "s19": "Keep the chain and gold frame as they are",
+        "s20": "I want it in this colour on WhatsApp",
+        "s21": "Save image",
+        "s22": "This is the product's own photo recoloured on your phone, not a real sample: the real colour may come out a bit lighter or darker, and the background cut-out is automatic and may have rough edges. We confirm colour availability and preparation time with you on WhatsApp before ordering.",
+        "s23": "in",
+        "s24": "Hi",
+        "s25": "🤍 I'd like «",
+        "s26": "» but in",
+        "s27": ". Is it available?",
+        "s28": "with the chain/frame as they are",
+        "s29": "We couldn't open the image for recolouring here; send us the colour on WhatsApp and we'll show you 🤍"
+      }
+    },
+    "twig": {}
+  }
+}

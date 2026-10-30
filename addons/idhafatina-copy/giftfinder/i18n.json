@@ -1,0 +1,108 @@
+{
+  "ar": {
+    "js": {
+      "giftfinder": {
+        "s1": "أمي",
+        "s2": "أخوي أو أختي",
+        "s3": "صديق أو صديقة",
+        "s4": "صاحب المناسبة",
+        "s5": "طفل صغير",
+        "s6": "معلّم أو معلّمة",
+        "s7": "نفسي 🤍",
+        "s8": "عيد",
+        "s9": "زواج",
+        "s10": "تخرّج",
+        "s11": "مولود جديد",
+        "s12": "شكر وتقدير",
+        "s13": "يوم ميلاد",
+        "s14": "لين 100 ر.س",
+        "s15": "لين 200",
+        "s16": "لين 300",
+        "s17": "ما يهم",
+        "s18": "شي يزيّن البيت",
+        "s19": "لمسة صغيرة تنحط بكل مكان",
+        "s20": "على مقاس الصغار",
+        "s21": "هادي وراقي",
+        "s22": "لمعة للمناسبات",
+        "s23": "عملي للاستخدام اليومي",
+        "s24": "الهدية لـ",
+        "s25": "المناسبة",
+        "s26": "الميزانية",
+        "s27": "اقتراحات حسب النوع واللون والسعر من أسماء منتجاتنا، والذوق آخر الأمر لك. التغليف حسب المتوفر عند المتجر.",
+        "s28": "هدية",
+        "s29": "لـ",
+        "s30": "، اخترنا لك:",
+        "s31": "اطلبها مغلّفة بالواتساب",
+        "s32": "هلا",
+        "s33": "🤍 أبي هدية",
+        "s34": "، وعجبتني:",
+        "s35": ". ممكن تغليف هدية؟",
+        "s36": "بميزانية لين",
+        "s37": "ر.س",
+        "s38": "ما لقينا @i بهالميزانية، جرّب ميزانية أعلى 🤍",
+        "s39": "نجهّز لك الاقتراحات…",
+        "s40": "لونه يليق بالمناسبة",
+        "s41": "ضمن ميزانيتك"
+      }
+    },
+    "twig": {
+      "giftfinder": {
+        "t1": "محتار وش تهدي؟",
+        "t2": "ثلاث ضغطات: لمين الهدية، وش المناسبة، وكم الميزانية… ونطلع لك منتجات حقيقية من عندنا."
+      }
+    }
+  },
+  "en": {
+    "js": {
+      "giftfinder": {
+        "s1": "Mom",
+        "s2": "Brother or sister",
+        "s3": "Friend",
+        "s4": "The host",
+        "s5": "Little one",
+        "s6": "Teacher",
+        "s7": "Myself 🤍",
+        "s8": "Eid",
+        "s9": "Wedding",
+        "s10": "Graduation",
+        "s11": "New baby",
+        "s12": "Thank you",
+        "s13": "Birthday",
+        "s14": "Up to 100 SAR",
+        "s15": "Up to 200",
+        "s16": "Up to 300",
+        "s17": "Any budget",
+        "s18": "Something for the home",
+        "s19": "A small touch for anywhere",
+        "s20": "Kid-sized",
+        "s21": "Calm and elegant",
+        "s22": "A sparkle for occasions",
+        "s23": "Practical for everyday use",
+        "s24": "Gift for",
+        "s25": "Occasion",
+        "s26": "Budget",
+        "s27": "Suggestions by type, colour and price from our product names; the final taste is yours. Wrapping depends on what the store has.",
+        "s28": "A",
+        "s29": "gift for ",
+        "s30": ", here's what we picked:",
+        "s31": "Order it gift-wrapped on WhatsApp",
+        "s32": "Hi",
+        "s33": "🤍 I'd like a",
+        "s34": ", and I liked:",
+        "s35": ". Could you gift-wrap it?",
+        "s36": "with a budget up to",
+        "s37": "SAR",
+        "s38": "We found no @i in that budget, try a higher one 🤍",
+        "s39": "Preparing suggestions…",
+        "s40": "Its colour suits the occasion",
+        "s41": "Within your budget"
+      }
+    },
+    "twig": {
+      "giftfinder": {
+        "t1": "Not sure what to give?",
+        "t2": "Three taps: who it's for, the occasion and the budget… and we show you real products from our store."
+      }
+    }
+  }
+}

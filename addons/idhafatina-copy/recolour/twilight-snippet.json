@@ -1,0 +1,16 @@
+{
+  "settings": [
+    {
+      "type": "boolean",
+      "icon": "sicon-toggle-off",
+      "label": "لوّنها على ذوقك: نفس القطعة بلون ثاني",
+      "description": "صورة ملوّنة مو عينة حقيقية، واللون يتأكد بالواتساب.",
+      "id": "idhafatina_f_recolour",
+      "format": "switch",
+      "required": false,
+      "value": true,
+      "selected": true
+    }
+  ],
+  "components": []
+}

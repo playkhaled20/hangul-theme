@@ -1,0 +1,8 @@
+.idhafatina-ls { display: grid; gap: 14px; }
+.idhafatina-ls-ctrl { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; .idhafatina-btn-gold { min-width: 130px; } }
+.idhafatina-ls-warn { margin: 0; padding: 10px 12px; background: var(--ivory-2); color: var(--gold-ink); border-radius: 10px; font-size: 14px; }
+.idhafatina-ls-text { margin: 0; padding: 14px 16px; list-style: none; background: var(--white); border: 1px solid var(--gold-line); display: grid; gap: 6px; max-height: 46vh; overflow: auto;
+li { padding: 4px 8px; border-radius: 8px; line-height: 1.9; font-size: 15px; color: var(--mocha); cursor: pointer; transition: background .2s; }
+li.now { background: var(--champ); box-shadow: inset -3px 0 0 var(--gold-ink); }
+&.big li { font-size: 21px; line-height: 1.8; } }
+html.idhafatina-evening { .idhafatina-ls-text { background: #2A211B; border-color: rgba(201, 167, 112, .3); li { color: #EDE2D3; } li.now { background: #3A2E1F; box-shadow: inset -3px 0 0 #E3C58F; } } .idhafatina-ls-warn { background: #33291A; color: #F0CF8F; } }

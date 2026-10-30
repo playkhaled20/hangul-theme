@@ -1,0 +1,58 @@
+{
+  "ar": {
+    "js": {
+      "tryon": {
+        "s1": "جرّبها على يدك",
+        "s2": "@d — اسحب وكبّر بإصبعين",
+        "s3": "نجهّز الكاميرا و@d…",
+        "s4": "اسحب @d بإصبعك، وكبّر أو لفّ بإصبعين. على الكمبيوتر: العجلة للتكبير و Shift للّف.",
+        "s5": "الحجم",
+        "s6": "اللفّة",
+        "s7": "قص الخلفية",
+        "s8": "التقطي صورة",
+        "s9": "ارفع صورة بدل الكاميرا",
+        "s10": "بدّل الكاميرا",
+        "s11": "صورتك مع @d",
+        "s12": "شاركها",
+        "s13": "احفظها",
+        "s14": "صورة ثانية",
+        "s15": "الكاميرا والصور تشتغل في جهازك بس، ما نرفع ولا نحفظ شي. قص الخلفية تلقائي وتقريبي، عدّله من «قص الخلفية».",
+        "s16": "ما قدرنا نحمّل صورة @d.",
+        "s17": "الكاميرا مو متاحة هنا، ارفع صورة لك وجرّب عليها 🤍",
+        "s18": "ما قدرنا نبدّل الكاميرا",
+        "s19": "جربت",
+        "s20": "من",
+        "s21": "جهازك ما يدعم المشاركة المباشرة، حفظنا لك الصورة"
+      }
+    },
+    "twig": {}
+  },
+  "en": {
+    "js": {
+      "tryon": {
+        "s1": "Try it on your hand",
+        "s2": "@d — drag and enlarge with two fingers",
+        "s3": "Preparing the camera and @d…",
+        "s4": "Drag @d with your finger, and enlarge or rotate with two fingers. On a computer: wheel to zoom and Shift to rotate.",
+        "s5": "Size",
+        "s6": "Rotation",
+        "s7": "Remove background",
+        "s8": "Take a photo",
+        "s9": "Upload a photo instead of the camera",
+        "s10": "Switch camera",
+        "s11": "Your photo with @d",
+        "s12": "Share it",
+        "s13": "Save it",
+        "s14": "Another photo",
+        "s15": "The camera and photos work on your device only; we upload and save nothing. Background removal is automatic and approximate; adjust it from \"Remove background\".",
+        "s16": "We couldn't load the photo of @d.",
+        "s17": "The camera isn't available here; upload a photo of yourself and try it on 🤍",
+        "s18": "We couldn't switch the camera",
+        "s19": "I tried",
+        "s20": "from",
+        "s21": "Your device doesn't support direct sharing; we saved the image for you"
+      }
+    },
+    "twig": {}
+  }
+}

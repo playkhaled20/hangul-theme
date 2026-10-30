@@ -1,0 +1,17 @@
+{# Obsidian Cinema · store trust infographic (rings + verdict bars, no stars). #}
+<section component-id="{{ componentId }}" class="s-block oc-trust container" data-testid="oc-trust">
+  <header class="oc-head" data-k="OBSIDIAN"><h2 class="oc-metal">{{ component.title ?: trans('oc.why_us') }}</h2></header>
+  <div class="oc-trust__grid">
+  {% set items = component.items|length ? component.items : [
+    {'items.title': trans('oc.t_warranty'), 'items.value': 100, 'items.note': trans('oc.t_warranty_n')},
+    {'items.title': trans('oc.t_delivery'), 'items.value': 94, 'items.note': trans('oc.t_delivery_n')},
+    {'items.title': trans('oc.t_support'), 'items.value': 97, 'items.note': trans('oc.t_support_n')},
+    {'items.title': trans('oc.t_secure'), 'items.value': 100, 'items.note': trans('oc.t_secure_n')}] %}
+  {% for i in items %}
+    <div class="oc-glass oc-trust__card">
+      <div class="oc-gauge oc-gauge--lg" style="--v:{{ i['items.value'] ?: 0 }}"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="t" cx="18" cy="18" r="15.9"/><circle class="v" cx="18" cy="18" r="15.9" pathLength="100"/></svg><b>{{ i['items.value'] }}%</b></div>
+      <h3>{{ i['items.title'] }}</h3><p>{{ i['items.note'] }}</p>
+    </div>
+  {% endfor %}
+  </div>
+</section>

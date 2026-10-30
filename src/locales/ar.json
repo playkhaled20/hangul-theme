@@ -1,0 +1,88 @@
+{
+  "blocks": {
+    "header": {
+      "cart": "السلة"
+    },
+    "appBanner": {
+      "download_now": "حمله الان"
+    }
+  },
+  "pages": {
+    "cart": {
+      "cart_options": "خيارات السلة"
+    },
+    "products": {
+      "barcode": "الباركود"
+    },
+    "order": {
+      "can_edit_or_delete_your_review_within": "يمكنك تعديل أو حذف تقييمك خلال",
+      "edit_period_ended": "تم انتهاء المدة المحددة لتعديل التقييم",
+      "delete_period_ended": "تم انتهاء المدة المحددة لحذف التقييم",
+      "days_since_added": "أيام من إضافته",
+      "option_name": "الخيار",
+      "option_content": "المحتوى"
+    },
+    "thank_you": {
+      "view_invoice": "عرض الفاتورة",
+      "contact_us": "في بالك سؤال أو استفسار؟ نسعد بتواصلك معنا",
+      "cashback": "الاسترداد النقدي",
+      "loyalty_points": "نقاط الولاء",
+      "gifts_title": "هدايا لا تفوت 🎉",
+      "order_received": "شكرا لتسوقكم عبر متجرنا وجاري العمل على طلبكم"
+    }
+  },
+  "common": {
+    "bank_offer_sub_title_multiple": "ادفع قيمة مشترياتك عبر أحد البطاقات البنكة التالية واحصل على الخصم المحدد",
+    "bank_offer_sub_title_single": "ادفع قيمة مشترياتك عبر أحد بطاقات بنك :bank_name واحصل على خصم بنسبة "
+  },
+  "oc": {
+    "trust": "ثقة العملاء",
+    "stock": "المخزون المتاح",
+    "confidence": "موثوقية التقييم",
+    "demand": "الطلب",
+    "deal": "العرض",
+    "deal_live": "عرض ساري",
+    "trending": "رائج الآن",
+    "steady": "طلب مستقر",
+    "v_exceptional": "استثنائي",
+    "v_high": "عالٍ",
+    "v_good": "جيد",
+    "v_mixed": "متباين",
+    "v_new": "منتج جديد",
+    "s_out": "نفد · نبّهني",
+    "s_confident": "متوفر بثقة",
+    "s_good": "توفر جيد",
+    "s_low": "الكمية تقل",
+    "s_last": "آخر القطع",
+    "c_high": "عالية",
+    "c_mid": "متوسطة",
+    "c_early": "أولية",
+    "hero_kicker": "متجر تقني فاخر",
+    "hero_sub": "تقنية سينمائية بمعايير لا تُضاهى",
+    "explore": "استكشف المجموعة",
+    "stock_update": "تحديث المخزون",
+    "live": "لحظي",
+    "updated_now": "آخر تحديث: الآن",
+    "original": "المنتجات الأصلية",
+    "authentic": "ضمان الأصالة",
+    "availability": "مستوى التوفر",
+    "trust_level": "مستوى الثقة",
+    "browse": "تصفح الأقسام",
+    "featured": "مختارات سينمائية",
+    "why_us": "لماذا نحن",
+    "t_warranty": "ضمان معتمد",
+    "t_warranty_n": "ضمان وكيل على كل جهاز",
+    "t_delivery": "توصيل سريع",
+    "t_delivery_n": "شحن لكل مناطق المملكة",
+    "t_support": "دعم فني",
+    "t_support_n": "خبراء تقنيون للمساعدة",
+    "t_secure": "دفع آمن",
+    "t_secure_n": "بوابات دفع سلة المعتمدة",
+    "bundle_hint": "اجمع الطقم كاملاً ووفّر",
+    "vt_featured": "مختارات",
+    "vt_bestsellers": "الأكثر مبيعاً",
+    "vt_new": "وصل حديثاً",
+    "vt_deals": "عروض",
+    "vt_bundle": "أكمل الطقم"
+  }
+}

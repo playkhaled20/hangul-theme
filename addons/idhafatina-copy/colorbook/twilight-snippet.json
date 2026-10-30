@@ -1,0 +1,16 @@
+{
+  "settings": [
+    {
+      "type": "boolean",
+      "icon": "sicon-toggle-off",
+      "label": "صفحة تلوين للصغار: تحويل صورة المنتج لرسمة خطوط للطباعة",
+      "description": "رسمة تلقائية من الصورة؛ تنسوى وتنطبع من الجوال.",
+      "id": "idhafatina_f_colorbook",
+      "format": "switch",
+      "required": false,
+      "value": true,
+      "selected": true
+    }
+  ],
+  "components": []
+}

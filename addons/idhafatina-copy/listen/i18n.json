@@ -1,0 +1,48 @@
+{
+  "ar": {
+    "js": {
+      "listen": {
+        "s1": "سعرها",
+        "s2": "ريال.",
+        "s3": "التجهيز خلال :prep أيام، ويوصلك خلال :ship أيام بالكثير.",
+        "s4": "اسمع الوصف",
+        "s5": "أ+ كبّر الخط",
+        "s6": "جوالك ما يدعم القراءة بالصوت هنا، كبّر الخط واقرأها براحتك 🤍",
+        "s7": "أرسل الوصف بالواتساب",
+        "s8": "الصوت من جوالك نفسه، وجودته تختلف من جهاز لجهاز وبعض الأجهزة ما فيها صوت عربي فيقرأ بلكنة غريبة. الكلام مأخوذ من وصف @d كما هو مكتوب.",
+        "s9": "▶ شغّل",
+        "s10": "السرعة",
+        "s11": "هادي",
+        "s12": "عادي",
+        "s13": "أسرع",
+        "s14": "▶ من جديد",
+        "s15": "❚❚ وقّف",
+        "s16": "▶ كمّل"
+      }
+    },
+    "twig": {}
+  },
+  "en": {
+    "js": {
+      "listen": {
+        "s1": "Its price is",
+        "s2": "riyals.",
+        "s3": "Preparation takes :prep days, and it reaches you within :ship days at most.",
+        "s4": "Listen to the description",
+        "s5": "A+ Larger text",
+        "s6": "Your phone doesn't support read-aloud here; enlarge the text and read at your own pace 🤍",
+        "s7": "Send the description on WhatsApp",
+        "s8": "The voice comes from your phone itself and its quality differs between devices; some devices have no Arabic voice and read with a strange accent. The text is taken from the description of @d as written.",
+        "s9": "▶ Play",
+        "s10": "Speed",
+        "s11": "Slow",
+        "s12": "Normal",
+        "s13": "Faster",
+        "s14": "▶ Replay",
+        "s15": "❚❚ Pause",
+        "s16": "▶ Resume"
+      }
+    },
+    "twig": {}
+  }
+}
