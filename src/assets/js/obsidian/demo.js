@@ -11,25 +11,61 @@ export const isPreview = () => { const h = location.hostname, q = new URLSearchP
   const on = q.has('oc_preview') || q.has('oc_p') || B.dataset.ocMode === 'preview' || /(^|\.)salla\.design$/.test(h) || h === 'localhost' || !!window.salla?.config?.get?.('store.preview');
   try { if (on && demoHost(h)) sessionStorage.setItem('oc_preview', '1'); return on || (demoHost(h) && sessionStorage.getItem('oc_preview') === '1'); } catch (e) { return on; } };
 
-const P = { // name ar | name en | price | old price (0 = none) | photo that shows this very product — each photo once per type
-  electronics: 'شاشة OLED ‏65 بوصة|65" OLED TV|6499|7299|electronics-bestsellers;نظام مسرح منزلي 5.1|5.1 home theatre|4299|0|audio-bundle;تابلت مع سماعة وكيبورد وقلم|Tablet with headphones, keyboard & pen|2899|3199|electronics-bundle;باقة جوال وساعة وسماعات وتابلت|Phone, watch, earbuds & tablet set|6199|0|electronics-featured;سماعة رأس بعزل الضوضاء|Noise-cancelling headphones|1199|1399|audio-featured;لابتوب 14 بوصة|14" laptop|5799|0|computers-featured;طقم كاميرا وجرس ومقبس ذكي|Camera, doorbell & smart plug kit|899|999|smarthome-bestsellers;ساعات ذكية رياضية|Sport smartwatches|1399|0|watches-bestsellers',
-  phones: 'آيفون 17 برو ماكس 256GB|iPhone 17 Pro Max 256GB|5399|5899|phones-featured;آيفون 17 برو — أربعة ألوان|iPhone 17 Pro — four finishes|4699|0|phones-bestsellers;جوال برو مع سماعة لاسلكية|Pro phone with wireless earbuds|5199|5599|phones-bundle;كفرات حماية وحماية شاشة|Cases & screen protectors|129|159|accessories-bestsellers;شاحن سريع جداري وسيارة مع حقيبة|Wall & car fast charger with pouch|179|0|accessories-bundle;باور بانك وشاحن لاسلكي وكيابل|Power bank, wireless charger & cables|249|299|accessories-featured;إيربودز ومكبر صوت محمول|Earbuds & portable speaker|999|0|audio-bestsellers;باقة جوال وساعة وسماعات|Phone, watch & earbuds set|6199|0|electronics-featured',
-  watches: 'ساعات ذكية رياضية — ثلاثة ألوان|Sport smartwatches — three finishes|1399|1599|watches-bestsellers;ساعة كلاسيكية ذهبية وردية|Rose-gold classic watch|2499|0|watches-featured;ساعة مع أحزمة جلد إضافية|Watch with spare leather straps|1899|2199|watches-bundle;باقة جوال وساعة وسماعات|Phone, watch & earbuds set|6199|0|electronics-featured;شاحن لاسلكي وباور بانك وكيابل|Wireless charger, power bank & cables|249|0|accessories-featured;إيربودز ومكبر صوت محمول|Earbuds & portable speaker|999|0|audio-bestsellers',
-  computers: 'ماك بوك برو M5 ‏14 بوصة|MacBook Pro M5 14"|8499|0|computers-featured;كمبيوتر قيمنق مع شاشة|Gaming PC with monitor|7999|8799|computers-bestsellers;طقم مكتبي: لابتوب وماوس وكيبورد وموزع|Desk set: laptop, mouse, keyboard & hub|5999|6499|computers-bundle;طقم قيمنق: سماعة وكيبورد RGB وماوس|Gaming set: headset, RGB keyboard & mouse|899|0|gaming-bestsellers;تابلت مع سماعة وكيبورد وقلم|Tablet with headphones, keyboard & pen|2899|3199|electronics-bundle;لابتوب للمبرمجين|Developer laptop|6499|6999|software-featured;تراخيص برامج بعلب أصلية مع ذاكرة USB|Boxed software licenses with USB drive|299|0|software-bundle',
-  gaming: 'جهاز ألعاب منزلي مع يدي تحكم|Home console with two controllers|2999|3299|gaming-featured;جهاز ألعاب محمول مع قاعدة وحقيبة|Handheld console with dock & case|1899|0|gaming-bundle;طقم قيمنق: سماعة وكيبورد RGB وماوس|Gaming set: headset, RGB keyboard & mouse|899|0|gaming-bestsellers;بطاقة شحن ألعاب رقمية 50$|Digital game top-up card $50|189|0|digital_cards-bundle;كمبيوتر قيمنق مع شاشة|Gaming PC with monitor|7999|8799|computers-bestsellers;سماعة رأس فاخرة|Premium headphones|1499|1699|audio-featured',
-  audio: 'سماعة رأس فاخرة|Premium headphones|1499|1699|audio-featured;إيربودز ومكبر صوت محمول|Earbuds & portable speaker|999|0|audio-bestsellers;مسرح منزلي 5.1|5.1 home theatre|4299|4799|audio-bundle;جوال مع سماعة لاسلكية|Phone with wireless earbuds|5199|0|phones-bundle;مكبر صوت ذكي مع لمبة|Smart speaker with bulb|349|0|smarthome-featured;سماعة قيمنق مع كيبورد وماوس|Gaming headset with keyboard & mouse|899|999|gaming-bestsellers',
-  digital_cards: 'بطاقات هدايا مسبقة الدفع|Prepaid gift cards|100|0|digital_cards-featured;بطاقة شحن ألعاب رقمية 50$ على الجوال|Digital game top-up card $50 on phone|189|0|digital_cards-bundle;بطاقة هدية رقمية على الجوال مع علبة إهداء|Digital gift card on phone with gift box|150|0|digital_cards-bestsellers;تراخيص برامج بعلب أصلية مع ذاكرة USB|Boxed software licenses with USB drive|299|0|software-bundle',
-  smarthome: 'طقم كاميرا وجرس ومقبس ذكي|Camera, doorbell & smart plug kit|899|999|smarthome-bestsellers;منظم حرارة ذكي مع حساسات|Smart thermostat with sensors|749|0|smarthome-bundle;مكبر صوت ذكي مع لمبة|Smart speaker with bulb|349|0|smarthome-featured;شاشة ذكية OLED ‏65 بوصة|65" smart OLED TV|6499|7299|electronics-bestsellers',
-  cameras: 'كاميرا احترافية مع عدسة زووم|Pro camera with zoom lens|9999|10999|cameras-featured;طقم ميرورليس: عدستان وبطاقات ذاكرة وحقيبة|Mirrorless kit: two lenses, memory cards & bag|8499|0|cameras-bundle;كاميرا أكشن وكومباكت ودرون ميني|Action cam, compact camera & mini drone|2899|3199|cameras-bestsellers;كاميرا مراقبة ذكية مع جرس|Smart security camera with doorbell|549|0|smarthome-bestsellers',
-  accessories: 'كفرات حماية وحماية شاشة|Cases & screen protectors|129|159|accessories-bestsellers;شاحن سريع جداري وسيارة مع حقيبة|Wall & car fast charger with pouch|179|0|accessories-bundle;كيابل مضفرة وباور بانك وشاحن لاسلكي|Braided cables, power bank & wireless charger|249|299|accessories-featured;إيربودز ومكبر صوت محمول|Earbuds & portable speaker|999|0|audio-bestsellers;جوال مع سماعة لاسلكية|Phone with wireless earbuds|5199|0|phones-bundle',
-  software: 'تراخيص برامج بعلب أصلية مع ذاكرة USB|Boxed software licenses with USB drive|299|0|software-bundle;بيئة تطوير برمجية على لابتوب|Developer suite on a laptop|349|0|software-featured;برنامج لوحات تحليل بيانات للتابلت والجوال|Analytics dashboards for tablet & phone|599|0|software-bestsellers;بطاقات هدايا رقمية مسبقة الدفع|Prepaid digital gift cards|150|0|digital_cards-featured'
+/* one product per photo: the same photo is the same product (name, price, old price) in every store type */
+const CAT = {
+  'electronics-bestsellers': 'شاشة OLED ذكية ‏65 بوصة|65" smart OLED TV|6499|7299',
+  'electronics-bundle': 'تابلت مع سماعة وكيبورد وقلم|Tablet with headphones, keyboard & pen|2899|3199',
+  'electronics-featured': 'باقة جوال وساعة وسماعات وتابلت|Phone, watch, earbuds & tablet set|6199|0',
+  'audio-featured': 'سماعة رأس فاخرة بعزل الضوضاء|Premium noise-cancelling headphones|1499|1699',
+  'audio-bestsellers': 'إيربودز ومكبر صوت محمول|Earbuds & portable speaker|999|0',
+  'audio-bundle': 'نظام مسرح منزلي 5.1|5.1 home theatre|4299|4799',
+  'computers-featured': 'لابتوب احترافي 14 بوصة|14" pro laptop|5799|0',
+  'computers-bestsellers': 'كمبيوتر قيمنق مع شاشة|Gaming PC with monitor|7999|8799',
+  'computers-bundle': 'طقم مكتبي: لابتوب وماوس وكيبورد وموزع|Desk set: laptop, mouse, keyboard & hub|5999|6499',
+  'phones-featured': 'آيفون 17 برو ماكس 256GB|iPhone 17 Pro Max 256GB|5399|5899',
+  'phones-bestsellers': 'آيفون 17 برو — أربعة ألوان|iPhone 17 Pro — four finishes|4699|0',
+  'phones-bundle': 'جوال برو مع سماعة لاسلكية|Pro phone with wireless earbuds|5199|5599',
+  'accessories-bestsellers': 'كفرات حماية وحماية شاشة|Cases & screen protectors|129|159',
+  'accessories-bundle': 'شاحن سريع جداري وسيارة مع حقيبة|Wall & car fast charger with pouch|179|0',
+  'accessories-featured': 'باور بانك وشاحن لاسلكي وكيابل مضفرة|Power bank, wireless charger & braided cables|249|299',
+  'watches-bestsellers': 'ساعات ذكية رياضية — ثلاثة ألوان|Sport smartwatches — three finishes|1399|1599',
+  'watches-featured': 'ساعة كلاسيكية بإطار ذهبي وردي وسوار جلد أسود|Classic watch, rose-gold case & black leather strap|2499|0',
+  'watches-bundle': 'ساعة مع أحزمة جلد ومعدن إضافية|Watch with spare leather & metal straps|1899|2199',
+  'gaming-featured': 'جهاز ألعاب منزلي مع يدي تحكم|Home console with two controllers|2999|3299',
+  'gaming-bundle': 'جهاز ألعاب محمول مع قاعدة وحقيبة|Handheld console with dock & case|1899|0',
+  'gaming-bestsellers': 'طقم قيمنق: سماعة وكيبورد RGB وماوس|Gaming set: headset, RGB keyboard & mouse|899|999',
+  'digital_cards-featured': 'بطاقات هدايا رقمية مسبقة الدفع|Prepaid digital gift cards|100|0',
+  'digital_cards-bestsellers': 'بطاقة هدية رقمية على الجوال مع علبة إهداء|Digital gift card on phone with gift box|150|0',
+  'digital_cards-bundle': 'بطاقة شحن ألعاب رقمية 50$ على الجوال|Digital game top-up card $50 on phone|189|0',
+  'smarthome-bestsellers': 'طقم كاميرا مراقبة وجرس ومقبس ذكي|Security camera, doorbell & smart plug kit|899|999',
+  'smarthome-bundle': 'منظم حرارة ذكي مع حساسات|Smart thermostat with sensors|749|0',
+  'smarthome-featured': 'مكبر صوت ذكي مع لمبة|Smart speaker with bulb|349|0',
+  'cameras-featured': 'كاميرا احترافية مع عدسة زووم|Pro camera with zoom lens|9999|10999',
+  'cameras-bundle': 'طقم ميرورليس: عدستان وبطاقات ذاكرة وحقيبة|Mirrorless kit: two lenses, memory cards & bag|8499|0',
+  'cameras-bestsellers': 'كاميرا أكشن وكومباكت ودرون ميني|Action cam, compact camera & mini drone|2899|3199',
+  'software-featured': 'لابتوب مبرمجين مع بيئة تطوير مثبّتة|Developer laptop with dev suite installed|6499|6999',
+  'software-bundle': 'تراخيص برامج بعلب أصلية مع ذاكرة USB|Boxed software licenses with USB drive|299|399',
+  'software-bestsellers': 'برنامج لوحات تحليل بيانات للتابلت والجوال|Analytics dashboards for tablet & phone|599|0'
+};
+const P = { // each store type lists the photos (products) it shows, each photo once
+  electronics: 'electronics-bestsellers;audio-bundle;electronics-bundle;electronics-featured;audio-featured;computers-featured;smarthome-bestsellers;watches-bestsellers',
+  phones: 'phones-featured;phones-bestsellers;phones-bundle;accessories-bestsellers;accessories-bundle;accessories-featured;audio-bestsellers;electronics-featured',
+  watches: 'watches-bestsellers;watches-featured;watches-bundle;electronics-featured;accessories-featured;audio-bestsellers',
+  computers: 'computers-featured;computers-bestsellers;computers-bundle;gaming-bestsellers;electronics-bundle;software-featured;software-bundle',
+  gaming: 'gaming-featured;gaming-bundle;gaming-bestsellers;digital_cards-bundle;computers-bestsellers;audio-featured',
+  audio: 'audio-featured;audio-bestsellers;audio-bundle;phones-bundle;smarthome-featured;gaming-bestsellers',
+  digital_cards: 'digital_cards-featured;digital_cards-bundle;digital_cards-bestsellers;software-bundle',
+  smarthome: 'smarthome-bestsellers;smarthome-bundle;smarthome-featured;electronics-bestsellers',
+  cameras: 'cameras-featured;cameras-bundle;cameras-bestsellers;smarthome-bestsellers',
+  accessories: 'accessories-bestsellers;accessories-bundle;accessories-featured;audio-bestsellers;phones-bundle',
+  software: 'software-bundle;software-featured;software-bestsellers;digital_cards-featured'
 };
 const MODES = ['featured', 'bestsellers', 'bundle'];
 const asset = name => (B.dataset.ocImg || '').replace(/[^/]*\.webp(\?.*)?$/, `${name}.webp$1`);
 
 export function demoPack(v) {
   const V = VERTICALS[v] ? v : 'electronics';
-  const ps = (P[V] || P.electronics).split(';').map((s, i) => { const [a, e, p, w, k] = s.split('|'); const price = +p, was = +w || null;
+  const ps = (P[V] || P.electronics).split(';').map((k, i) => { const [a, e, p, w] = CAT[k].split('|'); const price = +p, was = +w || null;
     return { id: 9000 + i, name: ar() ? a : e, slug: e.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''), url: '#', img: asset(k), price, was, sale: !!was, out: false, stars: [4.8, 4.6, 4.7, 4.5, 4.9, 4.4, 4.6, 4.7][i], reviews: [214, 162, 88, 301, 120, 64, 45, 140][i], sold: [320, 180, 90, 260, 140, 60, 40, 150][i], digital: V === 'digital_cards' || V === 'software' }; });
   const cats = (VERTICALS[V].cats || [V]).map((c, i) => ({ id: null, name: ar() ? VERTICALS[c].ar : VERTICALS[c].en, url: '#', img: asset(`${c}-${MODES[i % 3]}`), sub: [], v: c }));
   return { v: V, ps, cats };
@@ -57,7 +93,11 @@ function skinCards(pack) {
   cards.forEach(c => {
     const g = c.closest('salla-products-slider, salla-products-list, .s-products-slider, .s-products-list, section') || B, i = seen.get(g) || 0; seen.set(g, i + 1);
     const box = c.closest('.swiper-slide') || c;
-    if (i >= pack.ps.length) { box.classList.add('oc-hide'); return; } box.classList.remove('oc-hide');
+    if (i >= pack.ps.length) { box.classList.add('oc-hide'); // a surplus card keeps none of the demo store's fashion text or photo, even hidden
+      if (!c.dataset.ocBlank) { c.dataset.ocBlank = '1'; c.querySelectorAll('.s-product-card-content-title, .s-product-card-content-subtitle, .s-product-card-price, .s-product-card-sale-price').forEach(e => { e.textContent = ''; });
+        c.querySelectorAll('img').forEach(im => { im.removeAttribute('srcset'); im.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACw='; im.alt = ''; }); c.querySelectorAll('a').forEach(l => { l.removeAttribute('aria-label'); l.removeAttribute('title'); }); }
+      return; }
+    box.classList.remove('oc-hide');
     const p = pack.ps[i], url = demoHref(c.querySelector('a[href]')?.getAttribute('href'), pack.v, i, p.slug);
     c.querySelectorAll('a[href]').forEach(a => { if (a.href !== url) a.href = url; ['aria-label', 'title'].forEach(k => { if (a.hasAttribute(k)) a.setAttribute(k, p.name); }); }); // screen readers hear the tech product too
     if (c.dataset.ocDemo === pack.v + i) return;
