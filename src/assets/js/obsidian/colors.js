@@ -30,6 +30,6 @@ export function customerColor(isAr){
   B.appendChild(el); const fab=el.querySelector('.oc-cc__fab');
   const mark=()=>el.querySelectorAll('[data-c]').forEach(b=>b.classList.toggle('is-on',b.dataset.c===(B.dataset.ocUbg||'')));
   fab.onclick=()=>fab.setAttribute('aria-expanded',el.classList.toggle('is-open'));
-  el.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{const c=b.dataset.c; if(c){B.dataset.ocUbg=c;localStorage.setItem(KEY,c);}else{delete B.dataset.ocUbg;localStorage.removeItem(KEY);} mark();});
+  el.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{const c=b.dataset.c; if(c){B.dataset.ocUbg=c;localStorage.setItem(KEY,c);}else{delete B.dataset.ocUbg;localStorage.removeItem(KEY);} mark(); window.ocApplySquares&&window.ocApplySquares();});
   mark();
 }

@@ -7,9 +7,19 @@ const B = document.body, isAr = (document.documentElement.lang || 'ar').startsWi
 const tr = (ar,en) => isAr ? ar : en;
 
 /* ---------- vertical: setting > preview choice > auto-detect from real menu/category/product names ---------- */
+/* merchant permanent squares: skin mode from luminance; ink base follows effective mode */
+export function applySquares(){
+  const lum=h=>{h=(h||'').replace('#','');if(h.length<6)return .1;const [r,g,b]=[0,2,4].map(i=>parseInt(h.substr(i,2),16)/255);return .2126*r+.7152*g+.0722*b;};
+  const skin=B.style.getPropertyValue('--oc-skin').trim();
+  if(B.dataset.ocSkin==='1') B.dataset.ocSkinmode=lum(skin)>.55?'l':'d'; else delete B.dataset.ocSkinmode;
+  const pal=PALETTES[B.dataset.ocCc==='1'&&B.dataset.ocUbg||'']||(B.dataset.ocSkinmode?null:PALETTES[B.dataset.ocBg]);
+  const light=pal?pal[5]==='l':B.dataset.ocSkinmode==='l';
+  B.style.setProperty('--oc-inkbase',light?'#000':'#fff');
+  if(B.dataset.ocV&&VERTICALS[B.dataset.ocV]) B.style.setProperty('--oc-v-acc',B.dataset.ocInk==='1'?'var(--oc-ink)':VERTICALS[B.dataset.ocV].acc);
+}
 function applyVertical(v){
   const V = VERTICALS[v] || VERTICALS.electronics;
-  B.dataset.ocV = v; B.style.setProperty('--oc-v-acc', V.acc);
+  B.dataset.ocV = v; B.style.setProperty('--oc-v-acc', B.dataset.ocInk==='1'?'var(--oc-ink)':V.acc);
   document.querySelectorAll('[data-oc-hero-art]').forEach(el => el.innerHTML = ICONS[v] || ICONS.electronics);
   document.querySelectorAll('[data-oc-hero-sub]').forEach(el => { if(!el.dataset.custom) el.textContent = vt(V.hero); });
   document.querySelectorAll('[data-oc-hud]').forEach(el => el.innerHTML = (V.specs||[]).map(([l,n],i)=>`<div class="oc-hud__row" style="--w:${n}%;--d:${i*.15}s"><span>${vt(l)}</span><i></i><b>${n}</b></div>`).join(''));
@@ -41,11 +51,14 @@ function buildPicker(){
     <div class="oc-pk__bar"><span>${tr('الكشف التلقائي','Auto-detect')}: <b>${isAr?VERTICALS[detect(currentTexts())].ar:VERTICALS[detect(currentTexts())].en}</b></span><button data-k="__auto">${tr('إعادة للتلقائي','Reset')}</button></div><div class="oc-pk__grid">${Object.entries(VERTICALS).map(([k,v])=>`<button data-k="${k}" class="${k===B.dataset.ocV?'is-on':''}" style="--a:${v.acc}"><i>${ICONS[k]}</i><b>${isAr?v.ar:v.en}</b><small>${counts[k]?counts[k]+' '+tr('مطابقة','matches'):tr('عرض النمط','skin only')}</small></button>`).join('')}</div>
   </div>`;
   const list=document.createElement('div'); list.className='oc-pk__list';
-  list.innerHTML=`<label>${tr('النوع المختار','Selected type')}</label><select>${Object.entries(VERTICALS).map(([k,v])=>`<option value="${k}"${k===B.dataset.ocV?' selected':''}>${isAr?v.ar:v.en}</option>`).join('')}</select><label>${tr('لون التاجر (معاينة)','Merchant colour (preview)')}</label><div class="oc-pk__bg">${Object.entries(PALETTES).sort((a,b)=>a[1][5]<b[1][5]?-1:1).map(([k,p])=>`<button data-bg="${k}" style="--c:${p[2]}" title="${isAr?p[3]:p[4]}"></button>`).join('')}</div>`;
+  list.innerHTML=`<label>${tr('النوع المختار','Selected type')}</label><select>${Object.entries(VERTICALS).map(([k,v])=>`<option value="${k}"${k===B.dataset.ocV?' selected':''}>${isAr?v.ar:v.en}</option>`).join('')}</select><label>${tr('لون التاجر (معاينة)','Merchant colour (preview)')}</label><div class="oc-pk__bg">${Object.entries(PALETTES).sort((a,b)=>a[1][5]<b[1][5]?-1:1).map(([k,p])=>`<button data-bg="${k}" style="--c:${p[2]}" title="${isAr?p[3]:p[4]}"></button>`).join('')}</div><label>${tr('مربعات التاجر الدائمة (معاينة)','Merchant colour squares (preview)')}</label><div class="oc-pk__sq"><label><input type="color" data-sq="skin" value="${B.style.getPropertyValue('--oc-skin').trim()||'#16161a'}"><span>${tr('لون الثيم','Theme colour')}</span></label><label><input type="color" data-sq="ink" value="${B.style.getPropertyValue('--oc-ink').trim()||'#d9b779'}"><span>${tr('الخطوط والنصوص والإضافات','Text, lines & extras')}</span></label><button data-sq-reset>${tr('إلغاء المربعات','Clear squares')}</button></div>`;
   (el.querySelector('.oc-pk__sheet')||el).appendChild(list);
   document.body.appendChild(el);
   list.querySelector('select').onchange=e=>el.querySelector(`.oc-pk__grid [data-k="${e.target.value}"]`)?.click();
   list.querySelectorAll('[data-bg]').forEach(b=>b.onclick=()=>{B.dataset.ocBg=b.dataset.bg;sessionStorage.setItem('oc_pbg',b.dataset.bg);});
+  list.querySelectorAll('[data-sq]').forEach(i=>i.oninput=()=>{const k=i.dataset.sq;B.style.setProperty('--oc-'+k,i.value);B.dataset['oc'+(k==='skin'?'Skin':'Ink')]='1';sessionStorage.setItem('oc_p'+k,i.value);applySquares();});
+  list.querySelector('[data-sq-reset]').onclick=()=>{['skin','ink'].forEach(k=>{B.dataset['oc'+(k==='skin'?'Skin':'Ink')]='0';sessionStorage.removeItem('oc_p'+k);});applySquares();};
+  ['skin','ink'].forEach(k=>{const v=sessionStorage.getItem('oc_p'+k);if(v){B.style.setProperty('--oc-'+k,v);B.dataset['oc'+(k==='skin'?'Skin':'Ink')]='1';}});applySquares();
   if(sessionStorage.getItem('oc_pbg')) B.dataset.ocBg=sessionStorage.getItem('oc_pbg');
   const fab = el.querySelector('.oc-pk__fab');
   fab.onclick = () => { const o = el.classList.toggle('is-open'); fab.setAttribute('aria-expanded', o); };
@@ -114,7 +127,7 @@ function packs(){
 
 async function boot(){
   if(B.dataset.ocBg) B.dataset.ocBg=B.dataset.ocBg.replace(/^bg-/,'');
-  customerColor(isAr);
+  customerColor(isAr); applySquares(); window.ocApplySquares=applySquares;
   let st=null; try{ st=await buildSmart(isAr); }catch(e){}
   // live: if merchant left vertical on auto, the dominant type comes from the real store read
   applyVertical(isPreview()||B.dataset.ocVertical!=='auto'||!st ? resolveVertical() : st.main); buildPicker(); autoCats(); iconize(); packs();

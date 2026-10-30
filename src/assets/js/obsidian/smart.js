@@ -28,7 +28,7 @@ export async function buildSmart(isAr){
     if(!list.length){ h.hidden=true; return; }
     const seen={};
     h.innerHTML=list.map(c=>{ const i=seen[c.v]=(seen[c.v]??-1)+1; const V=VERTICALS[c.v];
-      return `<section class="s-block oc-products oc-vsec oc-smart-sec container" data-oc-v="${c.v}" style="--oc-v-acc:${V.acc}">
+      return `<section class="s-block oc-products oc-vsec oc-smart-sec container" data-oc-v="${c.v}" style="--oc-v-acc:${document.body.dataset.ocInk==='1'?'var(--oc-ink)':V.acc}">
       <a class="oc-sbanner" href="${c.url||'#'}"><img loading="lazy" src="${img(c.v,i)}" alt="${c.name}" width="480" height="360"><span><small>${isAr?V.ar:V.en}</small><b>${c.name}</b>${c.sub.length?`<em>${c.sub.slice(0,4).join(' · ')}</em>`:''}</span></a>
       ${c.id?`<salla-products-list source="categories" source-value="[${c.id}]" limit="${lim}"></salla-products-list>`:''}</section>`; }).join('');
     h.dataset.count=list.length;

@@ -3,8 +3,13 @@ $pal:(graphite:(#0b0b0d,#141417,#25211a),midnight:(#070a14,#0f1424,#1a2240),onyx
 $light:(ivory,sand,pearl,softblue,mint,blush,lavender,cloud);
 @mixin ocpal($k,$c){--oc-bg:#{nth($c,1)};--oc-bg2:#{nth($c,2)};--oc-bg3:#{nth($c,3)};--oc-surf:#{nth($c,2)};--oc-surf2:#{nth($c,1)};@if index($light,$k){--oc-txt:#1d1a16;--oc-mut:#6b645a;--oc-line:rgba(60,45,20,.16);--oc-hdr:rgba(255,255,255,.75);--oc-foot:#{nth($c,2)};--oc-input:#ffffff;--oc-glass:rgba(0,0,0,.035);--oc-track:rgba(0,0,0,.08);--oc-gold:#a87a35;--oc-gold2:#7a5520;--oc-acc:#a87a35;--oc-glow:rgba(168,122,53,.22);--oc-vig:rgba(0,0,0,.06);--oc-line2:rgba(0,0,0,.07);color-scheme:light}@else{--oc-txt:#e9e6df;--oc-mut:#9a968e;--oc-line:rgba(255,236,200,.14);--oc-hdr:rgba(18,18,21,.62);--oc-foot:#08080a;--oc-input:#121215;--oc-glass:rgba(255,255,255,.05);--oc-track:rgba(255,255,255,.08);color-scheme:dark}}
 @each $k,$c in $pal{ body.oc[data-oc-bg=#{$k}]{@include ocpal($k,$c)} }
+/* merchant permanent squares: skin (bg/surfaces) + ink (text/lines/accents); beat presets, lose to customer layer */
+body.oc[data-oc-skin="1"][data-oc-bg]{--oc-bg:var(--oc-skin);--oc-bg2:color-mix(in srgb,var(--oc-skin),#808080 9%);--oc-bg3:color-mix(in srgb,var(--oc-skin),#808080 16%);--oc-surf:var(--oc-bg2);--oc-surf2:var(--oc-skin);--oc-foot:color-mix(in srgb,var(--oc-skin),#000 25%);--oc-input:var(--oc-bg2);--oc-hdr:color-mix(in srgb,var(--oc-skin) 72%,transparent);background-color:var(--oc-skin)}
+body.oc[data-oc-skin="1"][data-oc-skinmode="l"][data-oc-bg]{--oc-txt:#1d1a16;--oc-mut:#6b645a;--oc-line:rgba(60,45,20,.16);--oc-glass:rgba(0,0,0,.035);--oc-track:rgba(0,0,0,.08);--oc-foot:color-mix(in srgb,var(--oc-skin),#000 6%);color-scheme:light}
+body.oc[data-oc-skin="1"][data-oc-skinmode="d"][data-oc-bg]{--oc-txt:#e9e6df;--oc-mut:#9a968e;--oc-line:rgba(255,236,200,.14);--oc-glass:rgba(255,255,255,.05);--oc-track:rgba(255,255,255,.08);color-scheme:dark}
+body.oc[data-oc-ink="1"][data-oc-bg][data-oc-bg]{--oc-txt:color-mix(in srgb,var(--oc-ink),var(--oc-inkbase,#fff) 55%);--oc-mut:color-mix(in srgb,var(--oc-ink),#808080 45%);--oc-line:color-mix(in srgb,var(--oc-ink) 22%,transparent);--oc-line2:color-mix(in srgb,var(--oc-ink) 10%,transparent);--oc-gold:var(--oc-ink);--oc-gold2:color-mix(in srgb,var(--oc-ink),#000 30%);--oc-acc:var(--oc-ink);--oc-v-acc:var(--oc-ink);--oc-glow:color-mix(in srgb,var(--oc-ink) 28%,transparent)}
 /* customer layer wins over merchant (higher specificity), only when merchant enabled it */
-@each $k,$c in $pal{ body.oc[data-oc-cc="1"][data-oc-ubg=#{$k}]{@include ocpal($k,$c)} }
+@each $k,$c in $pal{ body.oc[data-oc-cc="1"][data-oc-ubg=#{$k}][data-oc-ubg][data-oc-bg]{@include ocpal($k,$c)} }
 body.oc{transition:background-color .4s}
 .oc-cc{position:fixed;z-index:9998;inset-block-end:1.2rem;inset-inline-end:1.2rem}
 .oc-cc__fab{width:3rem;height:3rem;border-radius:50%;border:1px solid var(--oc-line);background:var(--oc-bg2);box-shadow:0 8px 30px rgba(0,0,0,.4);display:grid;place-items:center;
@@ -44,3 +49,13 @@ body.oc{transition:background-color .4s}
 .oc-brand{position:absolute;z-index:2;inset-block-end:.55rem;inset-inline-start:.7rem;max-width:80%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
  font:700 .7rem/1.2 inherit;letter-spacing:.08em;padding:.2rem .55rem;border-radius:99px;color:var(--oc-gold2);background:rgba(0,0,0,.45);border:1px solid var(--oc-line);backdrop-filter:blur(6px);pointer-events:none}
 .oc-hero__media>.oc-brand{inset-block-end:auto;top:.6rem;font-size:.78rem}
+
+.oc-pk__sq{display:grid;gap:.4rem;label{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:#222}input{width:2.2rem;height:2.2rem;border:2px solid #ddd;border-radius:.5rem;padding:0;background:none;cursor:pointer}button{font-size:.75rem;color:#666;text-decoration:underline;justify-self:start}}
+.oc-banner{display:grid;gap:1rem;margin-block:2rem}
+.oc-banner__item{position:relative;display:block;border-radius:1.4rem;overflow:hidden;border:1px solid var(--oc-line);background:var(--oc-bg2)}
+.oc-banner__item img{width:100%;height:var(--h,340px);object-fit:cover;display:block}
+.oc-banner--sm{--h:220px}.oc-banner--lg{--h:480px}
+.oc-banner__copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:.6rem;padding:2rem clamp(1.2rem,5vw,4rem);background:linear-gradient(to left,transparent 35%,color-mix(in srgb,var(--oc-bg) 85%,transparent));
+ b{font-size:clamp(1.6rem,4vw,3rem);line-height:1.1}em{font-style:normal;color:var(--oc-txt);max-width:28rem}}
+[dir=rtl] .oc-banner__copy{background:linear-gradient(to right,transparent 35%,color-mix(in srgb,var(--oc-bg) 85%,transparent))}
+@media(max-width:640px){.oc-banner__item img{height:calc(var(--h,340px)*.8)}}

@@ -297,6 +297,62 @@
       "required": false
     },
     {
+      "id": "oc_skin_on",
+      "type": "boolean",
+      "format": "switch",
+      "label": "مربع لون الثيم (الخلفية والأسطح) · Theme colour square",
+      "description": "يغطي لون الخلفية والأسطح فوق النمط المختار",
+      "icon": "sicon-format-fill",
+      "value": false,
+      "selected": false,
+      "required": false
+    },
+    {
+      "id": "oc_skin_color",
+      "type": "string",
+      "format": "color",
+      "label": "لون الثيم · Theme colour",
+      "description": "خلفية المتجر والبطاقات والهيدر والفوتر",
+      "icon": "sicon-format-fill",
+      "value": "#16161a",
+      "required": false,
+      "conditions": [
+        {
+          "id": "oc_skin_on",
+          "operation": "=",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "oc_ink_on",
+      "type": "boolean",
+      "format": "switch",
+      "label": "مربع لون الخطوط والنصوص والإضافات · Text, lines & extras square",
+      "description": "يغطي النصوص والعناوين والخطوط والحدود ولمسات الإضافات",
+      "icon": "sicon-typography",
+      "value": false,
+      "selected": false,
+      "required": false
+    },
+    {
+      "id": "oc_ink_color",
+      "type": "string",
+      "format": "color",
+      "label": "لون الخطوط والكلام والإضافات · Text & extras colour",
+      "description": "العناوين، النص، الحدود، ولون التمييز في الإضافات",
+      "icon": "sicon-typography",
+      "value": "#d9b779",
+      "required": false,
+      "conditions": [
+        {
+          "id": "oc_ink_on",
+          "operation": "=",
+          "value": true
+        }
+      ]
+    },
+    {
       "id": "oc_customer_color",
       "type": "boolean",
       "format": "switch",
@@ -822,6 +878,110 @@
               "type": "string",
               "id": "stats.note",
               "label": "ملاحظة",
+              "format": "text",
+              "value": null,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "8c2d8d69-3ebd-59c3-b4c7-bc34b3588a80",
+      "title": {
+        "ar": "بنر إعلاني (صورة + عنوان + رابط)",
+        "en": "Promo banner (image + title + link)"
+      },
+      "icon": "sicon-image",
+      "path": "home.oc-banner",
+      "fields": [
+        {
+          "id": "height",
+          "type": "items",
+          "format": "dropdown-list",
+          "label": "ارتفاع البنر · Height",
+          "selected": [
+            {
+              "label": "متوسط",
+              "value": "md"
+            }
+          ],
+          "options": [
+            {
+              "label": "قصير",
+              "value": "sm"
+            },
+            {
+              "label": "متوسط",
+              "value": "md"
+            },
+            {
+              "label": "عالي",
+              "value": "lg"
+            }
+          ],
+          "source": "Manual",
+          "required": false,
+          "multichoice": false
+        },
+        {
+          "id": "banners",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 1,
+          "maxLength": 4,
+          "label": "البنرات",
+          "item_label": "بنر",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "id": "banners.image",
+              "label": "صورة البنر (سطح المكتب 1920×640)",
+              "format": "image",
+              "value": null,
+              "required": false
+            },
+            {
+              "type": "string",
+              "id": "banners.image_mobile",
+              "label": "صورة الجوال (اختياري 800×800)",
+              "format": "image",
+              "value": null,
+              "required": false
+            },
+            {
+              "type": "string",
+              "id": "banners.title",
+              "label": "العنوان",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "banners.subtitle",
+              "label": "النص الفرعي",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "banners.cta",
+              "label": "نص الزر",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "banners.url",
+              "label": "الرابط",
               "format": "text",
               "value": null,
               "required": false
