@@ -8,29 +8,26 @@ const B = document.body, ar = () => (document.documentElement.lang || 'ar').star
 export const isPreview = () => { const h = location.hostname, q = new URLSearchParams(location.search);
   return q.has('oc_preview') || B.dataset.ocMode === 'preview' || /(^|\.)salla\.design$/.test(h) || h === 'localhost' || !!window.salla?.config?.get?.('store.preview'); };
 
-/* name ar | name en | price | old price (0 = no offer) */
-const P = {
-  electronics: 'شاشة OLED ‏65 بوصة|65" OLED TV|6499|7299;جهاز عرض 4K|4K projector|3299|0;مكبر صوت ساوند بار|Soundbar|1299|1499;سماعة لاسلكية بعزل ضوضاء|ANC headphones|1199|0;جوال برو 256GB|Pro phone 256GB|4999|0;ساعة ذكية رياضية|Sport smartwatch|1399|1599;لابتوب 14 بوصة|14" laptop|5799|0;كاميرا مراقبة منزلية|Home security camera|299|349',
-  phones: 'آيفون 17 برو ماكس 256GB|iPhone 17 Pro Max 256GB|5399|5899;جالكسي S26 ألترا|Galaxy S26 Ultra|4899|0;جوال بكسل 10 برو|Pixel 10 Pro|3999|4299;جالكسي Z فولد|Galaxy Z Fold|6999|0;شاحن سريع 45W|45W fast charger|149|0;كفر ماج سيف شفاف|Clear MagSafe case|129|159;حماية شاشة زجاجية|Glass screen protector|59|0;سماعة إيربودز برو|AirPods Pro|999|1099',
-  watches: 'ساعة أبل ألترا 3|Apple Watch Ultra 3|3499|0;جالكسي ووتش 8|Galaxy Watch 8|1299|1499;ساعة جارمن فينكس|Garmin Fenix|2899|0;سوار ذكي رياضي|Smart fitness band|199|249;سير ساعة جلد|Leather watch strap|149|0;شاحن ساعة مغناطيسي|Magnetic watch charger|99|0;ساعة ذكية للأطفال|Kids smartwatch|399|0;حماية شاشة الساعة|Watch screen guard|49|0',
-  computers: 'ماك بوك برو M5 ‏14 بوصة|MacBook Pro M5 14"|8499|0;لابتوب قيمنق RTX|RTX gaming laptop|6999|7799;شاشة 27 بوصة 4K|27" 4K monitor|1899|0;كيبورد ميكانيكي|Mechanical keyboard|399|449;ماوس لاسلكي|Wireless mouse|199|0;موزع USB-C|USB-C hub|179|0;قرص SSD ‏1TB|1TB SSD|449|529;آيباد إير|iPad Air|2799|0',
-  gaming: 'بلايستيشن 5 برو|PlayStation 5 Pro|2999|0;يد تحكم DualSense|DualSense controller|299|349;نينتندو سويتش 2|Nintendo Switch 2|1899|0;سماعة قيمنق|Gaming headset|499|0;كرسي قيمنق|Gaming chair|1199|1399;كيبورد RGB|RGB keyboard|349|0;بطاقة PSN ‏100 ريال|PSN card SAR 100|100|0;شاشة قيمنق 165Hz|165Hz gaming monitor|1299|0',
-  audio: 'سماعة سوني WH-1000XM6|Sony WH-1000XM6|1499|1699;إيربودز برو 3|AirPods Pro 3|999|0;مكبر صوت محمول|Portable speaker|599|699;ساوند بار 5.1|5.1 soundbar|2199|0;سماعة رياضية لاسلكية|Wireless sport earbuds|349|0;مضخم صوت منزلي|Home subwoofer|1499|0;ميكروفون بودكاست|Podcast mic|649|749;مشغل أسطوانات|Turntable|1299|0',
-  digital_cards: 'بطاقة iTunes ‏100 ريال|iTunes card SAR 100|100|0;بطاقة PSN ‏200 ريال|PSN card SAR 200|200|0;بطاقة Steam ‏50$|Steam card $50|195|0;اشتراك Xbox Game Pass|Xbox Game Pass|89|0;بطاقة Google Play|Google Play card|50|0;اشتراك نتفليكس|Netflix subscription|56|0;بطاقة نينتندو|Nintendo eShop card|100|0;اشتراك سبوتيفاي|Spotify subscription|22|0',
-  smarthome: 'كاميرا مراقبة ذكية|Smart security camera|299|349;جرس باب ذكي|Smart doorbell|549|0;قفل باب ذكي|Smart door lock|899|999;مكبر صوت ذكي|Smart speaker|349|0;إضاءة ذكية RGB|Smart RGB lights|149|0;حساس حركة|Motion sensor|99|0;مقبس ذكي|Smart plug|79|99;مكنسة روبوت|Robot vacuum|1499|0',
-  cameras: 'كاميرا كانون R6 Mark III|Canon R6 Mark III|9999|10999;عدسة 50mm f/1.8|50mm f/1.8 lens|899|0;كاميرا GoPro 13|GoPro 13|1799|0;درون DJI ميني|DJI Mini drone|2899|3199;حامل جيمبال|Gimbal stabilizer|599|0;بطاقة ذاكرة 256GB|256GB memory card|189|0;حقيبة كاميرا|Camera bag|249|0;إضاءة تصوير LED|LED studio light|399|0',
-  accessories: 'شاحن سريع 65W|65W fast charger|179|0;باور بانك 20000|20000mAh power bank|149|199;كيبل USB-C مضفر|Braided USB-C cable|59|0;حامل جوال للسيارة|Car phone mount|89|0;شاحن لاسلكي|Wireless charger|129|149;موزع USB-C|USB-C hub|179|0;حقيبة لابتوب|Laptop sleeve|149|0;كفر حماية|Protective case|99|0',
-  software: 'ترخيص Windows 11 برو|Windows 11 Pro license|299|399;اشتراك Microsoft 365|Microsoft 365|349|0;ترخيص أدوبي|Adobe license|899|0;مضاد فيروسات 3 أجهزة|Antivirus, 3 devices|149|199;برنامج VPN سنة|VPN, 1 year|129|0;ترخيص Windows 11 هوم|Windows 11 Home license|199|0;اشتراك سحابة 1TB|1TB cloud|249|0;برنامج تصميم|Design software|599|0'
+const P = { // name ar | name en | price | old price (0 = none) | photo that shows this very product
+  electronics: 'شاشة OLED ‏65 بوصة|65" OLED TV|6499|7299|electronics-bestsellers;نظام مسرح منزلي 5.1|5.1 home theatre|4299|0|audio-bundle;تابلت مع لوحة مفاتيح وقلم|Tablet with keyboard & pen|2899|3199|electronics-bundle;باقة جوال وساعة وسماعات|Phone, watch & earbuds set|6199|0|electronics-featured;سماعة رأس بعزل الضوضاء|Noise-cancelling headphones|1199|1399|audio-featured;لابتوب 14 بوصة|14" laptop|5799|0|computers-featured;طقم أمان منزلي ذكي|Smart home security kit|899|999|smarthome-bestsellers;ساعة ذكية رياضية|Sport smartwatch|1399|0|watches-bestsellers',
+  phones: 'آيفون 17 برو ماكس 256GB|iPhone 17 Pro Max 256GB|5399|5899|phones-featured;آيفون 17 برو — أربعة ألوان|iPhone 17 Pro — four finishes|4699|0|phones-bestsellers;جوال برو مع سماعة لاسلكية|Pro phone with wireless earbuds|5199|5599|phones-bundle;جالكسي S26 ألترا|Galaxy S26 Ultra|4899|0|phones-featured;كفرات حماية وحماية شاشة|Cases & screen protectors|129|159|accessories-bestsellers;شاحن سريع جداري وسيارة|Wall & car fast charger|179|0|accessories-bundle;باور بانك وشاحن لاسلكي|Power bank & wireless charger|249|299|accessories-featured;سماعة إيربودز برو|AirPods Pro|999|0|audio-bestsellers',
+  watches: 'ساعة ذكية رياضية — ثلاثة ألوان|Sport smartwatch — three finishes|1399|1599|watches-bestsellers;ساعة كلاسيكية ذهبية وردية|Rose-gold classic watch|2499|0|watches-featured;ساعة مع أحزمة جلد إضافية|Watch with spare leather straps|1899|2199|watches-bundle;ساعة أبل ألترا 3|Apple Watch Ultra 3|3499|0|watches-bestsellers;جالكسي ووتش 8|Galaxy Watch 8|1299|1499|watches-bestsellers;سير ساعة جلد|Leather watch strap|149|0|watches-bundle;باقة جوال وساعة وسماعات|Phone, watch & earbuds set|6199|0|electronics-featured;شاحن لاسلكي مغناطيسي|Magnetic wireless charger|99|0|accessories-featured',
+  computers: 'ماك بوك برو M5 ‏14 بوصة|MacBook Pro M5 14"|8499|0|computers-featured;كمبيوتر قيمنق مع شاشة|Gaming PC with monitor|7999|8799|computers-bestsellers;طقم مكتبي: ماوس وكيبورد وموزع|Desk set: mouse, keyboard & hub|599|699|computers-bundle;كيبورد ميكانيكي RGB|RGB mechanical keyboard|399|0|gaming-bestsellers;آيباد مع كيبورد وقلم|iPad with keyboard & pencil|3299|0|electronics-bundle;لابتوب للمبرمجين|Developer laptop|6499|6999|software-featured;موزع USB-C ‏7 في 1|7-in-1 USB-C hub|179|0|computers-bundle;شاشة 27 بوصة 4K|27" 4K monitor|1899|0|computers-bestsellers',
+  gaming: 'بلايستيشن 5 برو مع يدين|PlayStation 5 Pro with two controllers|2999|3299|gaming-featured;جهاز ألعاب محمول مع قاعدة|Handheld console with dock|1899|0|gaming-bundle;طقم قيمنق: سماعة وكيبورد وماوس|Gaming set: headset, keyboard & mouse|899|999|gaming-bestsellers;يد تحكم لاسلكية|Wireless controller|299|0|gaming-featured;بطاقة PSN ‏100 ريال|PSN card SAR 100|100|0|digital_cards-bundle;كمبيوتر قيمنق|Gaming PC|7999|0|computers-bestsellers;سماعة قيمنق|Gaming headset|499|599|gaming-bestsellers;حقيبة جهاز الألعاب المحمول|Handheld console case|149|0|gaming-bundle',
+  audio: 'سماعة رأس فاخرة|Premium headphones|1499|1699|audio-featured;إيربودز ومكبر صوت محمول|Earbuds & portable speaker|1199|0|audio-bestsellers;مسرح منزلي 5.1|5.1 home theatre|4299|4799|audio-bundle;مكبر صوت محمول|Portable speaker|599|0|audio-bestsellers;جوال مع سماعة لاسلكية|Phone with wireless earbuds|5199|0|phones-bundle;سماعة لاسلكية للمكتب|Wireless office headphones|699|799|electronics-bundle;مكبر صوت ذكي|Smart speaker|349|0|smarthome-featured;سماعة قيمنق|Gaming headset|499|0|gaming-bestsellers',
+  digital_cards: 'بطاقة iTunes ‏100 ريال|iTunes card SAR 100|100|0|digital_cards-featured;بطاقة PSN ‏200 ريال|PSN card SAR 200|200|0|digital_cards-bundle;بطاقة Steam ‏50$|Steam card $50|195|0|digital_cards-featured;بطاقة هدية رقمية|Digital gift card|150|0|digital_cards-bestsellers;اشتراك Xbox Game Pass|Xbox Game Pass|89|0|digital_cards-bundle;بطاقة Google Play|Google Play card|50|0|digital_cards-bestsellers;اشتراك نتفليكس|Netflix subscription|56|0|digital_cards-featured;بطاقة نينتندو eShop|Nintendo eShop card|100|0|gaming-bundle',
+  smarthome: 'طقم كاميرا وجرس ومقبس ذكي|Camera, doorbell & smart plug kit|899|999|smarthome-bestsellers;كاميرا مراقبة ذكية|Smart security camera|299|349|smarthome-bestsellers;منظم حرارة ذكي|Smart thermostat|749|0|smarthome-bundle;مكبر صوت ذكي مع إضاءة|Smart speaker with lighting|449|0|smarthome-featured;حساس حركة ذكي|Smart motion sensor|99|0|smarthome-bundle;لمبة ذكية|Smart bulb|69|89|smarthome-featured;جرس باب بكاميرا|Video doorbell|549|0|smarthome-bestsellers;مقبس ذكي|Smart plug|79|0|smarthome-bestsellers',
+  cameras: 'كاميرا احترافية مع عدسة|Pro camera with lens|9999|10999|cameras-featured;كاميرا ميرورليس مع عدستين|Mirrorless camera with two lenses|8499|0|cameras-bundle;كاميرا أكشن|Action camera|1799|0|cameras-bestsellers;درون ميني|Mini drone|2899|3199|cameras-bestsellers;كاميرا كومباكت|Compact camera|1499|0|cameras-bestsellers;عدسة 50mm f/1.8|50mm f/1.8 lens|899|0|cameras-bundle;بطاقة ذاكرة 256GB|256GB memory card|189|0|cameras-bundle;حقيبة كاميرا|Camera bag|249|0|cameras-bundle',
+  accessories: 'كفرات حماية وحماية شاشة|Cases & screen protectors|129|159|accessories-bestsellers;شاحن سريع جداري وسيارة|Wall & car fast charger|179|0|accessories-bundle;كيبل USB-C مضفر|Braided USB-C cable|59|0|accessories-featured;باور بانك 20000|20000mAh power bank|149|199|accessories-featured;شاحن لاسلكي|Wireless charger|129|0|accessories-featured;حماية شاشة زجاجية|Glass screen protector|59|0|accessories-bestsellers;موزع USB-C|USB-C hub|179|0|computers-bundle;حقيبة شواحن وأسلاك|Charger & cable pouch|99|0|accessories-bundle',
+  software: 'ترخيص Windows 11 برو|Windows 11 Pro license|299|399|software-bundle;اشتراك Microsoft 365|Microsoft 365|349|0|software-featured;ترخيص أدوبي|Adobe license|899|0|software-bestsellers;مضاد فيروسات 3 أجهزة|Antivirus, 3 devices|149|199|software-bundle;برنامج VPN سنة|VPN, 1 year|129|0|software-featured;برنامج تحليل بيانات|Data analytics software|599|0|software-bestsellers;ترخيص Windows 11 هوم|Windows 11 Home license|199|0|software-bundle;برنامج تصميم|Design software|599|0|software-bestsellers'
 };
 const MODES = ['featured', 'bestsellers', 'bundle'];
 const asset = name => (B.dataset.ocImg || '').replace(/[^/]*\.webp(\?.*)?$/, `${name}.webp$1`);
-/* photos for a type: its own three, then its related types' */
-const pics = v => { const V = VERTICALS[v] || VERTICALS.electronics; const out = []; [v, ...V.cats.filter(c => c !== v)].forEach(k => MODES.forEach(m => out.push(asset(`${k}-${m}`)))); return out; };
 
 export function demoPack(v) {
-  const V = VERTICALS[v] ? v : 'electronics', im = pics(V);
-  const ps = (P[V] || P.electronics).split(';').map((s, i) => { const [a, e, p, w] = s.split('|'); const price = +p, was = +w || null;
-    return { id: 9000 + i, name: ar() ? a : e, url: '#', img: im[i % im.length], price, was, sale: !!was, out: false, stars: [4.8, 4.6, 4.7, 4.5, 4.9, 4.4, 4.6, 4.7][i], reviews: [214, 162, 88, 301, 120, 64, 45, 140][i], sold: [320, 180, 90, 260, 140, 60, 40, 150][i], digital: V === 'digital_cards' || V === 'software' }; });
+  const V = VERTICALS[v] ? v : 'electronics';
+  const ps = (P[V] || P.electronics).split(';').map((s, i) => { const [a, e, p, w, k] = s.split('|'); const price = +p, was = +w || null;
+    return { id: 9000 + i, name: ar() ? a : e, url: '#', img: asset(k), price, was, sale: !!was, out: false, stars: [4.8, 4.6, 4.7, 4.5, 4.9, 4.4, 4.6, 4.7][i], reviews: [214, 162, 88, 301, 120, 64, 45, 140][i], sold: [320, 180, 90, 260, 140, 60, 40, 150][i], digital: V === 'digital_cards' || V === 'software' }; });
   const cats = (VERTICALS[V].cats || [V]).map((c, i) => ({ id: null, name: ar() ? VERTICALS[c].ar : VERTICALS[c].en, url: '#', img: asset(`${c}-${MODES[i % 3]}`), sub: [], v: c }));
   return { v: V, ps, cats };
 }
@@ -59,27 +56,39 @@ function skinCards(pack) {
 }
 function skinMenu(pack) {
   document.querySelectorAll('.main-menu').forEach(menu => {
-    /* Salla renders each category twice (mobile + desktop <li>) with the same id: map by id so both get the same tech category */
-    const key = li => li.id || (li.querySelector(':scope > a, :scope > span') || li).textContent.trim();
-    const skip = li => li.tagName !== 'LI' || li.id === 'offers' || li.id === 'more-menu-dropdown' || /^(تخفيضات|العروض|المزيد|offers|more)$/i.test(key(li));
-    const ids = []; [...menu.children].forEach(li => { if (!skip(li) && key(li) && !ids.includes(key(li))) ids.push(key(li)); });
-    [...menu.children].forEach(li => {
-      if (skip(li)) return;
-      const k = ids.indexOf(key(li)); if (k < 0) return;
-      const c = pack.cats[k];
-      if (!c) { li.dataset.ocHide = '1'; li.style.display = 'none'; return; }
-      const label = li.querySelector(':scope > a span') || li.querySelector(':scope > a') || li.querySelector(':scope > span');
-      if (label) label.textContent = c.name;
+    /* each top item is keyed by its ORIGINAL label (or id), so Salla's mobile + desktop twins get the same tech category;
+       «تخفيضات»/«المزيد» and any extra item are hidden with !important (the mobile drawer's own CSS would show them again) */
+    const orig = li => { if (!li.dataset.ocOrig) li.dataset.ocOrig = li.id || (li.querySelector(':scope > a, :scope > span') || li).textContent.trim(); return li.dataset.ocOrig; };
+    const special = li => li.id === 'offers' || li.id === 'more-menu-dropdown' || /^(تخفيضات|العروض|المزيد|offers|more)$/i.test(orig(li));
+    const items = [...menu.children].filter(li => li.tagName === 'LI'), keys = [];
+    items.forEach(li => { if (!special(li) && orig(li) && !keys.includes(orig(li))) keys.push(orig(li)); });
+    items.forEach(li => {
+      const c = special(li) ? null : pack.cats[keys.indexOf(orig(li))];
+      if (!c) { li.classList.add('oc-hide'); return; }
+      li.classList.remove('oc-hide');
+      const label = li.querySelector(':scope > a span') || li.querySelector(':scope > span') || li.querySelector(':scope > a');
+      if (label && label.textContent !== c.name) label.textContent = c.name;
       const a = li.querySelector(':scope > a'); if (a) a.setAttribute('aria-label', c.name);
-      li.querySelectorAll('img').forEach(i => { i.src = c.img; i.alt = c.name; });
+      li.querySelectorAll(':scope > ul, :scope .sub-menu').forEach(u => u.classList.add('oc-hide')); // fashion sub-categories / products
+      li.querySelectorAll('img').forEach(i => { if (i.getAttribute('src') !== c.img) { i.src = c.img; i.alt = c.name; } });
     });
+  });
+}
+/* the demo store's fashion logo (a clothes hanger) → a HANGUL wordmark with the chosen type */
+function skinLogo(pack) {
+  const V = VERTICALS[pack.v] || VERTICALS.electronics;
+  document.querySelectorAll('.navbar-brand, footer .store-logo, footer a[href] > img[alt*="logo"]').forEach(a => {
+    const img = a.tagName === 'IMG' ? a : a.querySelector('img'); if (!img || img.dataset.ocLogo) return; img.dataset.ocLogo = '1';
+    img.classList.add('oc-hide');
+    const w = document.createElement('span'); w.className = 'oc-demo-logo'; w.innerHTML = `<b>HANGUL</b><small>${ar() ? V.ar : V.en}</small>`;
+    img.insertAdjacentElement('afterend', w);
   });
 }
 
 /* everything else the fashion demo store shows (Salla banners / sliders / category blocks / section titles / product page)
    is swept in preview: fashion words → the type's own wording, store photos → the theme's tech photos. */
 const FASHION = /(فستان|فساتين|بلوز|بلايز|عباي|جاكيت|بنطلون|بناطيل|تنور|تنانير|أزياء|ازياء|ملابس|قميص|قمصان|شنط|حقائب|أحذية|احذية|كعب|طرح|شيل|لانجري|dress|blouse|fashion|jacket|abaya|skirt|pants|trouser|shirt|cloth|outfit|heels|handbag)/i;
-const OWN = '.oc-pk, .oc-ai, .oc-cc, .oc-dock, [data-oc-sec], .oc-hero, .oc-cats, .oc-smart-host, .oc-vsec, .oc-trust, custom-salla-product-card, .s-product-card-entry, script, style, noscript';
+const OWN = '.main-menu, #mobile-menu, .oc-demo-logo, .oc-pk, .oc-ai, .oc-cc, .oc-dock, [data-oc-sec], .oc-hero, .oc-cats, .oc-smart-host, .oc-vsec, .oc-trust, custom-salla-product-card, .s-product-card-entry, script, style, noscript';
 const themeImg = src => !src || /\/images\/oc\/|placeholder|data:image|sicon|\.svg(\?|$)/.test(src);
 function sweep(pack) {
   const V = VERTICALS[pack.v] || VERTICALS.electronics, nm = ar() ? V.ar : V.en; let ci = 0, pi = 0;
@@ -117,7 +126,10 @@ function skinProduct(pack) {
 export function initDemo() {
   if (!isPreview()) return;
   B.classList.add('oc-demo');
-  let t = 0; const run = () => { const pack = demoPack(vOf()); skinCards(pack); skinMenu(pack); try { skinProduct(pack); sweep(pack); } catch (e) {  } };
+  if (!document.getElementById('oc-demo-css')) { const st = document.createElement('style'); st.id = 'oc-demo-css';
+    st.textContent = '.oc-demo .oc-hide{display:none!important}.oc-demo-logo{display:inline-grid;line-height:1;text-align:center;gap:3px}.oc-demo-logo b{font-weight:900;letter-spacing:.32em;font-size:20px;background:linear-gradient(180deg,#f3e2bd,#d9b779 55%,#8a6a3a);-webkit-background-clip:text;background-clip:text;color:transparent}.oc-demo-logo small{font-size:10px;letter-spacing:.12em;opacity:.75}';
+    document.head.appendChild(st); }
+  let t = 0; const run = () => { const pack = demoPack(vOf()); skinLogo(pack); skinCards(pack); skinMenu(pack); try { skinProduct(pack); sweep(pack); } catch (e) {  } };
   run(); setTimeout(run, 600); setTimeout(run, 2000);
   new MutationObserver(() => { clearTimeout(t); t = setTimeout(run, 160); }).observe(B, { childList: true, subtree: true });
   /* a different type picked in the preview picker: reload so every section reads the new demo store cleanly */
