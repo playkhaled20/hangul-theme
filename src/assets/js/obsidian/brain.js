@@ -4,6 +4,7 @@
    Everything it reports is MEASURED, never invented: a figure with no data behind it is null and the UI hides it.
    Cached in sessionStorage for 20 minutes per store so navigation stays instant. No external calls, no tracking. */
 import { VERTICALS, detect } from './verticals';
+import { isPreview, demoPack, demoV } from './demo';
 
 const TTL = 20 * 60 * 1000;
 const B = document.body;
@@ -77,6 +78,11 @@ let pending = null;
 export function brain(){
   if (pending) return pending;
   pending = (async () => {
+    if (isPreview()) { // Salla's preview store sells fashion: read the tech demo store of the chosen type instead
+      const D = demoPack(demoV()), names = D.ps.map(p => p.name);
+      return publish({ t: Date.now(), sig: { name: cfg('store.name') || B.dataset.ocStore || '', desc: '', currency: 'SAR' }, cats: D.cats, main: D.v, present: [D.v],
+        mix: [{ v: D.v, pct: 100 }], brands: brandsIn(names).slice(0, 12), stats: measure(D.ps), top: D.ps.slice(0, 8), deals: D.ps.filter(p => p.sale) });
+    }
     const key = 'oc_brain:' + (cfg('store.id') || location.host);
     if (!/[?&]oc_fresh/.test(location.search)) { try { const c = JSON.parse(sessionStorage.getItem(key) || 'null'); if (c && Date.now() - c.t < TTL) return publish(c); } catch (e) {} }
     const [cats, latest, offers] = await Promise.all([categories(), products('latest', 30), products('offers', 12)]);
