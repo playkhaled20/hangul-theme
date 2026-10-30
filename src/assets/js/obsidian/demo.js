@@ -35,9 +35,8 @@ export function demoPack(v) {
   return { v: V, ps, cats };
 }
 
+/* demo prices are always Saudi riyals (the demo store may show a visitor's local currency) */
 const money = n => `${Math.round(n).toLocaleString('en-US')} ${ar() ? 'ر.س' : 'SAR'}`;
-/* keep the demo store's own price format (currency symbol, position) and swap only the number */
-const like = (el, n) => { const t = (el && el.textContent || '').trim(); return /[\d٠-٩]/.test(t) ? t.replace(/[\d٠-٩][\d٠-٩.,]*/, Math.round(n).toLocaleString('en-US')) : money(n); };
 /* the preview's store type: picker choice (?oc_type / session) → merchant setting → electronics. Never the fashion demo store's own words. */
 export const demoV = () => { let v = ''; try { v = new URLSearchParams(location.search).get('oc_type') || sessionStorage.getItem('oc_type') || ''; } catch (e) {  }
   const set = B.dataset.ocVertical; return VERTICALS[v] ? v : VERTICALS[set] ? set : 'electronics'; };
@@ -135,8 +134,8 @@ function skinProduct(pack) {
   /* every slide and thumb shows this very product */
   gal.querySelectorAll('img').forEach(img => { if (themeImg(img.getAttribute('src'))) return; img.src = p.img; img.removeAttribute('srcset'); img.alt = p.name; img.dataset.ocSwept = '1'; });
   /* prices: the title price block, the form / sticky bar prices; old price only when the demo product has an offer */
-  document.querySelectorAll('[data-testid="store-product-price"] p, .total-price, .product-entry__price, .sticky-product-bar .total-price').forEach(e => { if (once(e)) e.textContent = like(e, p.price); });
-  document.querySelectorAll('[data-testid="store-product-price"] .line-through, .before-price').forEach(e => { if (once(e)) { if (p.was) e.textContent = like(e, p.was); else e.style.display = 'none'; } });
+  document.querySelectorAll('[data-testid="store-product-price"] p, .total-price, .product-entry__price, .sticky-product-bar .total-price').forEach(e => { if (once(e)) e.textContent = money(p.price); });
+  document.querySelectorAll('[data-testid="store-product-price"] .line-through, .before-price').forEach(e => { if (once(e)) { if (p.was) e.textContent = money(p.was); else e.style.display = 'none'; } });
   /* sub-title / sku / sizes copied from the fashion product */
   document.querySelectorAll('.product-entry__sub-title').forEach(e => { if (once(e)) e.textContent = vt(V.hero); });
   const desc = document.querySelector('.product__description .article--main, .product__description, .product-single__description');
