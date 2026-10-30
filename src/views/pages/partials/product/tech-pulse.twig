@@ -7,12 +7,12 @@
 {% elseif q <= 10 %}{% set lv = 'low' %}{% set sv = 34 %}
 {% elseif q <= 30 %}{% set lv = 'mid' %}{% set sv = 62 %}
 {% else %}{% set lv = 'high' %}{% set sv = 90 %}{% endif %}
-{% set lvT = {'high':'متوفر بثقة','mid':'توفر جيد','low':'الكمية تقل','last':'آخر القطع','out':'نفدت · نبّهني'} %}
-{% set lvD = {'high':'جاهز للشحن اليوم','mid':'يُنصح بالطلب قريباً','low':'الطلب عليه مرتفع هذا الأسبوع','last':'قد ينفد خلال ساعات','out':'نرسل لك فور توفره'} %}
+{% set lv_t = {'high':'متوفر بثقة','mid':'توفر جيد','low':'الكمية تقل','last':'آخر القطع','out':'نفدت · نبّهني'} %}
+{% set lv_d = {'high':'جاهز للشحن اليوم','mid':'يُنصح بالطلب قريباً','low':'الطلب عليه مرتفع هذا الأسبوع','last':'قد ينفد خلال ساعات','out':'نرسل لك فور توفره'} %}
 <div class="tp" data-testid="tech-pulse">
   <div class="tp-card tp-stock tp-{{ lv }}">
     <div class="tp-gauge" style="--v:{{ sv }}"><i></i></div>
-    <div><span class="tp-k">نبض المخزون</span><b>{{ lvT[lv] }}</b><small>{{ lvD[lv] }}{% if sold > 20 %} · <em class="tp-hot">رائج</em>{% endif %}</small></div>
+    <div><span class="tp-k">نبض المخزون</span><b>{{ lv_t[lv] }}</b><small>{{ lv_d[lv] }}{% if sold > 20 %} · <em class="tp-hot">رائج</em>{% endif %}</small></div>
   </div>
   {% if product.rating and product.rating.count > 0 %}
     {% set pc = (product.rating.stars / 5 * 100)|round %}

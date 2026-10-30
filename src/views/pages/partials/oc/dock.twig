@@ -1,10 +1,10 @@
 {# Hangul · in-theme smart add-ons dock (cinema chrome). Chips drive the same add-on panel mounted by obsidian.js. #}
-{% set ocDockItems = [['stylist','مستشار الإعداد','Setup advisor'],['voice','البحث الصوتي','Voice search'],['listen','استمع للمواصفات','Listen to specs'],['tryon','الحجم الحقيقي','True size'],['recolour','معاينة التشطيبات','Finish preview'],['photocoach','مدرب التوثيق','Photo & proof coach'],['colorbook','دليل التشطيبات','Finish lookbook'],['look','أكمل الطقم','Complete the kit'],['quiz','اختبار احتياجك','Needs quiz'],['undertone','فاحص التوافق','Compatibility'],['giftfinder','مكتشف الهدايا','Gift finder'],['presets','باقات جاهزة','Ready bundles']] %}
+{% set oc_dock_items = [['stylist','مستشار الإعداد','Setup advisor'],['voice','البحث الصوتي','Voice search'],['listen','استمع للمواصفات','Listen to specs'],['tryon','الحجم الحقيقي','True size'],['recolour','معاينة التشطيبات','Finish preview'],['photocoach','مدرب التوثيق','Photo & proof coach'],['colorbook','دليل التشطيبات','Finish lookbook'],['look','أكمل الطقم','Complete the kit'],['quiz','اختبار احتياجك','Needs quiz'],['undertone','فاحص التوافق','Compatibility'],['giftfinder','مكتشف الهدايا','Gift finder'],['presets','باقات جاهزة','Ready bundles']] %}
 <section class="oc-dock container" data-testid="oc-dock" aria-label="{{ language.code == 'ar' ? 'الإضافات الذكية' : 'Smart add-ons' }}">
   <div class="oc-dock__inner">
     <button type="button" class="oc-dock__lead" data-oc-dock="open"><span class="oc-dock__star">✦</span> {{ language.code == 'ar' ? 'الإضافات الذكية' : 'Smart add-ons' }}</button>
     <div class="oc-dock__chips">
-      {% for it in ocDockItems %}{% if not (ocOff is defined and (it[0] ~ ',') in ocOff) %}
+      {% for it in oc_dock_items %}{% if not (oc_off is defined and (it[0] ~ ',') in oc_off) %}
       <button type="button" class="oc-dock__chip" data-oc-dock="{{ it[0] }}">{{ language.code == 'ar' ? it[1] : it[2] }}</button>
       {% endif %}{% endfor %}
     </div>

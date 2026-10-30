@@ -1,4 +1,4 @@
-{% set P = {
+{% set icon_paths = {
 'phone':'<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
 'tablet':'<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M11 18h2"/>',
 'laptop':'<rect x="4" y="4" width="16" height="11" rx="1"/><path d="M2 19h20"/>',
@@ -26,4 +26,4 @@
 'shield':'<path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/>',
 'truck':'<path d="M1 4h14v12H1zM15 9h4l4 4v3h-8"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/>',
 'spark':'<path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/>'
-} %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{{ (P[i] ?? P['spark'])|raw }}</svg>
+} %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{{ (icon_paths[i] ?? icon_paths['spark'])|raw }}</svg>
