@@ -10,6 +10,19 @@ body.oc{
   &[data-oc-accent=ice]{--oc-acc:#9fd4ff;--oc-glow:rgba(159,212,255,.32)}
   &[data-oc-accent=store]{--oc-acc:var(--color-primary);--oc-glow:color-mix(in srgb,var(--color-primary) 40%,transparent)}
   .bg-white,.bg-gray-50,.bg-gray-100{background:transparent!important}
+  /* light-footer / light-drawer store settings would paint pale grey panels under the dark layer's light text */
+  .store-footer{color:var(--oc-txt)!important;.store-footer__inner{background:transparent!important;border-color:var(--oc-line)!important}
+    a,p,li,span,div{color:inherit}h3{color:var(--oc-gold2)}.social-link,.contact-social{border-color:var(--oc-line)!important}}
+  .mm-spn,.mm-spn.mm-spn--light,.mm-ocd__content{background:var(--oc-bg2)!important;color:var(--oc-txt)!important}
+  .mm-spn a,.mm-spn span,.mm-spn li{color:var(--oc-txt)!important}.mm-spn li:after{border-color:var(--oc-line)!important}
+  &.mm-ocd-opened :is(.oc-pk,.oc-ai,.oc-cc){display:none!important} // the drawer owns the screen while it is open
+  /* a dark store colour would vanish on the dark layer: the buy buttons always read (gold add to cart, outlined buy now) */
+  .product-form .s-button-primary,.sticky-product-bar .s-button-primary{background:linear-gradient(135deg,var(--oc-acc),var(--oc-gold2))!important;color:#111!important}
+  .s-add-product-button-mini-checkout{border:1px solid var(--oc-acc)!important;border-radius:10px;color:var(--oc-txt)!important;background:transparent!important;opacity:1!important}
+  .s-add-product-button-mini-checkout-content,.s-add-product-button-mini-checkout-content *{color:var(--oc-txt)!important;fill:currentColor}
+  /* add to cart + buy now share one row: on phones they stack, so neither label is cut */
+  @media (max-width:640px){.sticky-product-bar .s-add-product-button-main{flex-wrap:wrap;gap:.5rem}.sticky-product-bar .s-add-product-button-main>*{flex:1 1 100%;min-width:0;width:100%}
+    .sticky-product-bar .s-button-text{white-space:nowrap}}
   /* the mobile sticky cart bar floats over the page: it needs a solid backdrop, or the trust/stock rings show through the quantity box */
   @media (max-width:640px){&.is-sticky-product-bar .sticky-product-bar,.is-sticky-product-bar .sticky-product-bar{background:color-mix(in srgb,var(--oc-bg) 96%,transparent)!important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--oc-line);z-index:30}}
   .text-gray-500,.text-gray-400{color:var(--oc-mut)!important}
@@ -118,7 +131,7 @@ body.oc[data-oc-v=phones] .oc-hero__stage{grid-template-columns:1fr 1.2fr}
 @each $v in electronics,phones,watches,computers,gaming,audio,digital_cards,smarthome,cameras,accessories,software{body[data-oc-v=#{$v}] [data-oc-only~=#{$v}]{display:block}}
 
 /* WHITE preview picker system (merchant-facing) */
-.oc-pk{position:fixed;z-index:10000;inset-block-end:1.2rem;inset-inline-start:1.2rem;font-family:inherit;color:#111}
+.oc-pk{position:fixed;z-index:10000;inset-block-end:calc(1.2rem + var(--oc-lift,0px));inset-inline-start:1.2rem;font-family:inherit;color:#111}
 .oc-pk__fab{display:flex;gap:.5rem;align-items:center;padding:.7rem 1.1rem;border-radius:99px;background:#fff;color:#111;font-weight:700;box-shadow:0 10px 40px rgba(0,0,0,.35);border:1px solid #e7e7ea;span{width:1.3rem;display:inline-flex}svg{width:100%}}
 .oc-pk__sheet{display:none;position:absolute;inset-block-end:3.6rem;inset-inline-start:0;width:min(560px,92vw);background:#fff;border-radius:1.2rem;padding:1.1rem;box-shadow:0 30px 80px rgba(0,0,0,.45);border:1px solid #ececf0;
   header{display:grid;gap:.2rem;margin-bottom:.8rem;b{font-size:1.05rem}small{color:#6b6b73}}}
