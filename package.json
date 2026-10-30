@@ -1,11 +1,11 @@
 {
-  "name": "techno-theme",
+  "name": "obsidian-cinema",
   "version": "0.1.0",
-  "description": "Techno \u2014 Salla theme for tech stores (based on Salla Raed, MIT)",
+  "description": "Obsidian Cinema — Salla Twilight theme for tech stores (based on Salla Raed, MIT)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/playkhaled20/techno-theme.git"
+    "url": "git+https://github.com/playkhaled20/hangul-theme.git"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -15,7 +15,7 @@
     "development": "webpack --mode development",
     "watch": "webpack --mode development --watch"
   },
-  "author": "Salla",
+  "author": "fooz1980k@gmail.com",
   "dependencies": {
     "@babel/runtime": "^8.0.0",
     "animejs": "^3.2.2",

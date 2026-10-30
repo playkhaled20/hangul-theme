@@ -87,7 +87,6 @@
 #}
 {% extends "layouts.master" %}
 {% block content %}
-<div hidden data-tech-pdp data-id="{{ product.id }}" data-name="{{ product.name }}" data-img="{{ product.image.url }}"></div>
     {% if theme.settings.get('product_show_breadcrumbs', true) %}
       <div class="container container--breadcrumbs">
           {# add breadcumbs container in pages to make a space in case breadcrumbs is off #}
@@ -221,8 +220,8 @@
                     </h2>
                 {% endif %}
 
-                {% if theme.settings.get('tech_ig', true) is not same as(false) %}
-                    {% include 'pages.partials.product.tech-pulse' %}
+                {% if theme.settings.get('oc_smart_ratings', true) is not same as(false) %}
+                    {% include 'pages.partials.product.oc-intel' %}
                 {% elseif product.rating %}
                     <salla-rating-stars data-testid="store-product-rating" value="{{ product.rating.stars }}"
                                         reviews="{{ product.rating.count }}"></salla-rating-stars>
@@ -298,7 +297,7 @@
                                 <span>{{ pluralize('pages.products.sold_times', product.sold_quantity)|raw }}</span>
                             </div>
                         {% endif %}
-                        {% if product.can_show_remained_quantity and theme.settings.get('tech_ig', true) is same as(false) %}
+                        {% if product.can_show_remained_quantity and theme.settings.get('oc_smart_ratings', true) is same as(false) %}
                             <div class="px-4 rtl:even:border-r ltr:even:border-l even:border-gray-200">
                                 <i class="!text-red-800 sicon-box-bankers rtl:ml-1.5 ltr:mr-1.5"></i>
                                 {{ trans('pages.products.remained') }}

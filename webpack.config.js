@@ -21,7 +21,7 @@ module.exports = {
         product : [asset('js/product.js'), asset('js/products.js')],
         order   : asset('js/order.js'),
         testimonials   : asset('js/testimonials.js'),
-        tech    : asset('js/tech/index.js')
+        obsidian: [asset('styles/obsidian/obsidian.scss'), asset('js/obsidian/index.js')]
     },
     output : {
         path: public(),
