@@ -2,7 +2,7 @@
    Salla previews every theme on its own demo store, which sells fashion. In PREVIEW ONLY (Salla theme preview /
    salla.design / ?oc_preview) this swaps the demo store's product cards, header menu and store read for tech demo
    content of the chosen store type, using the theme's bundled real photos. A live store is never touched. */
-import { VERTICALS } from './verticals';
+import { VERTICALS, vt } from './verticals';
 
 const B = document.body, ar = () => (document.documentElement.lang || 'ar').startsWith('ar');
 export const isPreview = () => { const h = location.hostname, q = new URLSearchParams(location.search);
@@ -72,10 +72,45 @@ function skinMenu(pack) {
   });
 }
 
+/* everything else the fashion demo store shows (Salla banners / sliders / category blocks / section titles / product page)
+   is swept in preview: fashion words → the type's own wording, store photos → the theme's tech photos. */
+const FASHION = /(فستان|فساتين|بلوز|بلايز|عباي|جاكيت|بنطلون|بناطيل|تنور|تنانير|أزياء|ازياء|ملابس|قميص|قمصان|شنط|حقائب|أحذية|احذية|كعب|طرح|شيل|لانجري|dress|blouse|fashion|jacket|abaya|skirt|pants|trouser|shirt|cloth|outfit|heels|handbag)/i;
+const OWN = '.oc-pk, .oc-ai, .oc-cc, .oc-dock, [data-oc-sec], .oc-hero, .oc-cats, .oc-smart-host, .oc-vsec, .oc-trust, custom-salla-product-card, .s-product-card-entry, script, style, noscript';
+const themeImg = src => !src || /\/images\/oc\/|placeholder|data:image|sicon|\.svg(\?|$)/.test(src);
+function sweep(pack) {
+  const V = VERTICALS[pack.v] || VERTICALS.electronics, nm = ar() ? V.ar : V.en; let ci = 0, pi = 0;
+  const nextCat = () => pack.cats[ci++ % pack.cats.length].name, nextPic = () => { const p = pack.ps[pi++ % pack.ps.length]; return p.img; };
+  const root = document.querySelector('#main-content, main') || B;
+  /* texts */
+  const tw = document.createTreeWalker(B, NodeFilter.SHOW_TEXT); const hits = [];
+  while (tw.nextNode()) { const n = tw.currentNode, el = n.parentElement; if (!el || el.closest(OWN) || !FASHION.test(n.textContent)) continue; hits.push(n); }
+  hits.forEach(n => { const el = n.parentElement, t = n.textContent.trim();
+    n.textContent = el.closest('h1, h2, h3, h4, .banner__title, .s-block__title') ? (t.length < 26 ? nextCat() : `${ar() ? 'مختارات' : 'Featured'} ${nm}`) : t.length < 26 ? nextCat() : vt(V.hero); });
+  /* photos and background photos from the demo store */
+  root.querySelectorAll('img').forEach(img => { if (img.closest(OWN) || img.dataset.ocSwept) return; const src = img.currentSrc || img.getAttribute('src') || img.dataset.src || '';
+    if (themeImg(src) || img.closest('.store-header, header, footer')) return; img.dataset.ocSwept = '1'; const n = nextPic(); img.src = n; img.removeAttribute('srcset'); if (img.dataset.src) img.dataset.src = n; });
+  root.querySelectorAll('[data-bg], .banner-entry, .swiper-slide [style*="background-image"]').forEach(e => { if (e.closest(OWN) || e.dataset.ocSwept) return;
+    const bg = e.dataset.bg || e.style.backgroundImage || ''; if (!bg || themeImg(bg)) return; e.dataset.ocSwept = '1'; const n = nextPic(); if (e.dataset.bg) e.dataset.bg = n; e.style.backgroundImage = `url("${n}")`; });
+}
+/* product page in preview: one tech demo product (stable per URL) */
+function skinProduct(pack) {
+  const h1 = document.querySelector('.product-single h1, .product-entry__title, main h1'); if (!h1 || !document.querySelector('salla-add-product-button, .product-form, [class*="product-single"]')) return;
+  if (B.dataset.ocDemoPdp) return; B.dataset.ocDemoPdp = '1';
+  let h = 0; for (const ch of location.pathname) h = (h * 31 + ch.charCodeAt(0)) >>> 0; const k = h % pack.ps.length, p = pack.ps[k], V = VERTICALS[pack.v] || VERTICALS.electronics;
+  h1.textContent = p.name; document.title = p.name;
+  const gal = document.querySelector('.product-single__images, salla-slider.details-slider, .product-single salla-slider, .product-slider, .product__images') || document.querySelector('main');
+  let i = 0; gal.querySelectorAll('img').forEach(img => { if (themeImg(img.getAttribute('src'))) return; img.src = pack.ps[(k + i++) % pack.ps.length].img; img.removeAttribute('srcset'); img.alt = p.name; img.dataset.ocSwept = '1'; });
+  document.querySelectorAll('.product-single .total-price, .product-price, .price-wrapper .total-price, .product-entry__price, [class*="product"] .price').forEach(e => { e.textContent = money(p.price); });
+  document.querySelectorAll('.product-single .before-price, .product-price-before, del').forEach(e => { if (p.was) e.textContent = money(p.was); else e.remove(); });
+  const desc = document.querySelector('.product__description, .product-single__description, .article--main');
+  if (desc) desc.innerHTML = `<p>${vt(V.hero)}</p><ul>${(V.specs || []).map(([l]) => `<li>${vt(l)}</li>`).join('')}</ul>`;
+  document.querySelectorAll('salla-product-options, .s-product-options-wrapper, .product-options, [data-size-guide]').forEach(e => { e.style.display = 'none'; });
+}
+
 export function initDemo() {
   if (!isPreview()) return;
   B.classList.add('oc-demo');
-  let t = 0; const run = () => { const pack = demoPack(vOf()); skinCards(pack); skinMenu(pack); };
+  let t = 0; const run = () => { const pack = demoPack(vOf()); skinCards(pack); skinMenu(pack); try { skinProduct(pack); sweep(pack); } catch (e) {  } };
   run(); setTimeout(run, 600); setTimeout(run, 2000);
   new MutationObserver(() => { clearTimeout(t); t = setTimeout(run, 160); }).observe(B, { childList: true, subtree: true });
   /* a different type picked in the preview picker: reload so every section reads the new demo store cleanly */
