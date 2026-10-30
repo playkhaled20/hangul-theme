@@ -20,12 +20,26 @@ body.oc{
   .product-form .s-button-primary,.sticky-product-bar .s-button-primary{background:linear-gradient(135deg,var(--oc-acc),var(--oc-gold2))!important;color:#111!important}
   .s-add-product-button-mini-checkout{border:1px solid var(--oc-acc)!important;border-radius:10px;color:var(--oc-txt)!important;background:transparent!important;opacity:1!important}
   .s-add-product-button-mini-checkout-content,.s-add-product-button-mini-checkout-content *{color:var(--oc-txt)!important;fill:currentColor}
-  /* phones: the cart bar arrives at once (no staged fade of quantity / buttons), and the floating buttons shrink to
-     icons above it so they hide less of the product photos */
-  @media (max-width:640px){&.is-sticky-product-bar .sticky-product-bar{transition-duration:.3s!important;transition-delay:0s!important}
+  /* phones, product page: the cart bar arrives at once (no staged fade), stays compact (quantity + packs on one row), and the
+     floating buttons dock as icons inside its empty bottom corners beside the buy buttons, so they cover no page content */
+  @media (max-width:640px){&.is-sticky-product-bar .sticky-product-bar{transition-duration:.3s!important;transition-delay:0s!important;padding:.6rem .75rem calc(.6rem + env(safe-area-inset-bottom))!important;gap:.5rem!important}
     &.is-sticky-product-bar .sticky-product-bar :is(.sticky-product-bar__quantity,salla-add-product-button){transition:none!important;transform:none!important;opacity:1!important}
-    &.oc-lifted .oc-pk__fab{width:46px;height:46px;padding:0!important;justify-content:center;font-size:0;gap:0;&::before{display:none}}
-    &.oc-lifted .oc-ai__fab{width:46px;height:46px;padding:0!important;font-size:0;display:grid;place-items:center;&::before{content:"✦";font-size:1.15rem}}}
+    .sticky-product-bar .sticky-product-bar__quantity{flex-wrap:nowrap;gap:.4rem;salla-quantity-input{flex:0 0 7.4rem;width:7.4rem!important}
+      .oc-packs{flex:1;flex-wrap:nowrap;overflow-x:auto;gap:.3rem;margin:0;scrollbar-width:none;button{flex:1 0 auto;padding:.35rem .5rem;font-size:.72rem;white-space:nowrap}}}
+    &.oc-lifted{padding-bottom:var(--oc-lift)!important} // the page (footer included) scrolls fully above the bar
+    /* until Salla has drawn the buy button the bar would be an empty strip: bar and docked buttons appear together */
+    &.is-sticky-product-bar .sticky-product-bar:not(:has(salla-add-product-button button)){opacity:0!important;pointer-events:none}
+    &.oc-lifted.oc-bar-wait :is(.oc-pk,.oc-ai,.oc-cc){opacity:0;pointer-events:none}
+    &.oc-lifted .sticky-product-bar salla-add-product-button{max-width:calc(100% - 7.5rem);margin-inline:auto!important}
+    &.oc-lifted :is(.oc-pk__fab,.oc-ai__fab,.oc-cc__fab){width:44px;height:44px;padding:0!important;justify-content:center;font-size:0;gap:0;border-radius:50%}
+    &.oc-lifted .oc-pk__fab::before{display:none}
+    &.oc-lifted .oc-ai__fab{display:grid;place-items:center;&::before{content:"✦";font-size:1.1rem}}
+    &.oc-lifted .oc-pk{inset-block-end:calc(.7rem + env(safe-area-inset-bottom));inset-inline-start:.75rem}
+    &.oc-lifted .oc-cc{inset-block-end:calc(.7rem + 52px + env(safe-area-inset-bottom));inset-inline-end:auto;inset-inline-start:.75rem}
+    &.oc-lifted .oc-ai{inset-block-end:calc(.7rem + env(safe-area-inset-bottom));inset-inline-end:.75rem}}
+  /* product cards on phones: the add-to-cart label fits the narrow card (no icon, tighter type) */
+  @media (max-width:640px){.s-product-card-content-footer salla-add-product-button{min-width:0;flex:1 1 auto;i{display:none}span{font-size:.76rem;white-space:nowrap}}
+    .s-product-card-content-footer :is(.s-button-btn,button){padding-inline:.45rem!important;min-width:0}}
   /* add to cart + buy now share one row: on phones they stack, so neither label is cut */
   @media (max-width:640px){.sticky-product-bar .s-add-product-button-main{flex-wrap:wrap;gap:.5rem}.sticky-product-bar .s-add-product-button-main>*{flex:1 1 100%;min-width:0;width:100%}
     .sticky-product-bar .s-button-text{white-space:nowrap}}

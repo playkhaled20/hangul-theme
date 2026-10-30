@@ -18,11 +18,11 @@ const P = { // name ar | name en | price | old price (0 = none) | photo that sho
   computers: 'ماك بوك برو M5 ‏14 بوصة|MacBook Pro M5 14"|8499|0|computers-featured;كمبيوتر قيمنق مع شاشة|Gaming PC with monitor|7999|8799|computers-bestsellers;طقم مكتبي: لابتوب وماوس وكيبورد وموزع|Desk set: laptop, mouse, keyboard & hub|5999|6499|computers-bundle;طقم قيمنق: سماعة وكيبورد RGB وماوس|Gaming set: headset, RGB keyboard & mouse|899|0|gaming-bestsellers;تابلت مع كيبورد وقلم|Tablet with keyboard & pen|3299|0|electronics-bundle;لابتوب للمبرمجين|Developer laptop|6499|6999|software-featured;تراخيص برامج بعلب أصلية مع ذاكرة USB|Boxed software licenses with USB drive|299|0|software-bundle',
   gaming: 'جهاز ألعاب منزلي مع يدي تحكم|Home console with two controllers|2999|3299|gaming-featured;جهاز ألعاب محمول مع قاعدة وحقيبة|Handheld console with dock & case|1899|0|gaming-bundle;طقم قيمنق: سماعة وكيبورد RGB وماوس|Gaming set: headset, RGB keyboard & mouse|899|999|gaming-bestsellers;بطاقات شحن ألعاب مع يد تحكم|Game top-up cards with controller|300|0|digital_cards-bundle;كمبيوتر قيمنق مع شاشة|Gaming PC with monitor|7999|0|computers-bestsellers;سماعة رأس فاخرة|Premium headphones|1499|1699|audio-featured',
   audio: 'سماعة رأس فاخرة|Premium headphones|1499|1699|audio-featured;إيربودز ومكبر صوت محمول|Earbuds & portable speaker|1199|0|audio-bestsellers;مسرح منزلي 5.1|5.1 home theatre|4299|4799|audio-bundle;جوال مع سماعة لاسلكية|Phone with wireless earbuds|5199|0|phones-bundle;مكبر صوت ذكي مع لمبة|Smart speaker with bulb|349|0|smarthome-featured;سماعة قيمنق مع كيبورد وماوس|Gaming headset with keyboard & mouse|899|999|gaming-bestsellers',
-  digital_cards: 'بطاقات هدايا مسبقة الدفع|Prepaid gift cards|100|0|digital_cards-featured;بطاقات شحن ألعاب في ظروف إهداء مع يد تحكم|Game top-up cards in gift envelopes with controller|200|0|digital_cards-bundle;بطاقة هدية مع جوال وعلبة إهداء|Gift card with phone & gift box|150|0|digital_cards-bestsellers;تراخيص برامج بعلب أصلية مع ذاكرة USB|Boxed software licenses with USB drive|299|399|software-bundle',
+  digital_cards: 'بطاقات هدايا مسبقة الدفع|Prepaid gift cards|100|0|digital_cards-featured;بطاقات شحن ألعاب في ظروف إهداء مع يد تحكم|Game top-up cards in gift envelopes with controller|200|0|digital_cards-bundle;بطاقة هدية رقمية على الجوال مع علبة إهداء|Digital gift card on phone with gift box|150|0|digital_cards-bestsellers;تراخيص برامج بعلب أصلية مع ذاكرة USB|Boxed software licenses with USB drive|299|399|software-bundle',
   smarthome: 'طقم كاميرا وجرس ومقبس ذكي|Camera, doorbell & smart plug kit|899|999|smarthome-bestsellers;منظم حرارة ذكي مع حساسات|Smart thermostat with sensors|749|0|smarthome-bundle;مكبر صوت ذكي مع لمبة|Smart speaker with bulb|449|0|smarthome-featured;شاشة ذكية OLED ‏65 بوصة|65" smart OLED TV|6499|7299|electronics-bestsellers',
   cameras: 'كاميرا احترافية مع عدسة زووم|Pro camera with zoom lens|9999|10999|cameras-featured;طقم ميرورليس: عدستان وبطاقات ذاكرة وحقيبة|Mirrorless kit: two lenses, memory cards & bag|8499|0|cameras-bundle;كاميرا أكشن وكومباكت ودرون ميني|Action cam, compact camera & mini drone|2899|3199|cameras-bestsellers;كاميرا مراقبة ذكية مع جرس|Smart security camera with doorbell|549|0|smarthome-bestsellers',
   accessories: 'كفرات حماية وحماية شاشة|Cases & screen protectors|129|159|accessories-bestsellers;شاحن سريع جداري وسيارة مع حقيبة|Wall & car fast charger with pouch|179|0|accessories-bundle;كيابل مضفرة وباور بانك وشاحن لاسلكي|Braided cables, power bank & wireless charger|249|299|accessories-featured;إيربودز ومكبر صوت محمول|Earbuds & portable speaker|999|0|audio-bestsellers;جوال مع سماعة لاسلكية|Phone with wireless earbuds|5199|0|phones-bundle',
-  software: 'تراخيص برامج بعلب أصلية مع ذاكرة USB|Boxed software licenses with USB drive|299|399|software-bundle;بيئة تطوير برمجية على لابتوب|Developer suite on a laptop|349|0|software-featured;برنامج لوحات تحليل بيانات للتابلت والجوال|Analytics dashboards for tablet & phone|599|0|software-bestsellers;بطاقات اشتراك مسبقة الدفع|Prepaid subscription cards|150|0|digital_cards-featured'
+  software: 'تراخيص برامج بعلب أصلية مع ذاكرة USB|Boxed software licenses with USB drive|299|399|software-bundle;بيئة تطوير برمجية على لابتوب|Developer suite on a laptop|349|0|software-featured;برنامج لوحات تحليل بيانات للتابلت والجوال|Analytics dashboards for tablet & phone|599|0|software-bestsellers;بطاقات هدايا رقمية مسبقة الدفع|Prepaid digital gift cards|150|0|digital_cards-featured'
 };
 const MODES = ['featured', 'bestsellers', 'bundle'];
 const asset = name => (B.dataset.ocImg || '').replace(/[^/]*\.webp(\?.*)?$/, `${name}.webp$1`);
@@ -152,6 +152,11 @@ function skinProduct(pack) {
   document.querySelectorAll('salla-product-options, .s-product-options-wrapper, .product-options, [data-size-guide]').forEach(e => { e.style.display = 'none'; });
 }
 
+/* the header cart total follows the visitor's currency on the demo store; the demo shows riyals like its prices */
+function skinCartTotal() {
+  document.querySelectorAll('salla-cart-summary .s-cart-summary-total, .s-cart-summary-total').forEach(e => { const t = e.textContent.trim();
+    if (t && !/ر\.س|SAR/.test(t)) { const n = parseFloat(t.replace(/[^\d.]/g, '')) || 0; e.textContent = money(n); } });
+}
 function skinFooter() {
   document.querySelectorAll('footer salla-menu').forEach(m => { if (m.querySelector('a') || m.parentElement.querySelector('.oc-demo-links')) return;
     const L = ar() ? ['الشحن والتوصيل', 'الاستبدال والاسترجاع', 'الضمان', 'تواصل معنا'] : ['Shipping & delivery', 'Returns & exchanges', 'Warranty', 'Contact us'];
@@ -163,10 +168,10 @@ export function initDemo() {
   if (!document.getElementById('oc-demo-css')) { const st = document.createElement('style'); st.id = 'oc-demo-css';
     st.textContent = '.oc-demo .oc-hide{display:none!important}.oc-demo-logo{display:inline-grid;line-height:1;text-align:center;gap:3px}.oc-demo-logo b{font-weight:900;letter-spacing:.32em;font-size:20px;background:linear-gradient(180deg,#f3e2bd,#d9b779 55%,#8a6a3a);-webkit-background-clip:text;background-clip:text;color:transparent}.oc-demo-logo small{font-size:10px;letter-spacing:.12em;opacity:.75}.oc-demo{padding-bottom:88px}.oc-demo-links{display:grid;gap:.6rem;margin:0;padding:0;list-style:none}.oc-demo.product-single salla-breadcrumb:not([data-oc-demo]){visibility:hidden}';
     document.head.appendChild(st); }
-  let t = 0; const run = () => { const pack = demoPack(vOf()); skinLogo(pack); skinCards(pack); skinMenu(pack); try { skinFooter(); skinProduct(pack); sweep(pack); } catch (e) {  } };
+  let t = 0; const run = () => { const pack = demoPack(vOf()); skinLogo(pack); skinCards(pack); skinMenu(pack); try { skinFooter(); skinCartTotal(); skinProduct(pack); sweep(pack); } catch (e) {  } };
   run(); setTimeout(run, 600); setTimeout(run, 2000);
   setTimeout(() => document.querySelectorAll('salla-breadcrumb').forEach(b => { b.dataset.ocDemo = b.dataset.ocDemo || '1'; }), 4000); // never keep a breadcrumb hidden
-  new MutationObserver(() => { clearTimeout(t); t = setTimeout(run, 160); }).observe(B, { childList: true, subtree: true });
+  new MutationObserver(() => { clearTimeout(t); t = setTimeout(run, 60); }).observe(B, { childList: true, subtree: true });
   /* a different type picked in the preview picker: reload so every section reads the new demo store cleanly */
   document.addEventListener('oc:type', () => setTimeout(() => location.reload(), 350));
 }

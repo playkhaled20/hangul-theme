@@ -139,7 +139,9 @@ function packs(){
 function liftFloaters(){
   /* measured from the bar's own height (not its sliding position), so the buttons sit in their final place from the first frame */
   const lift = () => { const bar = document.querySelector('.is-sticky-product-bar .sticky-product-bar'), cs = bar && getComputedStyle(bar), h = cs && cs.position === 'fixed' && cs.display !== 'none' ? bar.offsetHeight : 0;
-    B.style.setProperty('--oc-lift', h ? `${h + 8}px` : '0px'); B.classList.toggle('oc-lifted', !!h); };
+    B.style.setProperty('--oc-lift', h ? `${h + 8}px` : '0px'); B.classList.toggle('oc-lifted', !!h);
+    B.classList.toggle('oc-bar-wait', !!h && !bar.querySelector('salla-add-product-button button')); }; // docked buttons wait for the bar's own buttons
+  const bar0 = document.querySelector('.sticky-product-bar'); if (bar0) new MutationObserver(lift).observe(bar0, { childList: true, subtree: true });
   ['scroll', 'resize'].forEach(e => addEventListener(e, lift, { passive: true })); document.addEventListener('transitionend', lift); lift(); setTimeout(lift, 900); setTimeout(lift, 2500);
 }
 async function boot(){
