@@ -1,0 +1,1712 @@
+{
+ "phones": {
+  "words": [
+   "جوال",
+   "جوالات",
+   "هاتف",
+   "هواتف",
+   "آيفون",
+   "ايفون",
+   "iphone",
+   "galaxy",
+   "pixel",
+   "phone",
+   "smartphone"
+  ],
+  "quiz": [
+   {
+    "q": {
+     "ar": "وش أهم شي في الجوال؟",
+     "en": "What matters most in a phone?"
+    },
+    "opts": [
+     {
+      "ar": "كاميرا قوية",
+      "en": "Great camera",
+      "kw": "camera"
+     },
+     {
+      "ar": "بطارية تعيش",
+      "en": "Battery life",
+      "kw": "battery"
+     },
+     {
+      "ar": "ألعاب وأداء",
+      "en": "Gaming & speed",
+      "kw": "gaming"
+     }
+    ]
+   },
+   {
+    "q": {
+     "ar": "ميزانيتك؟",
+     "en": "Budget?"
+    },
+    "opts": [
+     {
+      "ar": "اقتصادي",
+      "en": "Value",
+      "kw": "lite"
+     },
+     {
+      "ar": "متوسط",
+      "en": "Mid-range",
+      "kw": "plus"
+     },
+     {
+      "ar": "فلاجشب",
+      "en": "Flagship",
+      "kw": "pro max"
+     }
+    ]
+   }
+  ],
+  "kit": [
+   {
+    "ar": "كفر حماية",
+    "en": "Case",
+    "kw": "كفر"
+   },
+   {
+    "ar": "شاحن سريع",
+    "en": "Fast charger",
+    "kw": "شاحن سريع"
+   },
+   {
+    "ar": "سماعة لاسلكية",
+    "en": "Wireless earbuds",
+    "kw": "سماعة"
+   },
+   {
+    "ar": "حماية شاشة",
+    "en": "Screen protector",
+    "kw": "حماية شاشة"
+   }
+  ],
+  "compat": [
+   {
+    "ar": "آيفون / iOS",
+    "en": "iPhone / iOS",
+    "kw": "iphone"
+   },
+   {
+    "ar": "أندرويد",
+    "en": "Android",
+    "kw": "android"
+   }
+  ],
+  "finish": [
+   {
+    "ar": "تيتانيوم طبيعي",
+    "en": "Natural titanium",
+    "hex": "#b8b2a7"
+   },
+   {
+    "ar": "أسود",
+    "en": "Black",
+    "hex": "#1c1c1e"
+   },
+   {
+    "ar": "فضي",
+    "en": "Silver",
+    "hex": "#d7d8dc"
+   },
+   {
+    "ar": "ذهبي",
+    "en": "Gold",
+    "hex": "#d9b779"
+   }
+  ],
+  "mm": [
+   72,
+   150
+  ],
+  "sizeLabel": {
+   "ar": "جوال 6.1–6.9 بوصة",
+   "en": "6.1–6.9\" phone"
+  },
+  "gift": [
+   300,
+   800,
+   2000,
+   4500
+  ],
+  "photo": [
+   {
+    "ar": "صوّر الجهاز من كل الجهات قبل فتح الكرتون وبعده؛ تحتاجها لو طلبت استبدال.",
+    "en": "Photograph the device on all sides before and after unboxing; you need it for exchanges."
+   },
+   {
+    "ar": "صوّر رقم IMEI/السيريال على العلبة والجهاز في صورة واحدة.",
+    "en": "Capture the IMEI/serial on box and device in one shot."
+   },
+   {
+    "ar": "استخدم إضاءة جانبية عشان تبين الخدوش إن وُجدت.",
+    "en": "Use side lighting so scratches, if any, show."
+   }
+  ],
+  "bundle": [
+   {
+    "ar": "جوال + كفر + حماية",
+    "en": "Phone + case + protector",
+    "kw": [
+     "كفر",
+     "حماية شاشة"
+    ]
+   },
+   {
+    "ar": "جوال + شاحن + سماعة",
+    "en": "Phone + charger + earbuds",
+    "kw": [
+     "شاحن سريع",
+     "سماعة"
+    ]
+   }
+  ],
+  "listen": "المواصفات"
+ },
+ "watches": {
+  "words": [
+   "ساعة",
+   "ساعات",
+   "ساعة ذكية",
+   "watch",
+   "smartwatch",
+   "band",
+   "سوار ذكي"
+  ],
+  "quiz": [
+   {
+    "q": {
+     "ar": "استخدامك للساعة؟",
+     "en": "How will you use it?"
+    },
+    "opts": [
+     {
+      "ar": "رياضة",
+      "en": "Sport",
+      "kw": "sport"
+     },
+     {
+      "ar": "رسمي",
+      "en": "Formal",
+      "kw": "classic"
+     },
+     {
+      "ar": "يومي",
+      "en": "Daily",
+      "kw": "smart"
+     }
+    ]
+   },
+   {
+    "q": {
+     "ar": "حجم المعصم؟",
+     "en": "Wrist size?"
+    },
+    "opts": [
+     {
+      "ar": "صغير",
+      "en": "Small",
+      "kw": "40mm"
+     },
+     {
+      "ar": "متوسط",
+      "en": "Medium",
+      "kw": "44mm"
+     },
+     {
+      "ar": "كبير",
+      "en": "Large",
+      "kw": "46mm"
+     }
+    ]
+   }
+  ],
+  "kit": [
+   {
+    "ar": "سير جلد",
+    "en": "Leather strap",
+    "kw": "سير جلد"
+   },
+   {
+    "ar": "سير معدن",
+    "en": "Metal band",
+    "kw": "سير معدن"
+   },
+   {
+    "ar": "شاحن مغناطيسي",
+    "en": "Magnetic charger",
+    "kw": "شاحن ساعة"
+   },
+   {
+    "ar": "حماية شاشة",
+    "en": "Screen protector",
+    "kw": "حماية ساعة"
+   }
+  ],
+  "compat": [
+   {
+    "ar": "آيفون",
+    "en": "iPhone",
+    "kw": "iphone"
+   },
+   {
+    "ar": "أندرويد",
+    "en": "Android",
+    "kw": "android"
+   }
+  ],
+  "finish": [
+   {
+    "ar": "ستارلايت",
+    "en": "Starlight",
+    "hex": "#e8e2d4"
+   },
+   {
+    "ar": "ميدنايت",
+    "en": "Midnight",
+    "hex": "#1d2330"
+   },
+   {
+    "ar": "فضي",
+    "en": "Silver",
+    "hex": "#d7d8dc"
+   },
+   {
+    "ar": "ذهبي وردي",
+    "en": "Rose gold",
+    "hex": "#e0a98f"
+   }
+  ],
+  "mm": [
+   44,
+   52
+  ],
+  "sizeLabel": {
+   "ar": "ساعة 40–46 ملم",
+   "en": "40–46mm watch"
+  },
+  "gift": [
+   250,
+   700,
+   1500,
+   3500
+  ],
+  "photo": [
+   {
+    "ar": "صوّر الساعة والسير والشاحن كلها عند الاستلام.",
+    "en": "Photograph watch, strap and charger on receipt."
+   },
+   {
+    "ar": "صوّر الشاشة وهي شغّالة عشان تثبت سلامة العرض.",
+    "en": "Show the screen powered on to prove display health."
+   },
+   {
+    "ar": "صوّر ختم الضمان وفاتورة الشراء معها.",
+    "en": "Include the warranty seal and invoice."
+   }
+  ],
+  "bundle": [
+   {
+    "ar": "ساعة + سير إضافي",
+    "en": "Watch + spare strap",
+    "kw": [
+     "سير"
+    ]
+   },
+   {
+    "ar": "ساعة + شاحن + حماية",
+    "en": "Watch + charger + protector",
+    "kw": [
+     "شاحن ساعة",
+     "حماية ساعة"
+    ]
+   }
+  ]
+ },
+ "computers": {
+  "words": [
+   "لابتوب",
+   "لاب توب",
+   "كمبيوتر",
+   "حاسب",
+   "ماك بوك",
+   "macbook",
+   "laptop",
+   "desktop",
+   "pc",
+   "ssd",
+   "ram"
+  ],
+  "quiz": [
+   {
+    "q": {
+     "ar": "لأي شغل؟",
+     "en": "What for?"
+    },
+    "opts": [
+     {
+      "ar": "دراسة",
+      "en": "Study",
+      "kw": "laptop"
+     },
+     {
+      "ar": "تصميم ومونتاج",
+      "en": "Design & video",
+      "kw": "creator"
+     },
+     {
+      "ar": "برمجة",
+      "en": "Coding",
+      "kw": "pro"
+     }
+    ]
+   },
+   {
+    "q": {
+     "ar": "النوع؟",
+     "en": "Type?"
+    },
+    "opts": [
+     {
+      "ar": "لابتوب",
+      "en": "Laptop",
+      "kw": "laptop"
+     },
+     {
+      "ar": "مكتبي",
+      "en": "Desktop",
+      "kw": "desktop"
+     },
+     {
+      "ar": "آل إن ون",
+      "en": "All-in-one",
+      "kw": "all in one"
+     }
+    ]
+   }
+  ],
+  "kit": [
+   {
+    "ar": "ماوس",
+    "en": "Mouse",
+    "kw": "ماوس"
+   },
+   {
+    "ar": "كيبورد",
+    "en": "Keyboard",
+    "kw": "كيبورد"
+   },
+   {
+    "ar": "هب USB-C",
+    "en": "USB-C hub",
+    "kw": "هب"
+   },
+   {
+    "ar": "شنطة لابتوب",
+    "en": "Laptop bag",
+    "kw": "شنطة لابتوب"
+   }
+  ],
+  "compat": [
+   {
+    "ar": "ويندوز",
+    "en": "Windows",
+    "kw": "windows"
+   },
+   {
+    "ar": "macOS",
+    "en": "macOS",
+    "kw": "mac"
+   }
+  ],
+  "finish": [
+   {
+    "ar": "رمادي فلكي",
+    "en": "Space gray",
+    "hex": "#7d7e80"
+   },
+   {
+    "ar": "فضي",
+    "en": "Silver",
+    "hex": "#d7d8dc"
+   },
+   {
+    "ar": "أسود",
+    "en": "Black",
+    "hex": "#1c1c1e"
+   }
+  ],
+  "mm": [
+   310,
+   215
+  ],
+  "sizeLabel": {
+   "ar": "لابتوب 13–16 بوصة",
+   "en": "13–16\" laptop"
+  },
+  "gift": [
+   1000,
+   2500,
+   5000,
+   9000
+  ],
+  "photo": [
+   {
+    "ar": "صوّر الجهاز مغلق ومفتوح ومنافذه كلها.",
+    "en": "Photograph closed, open, and every port."
+   },
+   {
+    "ar": "شغّله وصوّر شاشة «حول هذا الجهاز» لتثبيت المواصفات.",
+    "en": "Boot it and capture the About screen to confirm specs."
+   },
+   {
+    "ar": "صوّر سيريال الجهاز من أسفل مع العلبة.",
+    "en": "Capture the underside serial with the box."
+   }
+  ],
+  "bundle": [
+   {
+    "ar": "لابتوب + ماوس + شنطة",
+    "en": "Laptop + mouse + bag",
+    "kw": [
+     "ماوس",
+     "شنطة لابتوب"
+    ]
+   },
+   {
+    "ar": "جهاز + هب + كيبورد",
+    "en": "Machine + hub + keyboard",
+    "kw": [
+     "هب",
+     "كيبورد"
+    ]
+   }
+  ]
+ },
+ "gaming": {
+  "words": [
+   "بلايستيشن",
+   "ps5",
+   "ps4",
+   "xbox",
+   "اكسبوكس",
+   "نينتندو",
+   "nintendo",
+   "switch",
+   "ألعاب",
+   "يد تحكم",
+   "gaming",
+   "controller"
+  ],
+  "quiz": [
+   {
+    "q": {
+     "ar": "منصتك؟",
+     "en": "Platform?"
+    },
+    "opts": [
+     {
+      "ar": "بلايستيشن",
+      "en": "PlayStation",
+      "kw": "ps5"
+     },
+     {
+      "ar": "إكسبوكس",
+      "en": "Xbox",
+      "kw": "xbox"
+     },
+     {
+      "ar": "كمبيوتر",
+      "en": "PC",
+      "kw": "gaming pc"
+     }
+    ]
+   },
+   {
+    "q": {
+     "ar": "أسلوبك؟",
+     "en": "Style?"
+    },
+    "opts": [
+     {
+      "ar": "تنافسي",
+      "en": "Competitive",
+      "kw": "pro"
+     },
+     {
+      "ar": "قصصي",
+      "en": "Story",
+      "kw": "edition"
+     },
+     {
+      "ar": "جماعي",
+      "en": "Party",
+      "kw": "controller"
+     }
+    ]
+   }
+  ],
+  "kit": [
+   {
+    "ar": "يد إضافية",
+    "en": "Extra controller",
+    "kw": "يد تحكم"
+   },
+   {
+    "ar": "سماعة قيمنق",
+    "en": "Gaming headset",
+    "kw": "سماعة قيمنق"
+   },
+   {
+    "ar": "شاحن يد",
+    "en": "Controller dock",
+    "kw": "شاحن يد"
+   },
+   {
+    "ar": "بطاقة شحن",
+    "en": "Top-up card",
+    "kw": "بطاقة"
+   }
+  ],
+  "compat": [
+   {
+    "ar": "PS5",
+    "en": "PS5",
+    "kw": "ps5"
+   },
+   {
+    "ar": "Xbox",
+    "en": "Xbox",
+    "kw": "xbox"
+   },
+   {
+    "ar": "PC",
+    "en": "PC",
+    "kw": "pc"
+   },
+   {
+    "ar": "Switch",
+    "en": "Switch",
+    "kw": "switch"
+   }
+  ],
+  "finish": [
+   {
+    "ar": "أبيض",
+    "en": "White",
+    "hex": "#f1f1f1"
+   },
+   {
+    "ar": "أسود",
+    "en": "Black",
+    "hex": "#1c1c1e"
+   },
+   {
+    "ar": "أزرق ليلي",
+    "en": "Midnight blue",
+    "hex": "#1d2d55"
+   },
+   {
+    "ar": "أحمر",
+    "en": "Red",
+    "hex": "#b3283a"
+   }
+  ],
+  "mm": [
+   160,
+   105
+  ],
+  "sizeLabel": {
+   "ar": "يد تحكم",
+   "en": "Controller"
+  },
+  "gift": [
+   150,
+   400,
+   1000,
+   2500
+  ],
+  "photo": [
+   {
+    "ar": "صوّر الجهاز مع كل ملحقاته والكابلات.",
+    "en": "Photograph console with all cables and accessories."
+   },
+   {
+    "ar": "صوّر منفذ HDMI والمراوح من الداخل بإضاءة.",
+    "en": "Light-check the HDMI port and vents."
+   },
+   {
+    "ar": "سجّل فيديو قصير للتشغيل لو فيه مشكلة.",
+    "en": "Record a short boot video if there is an issue."
+   }
+  ],
+  "bundle": [
+   {
+    "ar": "جهاز + يد إضافية",
+    "en": "Console + 2nd controller",
+    "kw": [
+     "يد تحكم"
+    ]
+   },
+   {
+    "ar": "جهاز + سماعة + بطاقة",
+    "en": "Console + headset + card",
+    "kw": [
+     "سماعة قيمنق",
+     "بطاقة"
+    ]
+   }
+  ]
+ },
+ "audio": {
+  "words": [
+   "سماعة",
+   "سماعات",
+   "ايربودز",
+   "airpods",
+   "earbuds",
+   "headphones",
+   "speaker",
+   "سبيكر",
+   "مكبر صوت",
+   "soundbar",
+   "anc"
+  ],
+  "quiz": [
+   {
+    "q": {
+     "ar": "وين تسمع؟",
+     "en": "Where do you listen?"
+    },
+    "opts": [
+     {
+      "ar": "تنقل",
+      "en": "On the go",
+      "kw": "earbuds"
+     },
+     {
+      "ar": "بيت",
+      "en": "Home",
+      "kw": "speaker"
+     },
+     {
+      "ar": "استوديو",
+      "en": "Studio",
+      "kw": "headphones"
+     }
+    ]
+   },
+   {
+    "q": {
+     "ar": "أهم ميزة؟",
+     "en": "Key feature?"
+    },
+    "opts": [
+     {
+      "ar": "عزل الضوضاء",
+      "en": "Noise cancelling",
+      "kw": "anc"
+     },
+     {
+      "ar": "بيس قوي",
+      "en": "Strong bass",
+      "kw": "bass"
+     },
+     {
+      "ar": "صفاء عالي",
+      "en": "Clarity",
+      "kw": "hi-res"
+     }
+    ]
+   }
+  ],
+  "kit": [
+   {
+    "ar": "حافظة",
+    "en": "Case",
+    "kw": "حافظة سماعة"
+   },
+   {
+    "ar": "كيبل صوت",
+    "en": "Audio cable",
+    "kw": "كيبل صوت"
+   },
+   {
+    "ar": "مضخم",
+    "en": "Amp/DAC",
+    "kw": "مضخم"
+   },
+   {
+    "ar": "حامل",
+    "en": "Stand",
+    "kw": "حامل سماعة"
+   }
+  ],
+  "compat": [
+   {
+    "ar": "بلوتوث",
+    "en": "Bluetooth",
+    "kw": "bluetooth"
+   },
+   {
+    "ar": "سلكي AUX",
+    "en": "Wired AUX",
+    "kw": "aux"
+   },
+   {
+    "ar": "واي فاي",
+    "en": "Wi-Fi",
+    "kw": "wifi"
+   }
+  ],
+  "finish": [
+   {
+    "ar": "أبيض",
+    "en": "White",
+    "hex": "#f1f1f1"
+   },
+   {
+    "ar": "أسود",
+    "en": "Black",
+    "hex": "#1c1c1e"
+   },
+   {
+    "ar": "شامبين",
+    "en": "Champagne",
+    "hex": "#d9b779"
+   }
+  ],
+  "mm": [
+   60,
+   60
+  ],
+  "sizeLabel": {
+   "ar": "علبة سماعة",
+   "en": "Earbud case"
+  },
+  "gift": [
+   150,
+   400,
+   900,
+   2200
+  ],
+  "photo": [
+   {
+    "ar": "صوّر السماعتين والعلبة والكابل عند الفتح.",
+    "en": "Photograph buds, case and cable when opening."
+   },
+   {
+    "ar": "صوّر الشبكة والأقماع الصغيرة (أنوف السماعة).",
+    "en": "Capture the mesh and ear tips."
+   },
+   {
+    "ar": "جرّب الاقتران قبل رمي العلبة.",
+    "en": "Test pairing before discarding the box."
+   }
+  ],
+  "bundle": [
+   {
+    "ar": "سماعة + حافظة",
+    "en": "Headphones + case",
+    "kw": [
+     "حافظة سماعة"
+    ]
+   },
+   {
+    "ar": "سبيكر + حامل",
+    "en": "Speaker + stand",
+    "kw": [
+     "حامل سماعة"
+    ]
+   }
+  ]
+ },
+ "cameras": {
+  "words": [
+   "كاميرا",
+   "كاميرات",
+   "عدسة",
+   "camera",
+   "lens",
+   "mirrorless",
+   "gopro",
+   "كانون",
+   "canon",
+   "sony",
+   "nikon",
+   "dslr"
+  ],
+  "quiz": [
+   {
+    "q": {
+     "ar": "تصور ايش؟",
+     "en": "What do you shoot?"
+    },
+    "opts": [
+     {
+      "ar": "أشخاص",
+      "en": "Portraits",
+      "kw": "portrait"
+     },
+     {
+      "ar": "سفر",
+      "en": "Travel",
+      "kw": "compact"
+     },
+     {
+      "ar": "فيديو",
+      "en": "Video",
+      "kw": "4k"
+     }
+    ]
+   },
+   {
+    "q": {
+     "ar": "مستواك؟",
+     "en": "Level?"
+    },
+    "opts": [
+     {
+      "ar": "مبتدئ",
+      "en": "Beginner",
+      "kw": "kit"
+     },
+     {
+      "ar": "هاوي",
+      "en": "Enthusiast",
+      "kw": "mirrorless"
+     },
+     {
+      "ar": "محترف",
+      "en": "Pro",
+      "kw": "full frame"
+     }
+    ]
+   }
+  ],
+  "kit": [
+   {
+    "ar": "عدسة",
+    "en": "Lens",
+    "kw": "عدسة"
+   },
+   {
+    "ar": "بطاقة ذاكرة",
+    "en": "Memory card",
+    "kw": "بطاقة ذاكرة"
+   },
+   {
+    "ar": "بطارية إضافية",
+    "en": "Spare battery",
+    "kw": "بطارية كاميرا"
+   },
+   {
+    "ar": "حقيبة كاميرا",
+    "en": "Camera bag",
+    "kw": "حقيبة كاميرا"
+   }
+  ],
+  "compat": [
+   {
+    "ar": "Sony E",
+    "en": "Sony E",
+    "kw": "e-mount"
+   },
+   {
+    "ar": "Canon RF",
+    "en": "Canon RF",
+    "kw": "rf"
+   },
+   {
+    "ar": "Nikon Z",
+    "en": "Nikon Z",
+    "kw": "nikon z"
+   }
+  ],
+  "finish": [
+   {
+    "ar": "أسود",
+    "en": "Black",
+    "hex": "#1c1c1e"
+   },
+   {
+    "ar": "فضي",
+    "en": "Silver",
+    "hex": "#d7d8dc"
+   }
+  ],
+  "mm": [
+   130,
+   90
+  ],
+  "sizeLabel": {
+   "ar": "كاميرا ميرورليس",
+   "en": "Mirrorless body"
+  },
+  "gift": [
+   500,
+   1500,
+   4000,
+   9000
+  ],
+  "photo": [
+   {
+    "ar": "منخفض ISO في الضوء الكافي، وf/1.8 للبورتريه.",
+    "en": "Low ISO in good light, f/1.8 for portraits."
+   },
+   {
+    "ar": "اتبع قاعدة الأثلاث وثبّت الكاميرا بحامل في الإضاءة الضعيفة.",
+    "en": "Use rule of thirds; tripod in low light."
+   },
+   {
+    "ar": "صوّر RAW لو بتعدّل الصور لاحقًا.",
+    "en": "Shoot RAW if you will edit later."
+   }
+  ],
+  "bundle": [
+   {
+    "ar": "كاميرا + بطاقة + بطارية",
+    "en": "Camera + card + battery",
+    "kw": [
+     "بطاقة ذاكرة",
+     "بطارية كاميرا"
+    ]
+   },
+   {
+    "ar": "كاميرا + عدسة + حقيبة",
+    "en": "Camera + lens + bag",
+    "kw": [
+     "عدسة",
+     "حقيبة كاميرا"
+    ]
+   }
+  ]
+ },
+ "smarthome": {
+  "words": [
+   "منزل ذكي",
+   "بيت ذكي",
+   "smart home",
+   "alexa",
+   "homekit",
+   "matter",
+   "لمبة ذكية",
+   "قابس ذكي",
+   "كاميرا مراقبة",
+   "حساس",
+   "thermostat"
+  ],
+  "quiz": [
+   {
+    "q": {
+     "ar": "وش تبي تتحكم فيه؟",
+     "en": "What to control?"
+    },
+    "opts": [
+     {
+      "ar": "إضاءة",
+      "en": "Lights",
+      "kw": "bulb"
+     },
+     {
+      "ar": "أمان",
+      "en": "Security",
+      "kw": "camera"
+     },
+     {
+      "ar": "مكيف ومناخ",
+      "en": "Climate",
+      "kw": "thermostat"
+     }
+    ]
+   },
+   {
+    "q": {
+     "ar": "منصتك؟",
+     "en": "Platform?"
+    },
+    "opts": [
+     {
+      "ar": "Alexa",
+      "en": "Alexa",
+      "kw": "alexa"
+     },
+     {
+      "ar": "Google",
+      "en": "Google",
+      "kw": "google"
+     },
+     {
+      "ar": "HomeKit",
+      "en": "HomeKit",
+      "kw": "homekit"
+     }
+    ]
+   }
+  ],
+  "kit": [
+   {
+    "ar": "هب مركزي",
+    "en": "Hub",
+    "kw": "هب"
+   },
+   {
+    "ar": "حساس حركة",
+    "en": "Motion sensor",
+    "kw": "حساس"
+   },
+   {
+    "ar": "قابس ذكي",
+    "en": "Smart plug",
+    "kw": "قابس ذكي"
+   },
+   {
+    "ar": "لمبة ذكية",
+    "en": "Smart bulb",
+    "kw": "لمبة ذكية"
+   }
+  ],
+  "compat": [
+   {
+    "ar": "Alexa",
+    "en": "Alexa",
+    "kw": "alexa"
+   },
+   {
+    "ar": "Google Home",
+    "en": "Google Home",
+    "kw": "google home"
+   },
+   {
+    "ar": "HomeKit",
+    "en": "HomeKit",
+    "kw": "homekit"
+   },
+   {
+    "ar": "Matter",
+    "en": "Matter",
+    "kw": "matter"
+   }
+  ],
+  "finish": [
+   {
+    "ar": "أبيض",
+    "en": "White",
+    "hex": "#f1f1f1"
+   },
+   {
+    "ar": "أسود",
+    "en": "Black",
+    "hex": "#1c1c1e"
+   }
+  ],
+  "mm": [
+   86,
+   86
+  ],
+  "sizeLabel": {
+   "ar": "قابس/هب",
+   "en": "Plug/hub"
+  },
+  "gift": [
+   100,
+   300,
+   800,
+   2000
+  ],
+  "photo": [
+   {
+    "ar": "صوّر الجهاز مركّب في مكانه بعد التثبيت.",
+    "en": "Photograph the device installed in place."
+   },
+   {
+    "ar": "صوّر شاشة التطبيق وهي متصلة بالجهاز.",
+    "en": "Capture the app showing the device connected."
+   },
+   {
+    "ar": "احتفظ بصورة ملصق الباركود وQR الإعداد.",
+    "en": "Keep a photo of the barcode and setup QR."
+   }
+  ],
+  "bundle": [
+   {
+    "ar": "هب + حساسات",
+    "en": "Hub + sensors",
+    "kw": [
+     "هب",
+     "حساس"
+    ]
+   },
+   {
+    "ar": "إضاءة ذكية + قابس",
+    "en": "Smart light + plug",
+    "kw": [
+     "لمبة ذكية",
+     "قابس ذكي"
+    ]
+   }
+  ]
+ },
+ "accessories": {
+  "words": [
+   "اكسسوار",
+   "إكسسوار",
+   "كفر",
+   "شاحن",
+   "كيبل",
+   "باور بانك",
+   "حامل",
+   "charger",
+   "cable",
+   "case",
+   "power bank",
+   "stand"
+  ],
+  "quiz": [
+   {
+    "q": {
+     "ar": "لأي جهاز؟",
+     "en": "For which device?"
+    },
+    "opts": [
+     {
+      "ar": "جوال",
+      "en": "Phone",
+      "kw": "جوال"
+     },
+     {
+      "ar": "لابتوب",
+      "en": "Laptop",
+      "kw": "لابتوب"
+     },
+     {
+      "ar": "سيارة",
+      "en": "Car",
+      "kw": "سيارة"
+     }
+    ]
+   },
+   {
+    "q": {
+     "ar": "تحتاج؟",
+     "en": "You need?"
+    },
+    "opts": [
+     {
+      "ar": "شحن",
+      "en": "Charging",
+      "kw": "شاحن"
+     },
+     {
+      "ar": "حماية",
+      "en": "Protection",
+      "kw": "كفر"
+     },
+     {
+      "ar": "تنظيم",
+      "en": "Organising",
+      "kw": "حامل"
+     }
+    ]
+   }
+  ],
+  "kit": [
+   {
+    "ar": "كيبل",
+    "en": "Cable",
+    "kw": "كيبل"
+   },
+   {
+    "ar": "باور بانك",
+    "en": "Power bank",
+    "kw": "باور بانك"
+   },
+   {
+    "ar": "شاحن",
+    "en": "Charger",
+    "kw": "شاحن"
+   },
+   {
+    "ar": "حامل",
+    "en": "Stand",
+    "kw": "حامل"
+   }
+  ],
+  "compat": [
+   {
+    "ar": "USB-C",
+    "en": "USB-C",
+    "kw": "usb-c"
+   },
+   {
+    "ar": "Lightning",
+    "en": "Lightning",
+    "kw": "lightning"
+   },
+   {
+    "ar": "MagSafe",
+    "en": "MagSafe",
+    "kw": "magsafe"
+   },
+   {
+    "ar": "شحن لاسلكي Qi",
+    "en": "Qi wireless",
+    "kw": "qi"
+   }
+  ],
+  "finish": [
+   {
+    "ar": "أسود",
+    "en": "Black",
+    "hex": "#1c1c1e"
+   },
+   {
+    "ar": "أبيض",
+    "en": "White",
+    "hex": "#f1f1f1"
+   },
+   {
+    "ar": "شامبين",
+    "en": "Champagne",
+    "hex": "#d9b779"
+   }
+  ],
+  "mm": [
+   75,
+   150
+  ],
+  "sizeLabel": {
+   "ar": "كفر جوال",
+   "en": "Phone case"
+  },
+  "gift": [
+   50,
+   150,
+   400,
+   900
+  ],
+  "photo": [
+   {
+    "ar": "صوّر الملحق مع جهازك للتأكد من المقاس والفتحات.",
+    "en": "Photograph the accessory on your device to check fit/cut-outs."
+   },
+   {
+    "ar": "صوّر الكيبل والمحوّل والمنفذ قريب.",
+    "en": "Close-up cable, adapter and port."
+   },
+   {
+    "ar": "صوّر شهادة المنتج الأصلي إن وُجدت.",
+    "en": "Photograph authenticity certificate if any."
+   }
+  ],
+  "bundle": [
+   {
+    "ar": "شاحن + كيبل",
+    "en": "Charger + cable",
+    "kw": [
+     "كيبل"
+    ]
+   },
+   {
+    "ar": "باور بانك + كيبل",
+    "en": "Power bank + cable",
+    "kw": [
+     "كيبل"
+    ]
+   }
+  ]
+ },
+ "digital_cards": {
+  "words": [
+   "بطاقة",
+   "بطاقات",
+   "قفت كارد",
+   "gift card",
+   "itunes",
+   "psn",
+   "steam",
+   "شحن",
+   "رصيد",
+   "اشتراك",
+   "subscription",
+   "voucher"
+  ],
+  "quiz": [
+   {
+    "q": {
+     "ar": "البطاقة لـ؟",
+     "en": "Card for?"
+    },
+    "opts": [
+     {
+      "ar": "ألعاب",
+      "en": "Games",
+      "kw": "psn"
+     },
+     {
+      "ar": "تسوق",
+      "en": "Shopping",
+      "kw": "gift"
+     },
+     {
+      "ar": "اشتراكات",
+      "en": "Subscriptions",
+      "kw": "subscription"
+     }
+    ]
+   },
+   {
+    "q": {
+     "ar": "القيمة؟",
+     "en": "Value?"
+    },
+    "opts": [
+     {
+      "ar": "50",
+      "en": "50",
+      "kw": "50"
+     },
+     {
+      "ar": "100",
+      "en": "100",
+      "kw": "100"
+     },
+     {
+      "ar": "250+",
+      "en": "250+",
+      "kw": "250"
+     }
+    ]
+   }
+  ],
+  "kit": [
+   {
+    "ar": "بطاقة إضافية",
+    "en": "Another card",
+    "kw": "بطاقة"
+   },
+   {
+    "ar": "اشتراك",
+    "en": "Subscription",
+    "kw": "اشتراك"
+   },
+   {
+    "ar": "قسيمة",
+    "en": "Voucher",
+    "kw": "قسيمة"
+   }
+  ],
+  "compat": [
+   {
+    "ar": "متجر السعودية",
+    "en": "KSA store",
+    "kw": "sa"
+   },
+   {
+    "ar": "متجر أمريكا",
+    "en": "US store",
+    "kw": "us"
+   },
+   {
+    "ar": "متجر الإمارات",
+    "en": "UAE store",
+    "kw": "uae"
+   }
+  ],
+  "finish": [],
+  "mm": null,
+  "sizeLabel": null,
+  "gift": [
+   50,
+   100,
+   250,
+   500
+  ],
+  "photo": [],
+  "bundle": [
+   {
+    "ar": "بطاقتان لنفس الخدمة",
+    "en": "Two cards same service",
+    "kw": [
+     "بطاقة"
+    ]
+   }
+  ]
+ },
+ "software": {
+  "words": [
+   "برنامج",
+   "برامج",
+   "ترخيص",
+   "مفتاح",
+   "office",
+   "windows",
+   "antivirus",
+   "adobe",
+   "vpn",
+   "software",
+   "license"
+  ],
+  "quiz": [
+   {
+    "q": {
+     "ar": "تحتاج لـ؟",
+     "en": "You need?"
+    },
+    "opts": [
+     {
+      "ar": "مكتب",
+      "en": "Office",
+      "kw": "office"
+     },
+     {
+      "ar": "حماية",
+      "en": "Security",
+      "kw": "antivirus"
+     },
+     {
+      "ar": "تصميم",
+      "en": "Creative",
+      "kw": "creative"
+     }
+    ]
+   },
+   {
+    "q": {
+     "ar": "المستخدمين؟",
+     "en": "Users?"
+    },
+    "opts": [
+     {
+      "ar": "شخص واحد",
+      "en": "1 user",
+      "kw": "1 user"
+     },
+     {
+      "ar": "عائلة",
+      "en": "Family",
+      "kw": "family"
+     },
+     {
+      "ar": "شركة",
+      "en": "Business",
+      "kw": "business"
+     }
+    ]
+   }
+  ],
+  "kit": [
+   {
+    "ar": "ترخيص إضافي",
+    "en": "Extra licence",
+    "kw": "ترخيص"
+   },
+   {
+    "ar": "دعم فني",
+    "en": "Support",
+    "kw": "دعم"
+   },
+   {
+    "ar": "مساحة سحابية",
+    "en": "Cloud storage",
+    "kw": "سحابة"
+   }
+  ],
+  "compat": [
+   {
+    "ar": "ويندوز",
+    "en": "Windows",
+    "kw": "windows"
+   },
+   {
+    "ar": "macOS",
+    "en": "macOS",
+    "kw": "mac"
+   },
+   {
+    "ar": "iOS",
+    "en": "iOS",
+    "kw": "ios"
+   },
+   {
+    "ar": "أندرويد",
+    "en": "Android",
+    "kw": "android"
+   }
+  ],
+  "finish": [],
+  "mm": null,
+  "sizeLabel": null,
+  "gift": [
+   100,
+   300,
+   700,
+   1500
+  ],
+  "photo": [],
+  "bundle": [
+   {
+    "ar": "ترخيص + دعم",
+    "en": "Licence + support",
+    "kw": [
+     "دعم"
+    ]
+   }
+  ]
+ },
+ "electronics": {
+  "words": [
+   "الكترونيات",
+   "إلكترونيات",
+   "تلفزيون",
+   "شاشة",
+   "tv",
+   "oled",
+   "electronics",
+   "جهاز"
+  ],
+  "quiz": [
+   {
+    "q": {
+     "ar": "تدور على؟",
+     "en": "Looking for?"
+    },
+    "opts": [
+     {
+      "ar": "جوال",
+      "en": "Phone",
+      "kw": "phone"
+     },
+     {
+      "ar": "صوتيات",
+      "en": "Audio",
+      "kw": "headphones"
+     },
+     {
+      "ar": "شاشة",
+      "en": "TV",
+      "kw": "tv"
+     }
+    ]
+   },
+   {
+    "q": {
+     "ar": "الميزانية؟",
+     "en": "Budget?"
+    },
+    "opts": [
+     {
+      "ar": "اقتصادي",
+      "en": "Value",
+      "kw": "basic"
+     },
+     {
+      "ar": "متوسط",
+      "en": "Mid",
+      "kw": "plus"
+     },
+     {
+      "ar": "فاخر",
+      "en": "Premium",
+      "kw": "pro"
+     }
+    ]
+   }
+  ],
+  "kit": [
+   {
+    "ar": "ضمان ممتد",
+    "en": "Extended warranty",
+    "kw": "ضمان"
+   },
+   {
+    "ar": "شاحن",
+    "en": "Charger",
+    "kw": "شاحن"
+   },
+   {
+    "ar": "كيبل",
+    "en": "Cable",
+    "kw": "كيبل"
+   },
+   {
+    "ar": "حماية",
+    "en": "Protection",
+    "kw": "حماية"
+   }
+  ],
+  "compat": [
+   {
+    "ar": "iOS",
+    "en": "iOS",
+    "kw": "ios"
+   },
+   {
+    "ar": "أندرويد",
+    "en": "Android",
+    "kw": "android"
+   },
+   {
+    "ar": "ويندوز",
+    "en": "Windows",
+    "kw": "windows"
+   }
+  ],
+  "finish": [
+   {
+    "ar": "أسود",
+    "en": "Black",
+    "hex": "#1c1c1e"
+   },
+   {
+    "ar": "فضي",
+    "en": "Silver",
+    "hex": "#d7d8dc"
+   },
+   {
+    "ar": "ذهبي",
+    "en": "Gold",
+    "hex": "#d9b779"
+   }
+  ],
+  "mm": [
+   320,
+   190
+  ],
+  "sizeLabel": {
+   "ar": "شاشة 14 بوصة",
+   "en": "14\" display"
+  },
+  "gift": [
+   200,
+   600,
+   1500,
+   4000
+  ],
+  "photo": [
+   {
+    "ar": "صوّر الجهاز والكرتون والملحقات قبل التركيب.",
+    "en": "Photograph device, carton and accessories before setup."
+   },
+   {
+    "ar": "صوّر الملصق التقني (السيريال والموديل).",
+    "en": "Capture the spec label (serial & model)."
+   },
+   {
+    "ar": "سجّل فيديو قصير لأي عطل عند التشغيل.",
+    "en": "Record a short video of any fault at power-on."
+   }
+  ],
+  "bundle": [
+   {
+    "ar": "جهاز + ضمان ممتد",
+    "en": "Device + extended warranty",
+    "kw": [
+     "ضمان"
+    ]
+   }
+  ]
+ }
+}

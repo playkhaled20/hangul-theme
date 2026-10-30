@@ -28,3 +28,8 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 .DS_Store
 
 
+node_modules
+preview/
+
+/معاينة-خالد/*.png
+/preview/final/

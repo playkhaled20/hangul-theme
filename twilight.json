@@ -3,13 +3,13 @@
     "ar": "هانغول",
     "en": "Hangul"
   },
-  "version": "0.1.0",
-  "repository": "https://github.com/playkhaled20/techno-theme",
-  "author_email": "",
+  "version": "1.3.0",
+  "repository": "https://github.com/playkhaled20/hangul-theme",
+  "author_email": "fooz1980k@gmail.com",
   "support_url": "https://salla.com/",
   "description": {
-    "ar": "هانغول: ثيم فاخر بروح التقنية الكورية الحديثة، مصمم لمتاجر الإلكترونيات أولاً، ويدعم الجوالات والكمبيوتر والألعاب والصوتيات والبطاقات الرقمية وكل الفئات التقنية",
-    "en": "Hangul: a luxury theme with a modern Korean-tech vibe, built for electronics stores first, plus phones, computers, gaming, audio, digital cards and every tech category"
+    "ar": "هانغول: ثيم سينمائي فاخر لمتاجر التقنية يقرأ متجرك تلقائياً لحظة تركيبه — أقسامك ومنتجاتك وأسعارك وماركاتك وسياساتك — ويبني عليها أقساماً إنفوجرافيك سينمائية (6–12 صورة لكل قسم)، ومقارنة حيّة، ولوحة أرقام حقيقية، و12 إضافة ذكية تقنية. لا أرقام مخترعة.",
+    "en": "Hangul: a cinematic luxury theme for tech stores that reads your store the moment it is installed — departments, products, prices, brands and policies — and builds cinematic infographic sections on it (6–12 images each), live comparison, a real-numbers board and 12 smart tech add-ons. No invented figures."
   },
   "features": [
     "mega-menu",
@@ -32,111 +32,490 @@
   ],
   "settings": [
     {
-      "id": "tech_lux",
+      "id": "oc_cinema",
       "type": "boolean",
       "format": "switch",
-      "label": "الواجهة الفاتحة البسيطة · Light retail skin",
-      "description": "واجهة داكنة فاخرة بلمسة معدنية تتبع اللون الأساسي للمتجر",
+      "label": "النمط السينمائي الداكن · Cinematic dark mode",
+      "description": "إيقافه يعيد مظهر رائد الأصلي",
       "icon": "sicon-star",
-      "value": false,
-      "selected": false,
+      "value": true,
+      "selected": true,
       "required": false
     },
     {
-      "id": "tech_ig",
+      "id": "oc_grain",
       "type": "boolean",
       "format": "switch",
-      "label": "نمط الإنفوجرافيك الفاخر · Luxury infographic",
-      "description": "أقسام إنفوجرافيك داكنة فاخرة للمواصفات والمقارنات",
+      "label": "حبيبات الفيلم · Film grain",
+      "description": "طبقة CSS خفيفة، تحترم تقليل الحركة",
+      "icon": "sicon-star",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_smart_ratings",
+      "type": "boolean",
+      "format": "switch",
+      "label": "التقييم الذكي · Smart ratings",
+      "description": "حلقات ثقة ومؤشرات مخزون بدل النجوم والعدد الخام",
       "icon": "sicon-chart",
       "value": true,
       "selected": true,
       "required": false
     },
     {
-      "id": "tech_palette",
+      "id": "oc_vertical",
       "type": "items",
       "format": "dropdown-list",
-      "label": "لون الثيم الفاخر · Luxury colour",
-      "description": "12 لون فاخر للمتاجر التقنية، أو لون متجرك من إعدادات سلة",
-      "icon": "sicon-paint-bucket",
+      "label": "فئة المتجر · Store vertical",
+      "description": "تلقائي يكتشف الفئة من قوائم ومنتجات متجرك",
+      "icon": "sicon-layout-grid",
       "selected": [
         {
-          "label": "لون المتجر (من سلة)",
-          "value": "store",
-          "key": "pal-store"
+          "label": "تلقائي (من منتجات وقوائم المتجر)",
+          "value": "auto",
+          "key": "v-auto"
         }
       ],
       "options": [
         {
-          "label": "لون المتجر (من سلة)",
-          "value": "store",
-          "key": "pal-store"
+          "label": "تلقائي (من منتجات وقوائم المتجر)",
+          "value": "auto",
+          "key": "v-auto"
         },
         {
-          "label": "ذهبي ملكي · Royal Gold",
-          "value": "gold",
-          "key": "pal-gold"
+          "label": "الإلكترونيات",
+          "value": "electronics",
+          "key": "v-electronics"
         },
         {
-          "label": "أزرق كهربائي · Electric Blue",
-          "value": "blue",
-          "key": "pal-blue"
+          "label": "الجوالات",
+          "value": "phones",
+          "key": "v-phones"
         },
         {
-          "label": "سيان سايبر · Cyber Cyan",
-          "value": "cyan",
-          "key": "pal-cyan"
+          "label": "الساعات الذكية",
+          "value": "watches",
+          "key": "v-watches"
         },
         {
-          "label": "بنفسجي نيون · Neon Violet",
-          "value": "violet",
-          "key": "pal-violet"
+          "label": "الكمبيوتر",
+          "value": "computers",
+          "key": "v-computers"
         },
         {
-          "label": "زمرّدي · Emerald Circuit",
-          "value": "emerald",
-          "key": "pal-emerald"
+          "label": "الألعاب",
+          "value": "gaming",
+          "key": "v-gaming"
         },
         {
-          "label": "قرمزي · Crimson Pro",
-          "value": "crimson",
-          "key": "pal-crimson"
+          "label": "الصوتيات",
+          "value": "audio",
+          "key": "v-audio"
         },
         {
-          "label": "تيتانيوم · Titanium",
-          "value": "titanium",
-          "key": "pal-titanium"
+          "label": "البطاقات الرقمية",
+          "value": "digital_cards",
+          "key": "v-digital_cards"
         },
         {
-          "label": "برتقالي الغروب · Sunset Orange",
-          "value": "orange",
-          "key": "pal-orange"
+          "label": "المنزل الذكي",
+          "value": "smarthome",
+          "key": "v-smarthome"
         },
         {
-          "label": "ذهبي وردي · Rose Gold",
-          "value": "rose",
-          "key": "pal-rose"
+          "label": "الكاميرات",
+          "value": "cameras",
+          "key": "v-cameras"
         },
         {
-          "label": "نيلي ليلي · Midnight Indigo",
-          "value": "indigo",
-          "key": "pal-indigo"
+          "label": "الإكسسوارات",
+          "value": "accessories",
+          "key": "v-accessories"
         },
         {
-          "label": "ليموني ماتريكس · Matrix Lime",
-          "value": "lime",
-          "key": "pal-lime"
-        },
-        {
-          "label": "ماجنتا بلازما · Plasma Magenta",
-          "value": "magenta",
-          "key": "pal-magenta"
+          "label": "البرمجيات",
+          "value": "software",
+          "key": "v-software"
         }
       ],
-      "source": "Manual",
+      "value": "auto",
+      "required": false
+    },
+    {
+      "id": "oc_accent",
+      "type": "items",
+      "format": "dropdown-list",
+      "label": "اللون المعدني · Metallic accent",
+      "description": "",
+      "icon": "sicon-paint-bucket",
+      "selected": [
+        {
+          "label": "شامبين (يتبع الفئة)",
+          "value": "champagne",
+          "key": "v-champagne"
+        }
+      ],
+      "options": [
+        {
+          "label": "شامبين (يتبع الفئة)",
+          "value": "champagne",
+          "key": "v-champagne"
+        },
+        {
+          "label": "تيتانيوم",
+          "value": "titanium",
+          "key": "v-titanium"
+        },
+        {
+          "label": "ذهبي وردي",
+          "value": "rose",
+          "key": "v-rose"
+        },
+        {
+          "label": "أزرق جليدي",
+          "value": "ice",
+          "key": "v-ice"
+        },
+        {
+          "label": "لون المتجر من سلة",
+          "value": "store",
+          "key": "v-store"
+        }
+      ],
+      "value": "champagne",
+      "required": false
+    },
+    {
+      "id": "oc_bg",
+      "type": "items",
+      "format": "dropdown-list",
+      "label": "لون خلفية المتجر (داكن / فاتح) · Store background (dark / light)",
+      "description": "يطبق على المتجر المباشر فوراً",
+      "icon": "sicon-paint-bucket",
+      "selected": [
+        {
+          "label": "◼ جرافيت · Graphite",
+          "value": "graphite",
+          "key": "bg-graphite"
+        }
+      ],
+      "options": [
+        {
+          "label": "◼ جرافيت · Graphite",
+          "value": "graphite",
+          "key": "bg-graphite"
+        },
+        {
+          "label": "◼ منتصف الليل · Midnight",
+          "value": "midnight",
+          "key": "bg-midnight"
+        },
+        {
+          "label": "◼ أونيكس · Onyx",
+          "value": "onyx",
+          "key": "bg-onyx"
+        },
+        {
+          "label": "◼ تيتانيوم · Titanium",
+          "value": "titanium",
+          "key": "bg-titanium"
+        },
+        {
+          "label": "◼ إسبريسو · Espresso",
+          "value": "espresso",
+          "key": "bg-espresso"
+        },
+        {
+          "label": "◼ كحلي · Navy",
+          "value": "navy",
+          "key": "bg-navy"
+        },
+        {
+          "label": "◼ زمردي ليلي · Emerald night",
+          "value": "emerald",
+          "key": "bg-emerald"
+        },
+        {
+          "label": "◼ برقوقي · Plum",
+          "value": "plum",
+          "key": "bg-plum"
+        },
+        {
+          "label": "◼ عنابي · Wine",
+          "value": "wine",
+          "key": "bg-wine"
+        },
+        {
+          "label": "◼ محيطي · Ocean",
+          "value": "ocean",
+          "key": "bg-ocean"
+        },
+        {
+          "label": "◻ عاجي · Ivory",
+          "value": "ivory",
+          "key": "bg-ivory"
+        },
+        {
+          "label": "◻ رملي · Sand",
+          "value": "sand",
+          "key": "bg-sand"
+        },
+        {
+          "label": "◻ لؤلؤي · Pearl",
+          "value": "pearl",
+          "key": "bg-pearl"
+        },
+        {
+          "label": "◻ أزرق ناعم · Soft blue",
+          "value": "softblue",
+          "key": "bg-softblue"
+        },
+        {
+          "label": "◻ نعناعي · Mint",
+          "value": "mint",
+          "key": "bg-mint"
+        },
+        {
+          "label": "◻ وردي فاتح · Blush",
+          "value": "blush",
+          "key": "bg-blush"
+        },
+        {
+          "label": "◻ لافندر · Lavender",
+          "value": "lavender",
+          "key": "bg-lavender"
+        },
+        {
+          "label": "◻ سحابي · Cloud",
+          "value": "cloud",
+          "key": "bg-cloud"
+        }
+      ],
+      "value": "graphite",
+      "required": false
+    },
+    {
+      "id": "oc_skin_on",
+      "type": "boolean",
+      "format": "switch",
+      "label": "مربع لون الثيم (الخلفية والأسطح) · Theme colour square",
+      "description": "يغطي لون الخلفية والأسطح فوق النمط المختار",
+      "icon": "sicon-format-fill",
+      "value": false,
+      "selected": false,
+      "required": false
+    },
+    {
+      "id": "oc_skin_color",
+      "type": "string",
+      "format": "color",
+      "label": "لون الثيم · Theme colour",
+      "description": "خلفية المتجر والبطاقات والهيدر والفوتر",
+      "icon": "sicon-format-fill",
+      "value": "#16161a",
       "required": false,
-      "multichoice": false
+      "conditions": [
+        {
+          "id": "oc_skin_on",
+          "operation": "=",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "oc_ink_on",
+      "type": "boolean",
+      "format": "switch",
+      "label": "مربع لون الخطوط والنصوص والإضافات · Text, lines & extras square",
+      "description": "يغطي النصوص والعناوين والخطوط والحدود ولمسات الإضافات",
+      "icon": "sicon-typography",
+      "value": false,
+      "selected": false,
+      "required": false
+    },
+    {
+      "id": "oc_ink_color",
+      "type": "string",
+      "format": "color",
+      "label": "لون الخطوط والكلام والإضافات · Text & extras colour",
+      "description": "العناوين، النص، الحدود، ولون التمييز في الإضافات",
+      "icon": "sicon-typography",
+      "value": "#d9b779",
+      "required": false,
+      "conditions": [
+        {
+          "id": "oc_ink_on",
+          "operation": "=",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "oc_customer_color",
+      "type": "boolean",
+      "format": "switch",
+      "label": "السماح للعميل بتغيير لون الصفحة · Let customers pick page colour",
+      "description": "طبقة على الصفحة فقط، تحفظ في متصفح العميل ولا تغيّر إعداداتك",
+      "icon": "sicon-user",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_smart_sections",
+      "type": "boolean",
+      "format": "switch",
+      "label": "أقسام ذكية حسب تصنيفات متجرك · Smart sections from your categories",
+      "description": "قسم لكل تصنيف حقيقي (2→2، 5→5، 15→15)",
+      "icon": "sicon-layout-grid",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_addons",
+      "type": "boolean",
+      "format": "switch",
+      "label": "إضافاتي الذكية · Smart add-ons (12)",
+      "description": "تشغيل/إيقاف لوحة الإضافات الذكية بالكامل (12 أداة للمتاجر التقنية، تعمل داخل متصفح العميل بدون خدمات خارجية).",
+      "icon": "sicon-magic-wand",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_addon_stylist",
+      "type": "boolean",
+      "format": "switch",
+      "label": "إضافة: مستشار الإعداد · stylist",
+      "description": "يجاوب العميل ويبحث في منتجات متجرك ويشرح الضمان والشحن والدفع حسب صفحات المتجر.",
+      "icon": "sicon-toggle-on",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_addon_voice",
+      "type": "boolean",
+      "format": "switch",
+      "label": "إضافة: البحث الصوتي · voice",
+      "description": "بحث صوتي بالميكروفون (يعتمد على دعم المتصفح).",
+      "icon": "sicon-toggle-on",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_addon_listen",
+      "type": "boolean",
+      "format": "switch",
+      "label": "إضافة: استمع للمواصفات · listen",
+      "description": "يقرأ وصف/مواصفات المنتج بصوت عالٍ.",
+      "icon": "sicon-toggle-on",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_addon_tryon",
+      "type": "boolean",
+      "format": "switch",
+      "label": "إضافة: الحجم الحقيقي · tryon",
+      "description": "مقاس مرجعي تقريبي للجهاز بحسب نوع المتجر لمقارنته بجهاز العميل.",
+      "icon": "sicon-toggle-on",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_addon_recolour",
+      "type": "boolean",
+      "format": "switch",
+      "label": "إضافة: معاينة الألوان · recolour",
+      "description": "يختار العميل التشطيب/اللون ويعرض له المنتجات المطابقة.",
+      "icon": "sicon-toggle-on",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_addon_photocoach",
+      "type": "boolean",
+      "format": "switch",
+      "label": "إضافة: مدرب التوثيق والتصوير · photocoach",
+      "description": "نصائح توثيق الجهاز عند الاستلام (للضمان والاستبدال) وتصوير الكاميرات.",
+      "icon": "sicon-toggle-on",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_addon_colorbook",
+      "type": "boolean",
+      "format": "switch",
+      "label": "إضافة: دليل التشطيبات · colorbook (finishes)",
+      "description": "دليل بكل التشطيبات المتوفرة في أنواع منتجاتك.",
+      "icon": "sicon-toggle-on",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_addon_look",
+      "type": "boolean",
+      "format": "switch",
+      "label": "إضافة: أكمل الطقم · look",
+      "description": "يقترح ملحقات تكمّل الجهاز (كفر، شاحن، ذاكرة...).",
+      "icon": "sicon-toggle-on",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_addon_quiz",
+      "type": "boolean",
+      "format": "switch",
+      "label": "إضافة: اختبار احتياجك · quiz",
+      "description": "أسئلة قصيرة تحدد احتياج العميل وتعرض منتجات مناسبة.",
+      "icon": "sicon-toggle-on",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_addon_undertone",
+      "type": "boolean",
+      "format": "switch",
+      "label": "إضافة: فاحص التوافق · undertone (compat)",
+      "description": "يتأكد من توافق المنتج مع نظام/جهاز العميل (iOS، Android، Windows، USB-C...).",
+      "icon": "sicon-toggle-on",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_addon_giftfinder",
+      "type": "boolean",
+      "format": "switch",
+      "label": "إضافة: مكتشف الهدايا · giftfinder",
+      "description": "يقترح هدايا تقنية حسب الميزانية بالعملة الفعلية للمتجر.",
+      "icon": "sicon-toggle-on",
+      "value": true,
+      "selected": true,
+      "required": false
+    },
+    {
+      "id": "oc_addon_presets",
+      "type": "boolean",
+      "format": "switch",
+      "label": "إضافة: باقات جاهزة · presets",
+      "description": "باقات جاهزة (جهاز + ملحقات) حسب نوع المتجر.",
+      "icon": "sicon-toggle-on",
+      "value": true,
+      "selected": true,
+      "required": false
     },
     {
       "id": "squar_photo_bg_image_size",
@@ -393,501 +772,99 @@
       "required": false,
       "value": false,
       "selected": false
-    },
-    {
-      "id": "tech_type",
-      "type": "items",
-      "format": "dropdown-list",
-      "label": "نوع المتجر التقني · Tech store type",
-      "icon": "sicon-store",
-      "selected": [
-        {
-          "label": "تلقائي",
-          "value": "auto",
-          "key": "tt-auto"
-        }
-      ],
-      "options": [
-        {
-          "label": "تلقائي · Auto",
-          "value": "auto",
-          "key": "tt-auto"
-        },
-        {
-          "label": "إلكترونيات شاملة",
-          "value": "electronics",
-          "key": "tt-electronics"
-        },
-        {
-          "label": "بطاقات رقمية",
-          "value": "digital_cards",
-          "key": "tt-digital_cards"
-        },
-        {
-          "label": "جوالات",
-          "value": "phones",
-          "key": "tt-phones"
-        },
-        {
-          "label": "كمبيوتر",
-          "value": "computers",
-          "key": "tt-computers"
-        },
-        {
-          "label": "ألعاب إلكترونية",
-          "value": "gaming",
-          "key": "tt-gaming"
-        },
-        {
-          "label": "صوتيات",
-          "value": "audio",
-          "key": "tt-audio"
-        },
-        {
-          "label": "إكسسوارات",
-          "value": "accessories",
-          "key": "tt-accessories"
-        },
-        {
-          "label": "منزل ذكي",
-          "value": "smarthome",
-          "key": "tt-smarthome"
-        },
-        {
-          "label": "كاميرات",
-          "value": "cameras",
-          "key": "tt-cameras"
-        },
-        {
-          "label": "برامج واشتراكات",
-          "value": "software",
-          "key": "tt-software"
-        }
-      ],
-      "source": "Manual",
-      "required": false,
-      "multichoice": false,
-      "description": "الإلكترونيات هي الفئة الأساسية للثيم؛ «تلقائي» يكتشف النوع من قوائم ومنتجات متجرك."
-    },
-    {
-      "id": "tech_f_stylist",
-      "type": "boolean",
-      "format": "switch",
-      "label": "المستشار الذكي · Smart Advisor",
-      "icon": "sicon-magic-wand",
-      "value": true,
-      "selected": true,
-      "required": false
-    },
-    {
-      "id": "tech_f_voice",
-      "type": "boolean",
-      "format": "switch",
-      "label": "بحث صوتي · Voice Search",
-      "icon": "sicon-magic-wand",
-      "value": true,
-      "selected": true,
-      "required": false
-    },
-    {
-      "id": "tech_f_listen",
-      "type": "boolean",
-      "format": "switch",
-      "label": "اسمع المواصفات · Hear the Specs",
-      "icon": "sicon-magic-wand",
-      "value": true,
-      "selected": true,
-      "required": false
-    },
-    {
-      "id": "tech_f_giftfinder",
-      "type": "boolean",
-      "format": "switch",
-      "label": "هدية تقنية · Tech Gift",
-      "icon": "sicon-magic-wand",
-      "value": true,
-      "selected": true,
-      "required": false
-    },
-    {
-      "id": "tech_f_quiz",
-      "type": "boolean",
-      "format": "switch",
-      "label": "اختر جهازك · Device Match",
-      "icon": "sicon-magic-wand",
-      "value": true,
-      "selected": true,
-      "required": false
-    },
-    {
-      "id": "tech_f_photocoach",
-      "type": "boolean",
-      "format": "switch",
-      "label": "فحص صورة المنتج · Product Shot Check",
-      "icon": "sicon-magic-wand",
-      "value": true,
-      "selected": true,
-      "required": false
-    },
-    {
-      "id": "tech_f_recolour",
-      "type": "boolean",
-      "format": "switch",
-      "label": "ألوان الجهاز · Finish Preview",
-      "icon": "sicon-magic-wand",
-      "value": true,
-      "selected": true,
-      "required": false
-    },
-    {
-      "id": "tech_f_tryon",
-      "type": "boolean",
-      "format": "switch",
-      "label": "على مكتبك · Desk View",
-      "icon": "sicon-magic-wand",
-      "value": true,
-      "selected": true,
-      "required": false
-    },
-    {
-      "id": "tech_f_setupmatch",
-      "type": "boolean",
-      "format": "switch",
-      "label": "صمّم سيتبك · Setup Builder",
-      "icon": "sicon-magic-wand",
-      "value": true,
-      "selected": true,
-      "required": false
-    },
-    {
-      "id": "tech_f_bundle",
-      "type": "boolean",
-      "format": "switch",
-      "label": "كمّل الطقم · Complete the Kit",
-      "icon": "sicon-magic-wand",
-      "value": true,
-      "selected": true,
-      "required": false
-    },
-    {
-      "id": "tech_f_pixelart",
-      "type": "boolean",
-      "format": "switch",
-      "label": "نسخة بكسل · Pixel Edition",
-      "icon": "sicon-magic-wand",
-      "value": true,
-      "selected": true,
-      "required": false
     }
   ],
   "components": [
     {
-      "key": "a80c17ac-c38e-5608-9a19-8c506187bed3",
+      "key": "47287d2a-1721-5363-86ea-0473c645bab8",
       "title": {
-        "ar": "فئات التقنية",
-        "en": "Tech categories"
+        "ar": "عرض سينمائي (6–12 صورة)",
+        "en": "Cinematic slider (6–12 images)"
       },
-      "icon": "sicon-layout-grid",
-      "path": "home.tech-categories",
+      "icon": "sicon-image-carousel",
+      "path": "home.oc-cinema",
       "fields": [
         {
-          "type": "string",
-          "id": "kicker",
-          "label": "عنوان صغير",
-          "format": "text",
-          "value": null,
-          "required": false,
-          "multilanguage": true
+          "type": "static",
+          "format": "description",
+          "id": "cine-note",
+          "value": "<div style='background:#f6f3ec;border-radius:8px;padding:10px 14px;color:#3a2f1c;font-size:13px;line-height:1.7'>ارفع من <b>6 إلى 12 صورة</b>. أي خانة فاضية يكملها الثيم تلقائياً من متجرك نفسه (أسماء أقسامك وروابطها وصورها) مع صور تقنية سينمائية مطابقة لنوع متجرك — بدون أرقام أو ادعاءات مخترعة. الشريط المتحرك أسفل العرض يعرض أرقاماً تُقاس من متجرك (عدد الأقسام، أقل سعر، نسبة التوفر، العروض، التقييم).</div>"
         },
         {
           "type": "string",
           "id": "title",
-          "label": "العنوان",
+          "label": "عنوان القسم (للقارئ الآلي)",
           "format": "text",
           "value": null,
           "required": false,
           "multilanguage": true
         },
         {
-          "id": "cats",
+          "type": "number",
+          "id": "speed",
+          "label": "مدة كل شريحة (ثوانٍ)",
+          "format": "integer",
+          "value": 6,
+          "minimum": 3,
+          "maximum": 15,
+          "required": false
+        },
+        {
+          "id": "slides",
           "type": "collection",
           "format": "collection",
           "required": false,
           "minLength": 0,
-          "maxLength": 40,
-          "label": "فئة",
-          "item_label": "فئة",
-          "value": [
-            {
-              "cats.title": "الجوالات",
-              "cats.icon": [
-                {
-                  "label": "phone",
-                  "value": "phone",
-                  "key": "ic-phone"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "الأجهزة اللوحية",
-              "cats.icon": [
-                {
-                  "label": "tablet",
-                  "value": "tablet",
-                  "key": "ic-tablet"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "اللابتوبات",
-              "cats.icon": [
-                {
-                  "label": "laptop",
-                  "value": "laptop",
-                  "key": "ic-laptop"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "الكمبيوتر المكتبي",
-              "cats.icon": [
-                {
-                  "label": "pc",
-                  "value": "pc",
-                  "key": "ic-pc"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "قطع الكمبيوتر",
-              "cats.icon": [
-                {
-                  "label": "cpu",
-                  "value": "cpu",
-                  "key": "ic-cpu"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "الشاشات",
-              "cats.icon": [
-                {
-                  "label": "monitor",
-                  "value": "monitor",
-                  "key": "ic-monitor"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "الألعاب والكونسول",
-              "cats.icon": [
-                {
-                  "label": "game",
-                  "value": "game",
-                  "key": "ic-game"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "إكسسوارات القيمنق",
-              "cats.icon": [
-                {
-                  "label": "headset",
-                  "value": "headset",
-                  "key": "ic-headset"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "السماعات والصوتيات",
-              "cats.icon": [
-                {
-                  "label": "audio",
-                  "value": "audio",
-                  "key": "ic-audio"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "الساعات الذكية",
-              "cats.icon": [
-                {
-                  "label": "watch",
-                  "value": "watch",
-                  "key": "ic-watch"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "الكاميرات والتصوير",
-              "cats.icon": [
-                {
-                  "label": "camera",
-                  "value": "camera",
-                  "key": "ic-camera"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "الدرونز",
-              "cats.icon": [
-                {
-                  "label": "drone",
-                  "value": "drone",
-                  "key": "ic-drone"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "التلفزيونات",
-              "cats.icon": [
-                {
-                  "label": "tv",
-                  "value": "tv",
-                  "key": "ic-tv"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "المنزل الذكي",
-              "cats.icon": [
-                {
-                  "label": "home",
-                  "value": "home",
-                  "key": "ic-home"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "الشبكات والراوترات",
-              "cats.icon": [
-                {
-                  "label": "wifi",
-                  "value": "wifi",
-                  "key": "ic-wifi"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "الشواحن والطاقة",
-              "cats.icon": [
-                {
-                  "label": "bolt",
-                  "value": "bolt",
-                  "key": "ic-bolt"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "كفرات وحماية",
-              "cats.icon": [
-                {
-                  "label": "case",
-                  "value": "case",
-                  "key": "ic-case"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "الكيابل والمحولات",
-              "cats.icon": [
-                {
-                  "label": "cable",
-                  "value": "cable",
-                  "key": "ic-cable"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "الطابعات والمكتب",
-              "cats.icon": [
-                {
-                  "label": "printer",
-                  "value": "printer",
-                  "key": "ic-printer"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "التخزين والذواكر",
-              "cats.icon": [
-                {
-                  "label": "storage",
-                  "value": "storage",
-                  "key": "ic-storage"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "البطاقات الرقمية",
-              "cats.icon": [
-                {
-                  "label": "card",
-                  "value": "card",
-                  "key": "ic-card"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "البرامج والاشتراكات",
-              "cats.icon": [
-                {
-                  "label": "software",
-                  "value": "software",
-                  "key": "ic-software"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "السكوترات الكهربائية",
-              "cats.icon": [
-                {
-                  "label": "scooter",
-                  "value": "scooter",
-                  "key": "ic-scooter"
-                }
-              ],
-              "cats.url": []
-            },
-            {
-              "cats.title": "الأجهزة المنزلية الذكية",
-              "cats.icon": [
-                {
-                  "label": "appliance",
-                  "value": "appliance",
-                  "key": "ic-appliance"
-                }
-              ],
-              "cats.url": []
-            }
-          ],
+          "maxLength": 12,
+          "label": "الشرائح",
+          "item_label": "شريحة",
+          "value": [],
           "fields": [
             {
               "type": "string",
-              "id": "cats.title",
-              "label": "اسم الفئة",
+              "icon": "sicon-image",
+              "id": "slides.image",
+              "label": "صورة الشريحة",
+              "format": "image",
+              "value": null,
+              "required": true,
+              "description": "* المقاس المقترح 1920×1080 بكسل",
+              "settings": {
+                "width": 1920,
+                "height": 1080
+              }
+            },
+            {
+              "type": "string",
+              "id": "slides.kicker",
+              "label": "عنوان صغير",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "slides.title",
+              "label": "العنوان الرئيسي",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "slides.subtitle",
+              "label": "النص الفرعي",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "slides.cta",
+              "label": "نص الزر",
               "format": "text",
               "value": null,
               "required": false,
@@ -895,165 +872,65 @@
             },
             {
               "type": "items",
-              "id": "cats.icon",
-              "label": "الأيقونة",
-              "format": "dropdown-list",
-              "source": "Manual",
-              "options": [
-                {
-                  "label": "phone",
-                  "value": "phone",
-                  "key": "ic-phone"
-                },
-                {
-                  "label": "tablet",
-                  "value": "tablet",
-                  "key": "ic-tablet"
-                },
-                {
-                  "label": "laptop",
-                  "value": "laptop",
-                  "key": "ic-laptop"
-                },
-                {
-                  "label": "pc",
-                  "value": "pc",
-                  "key": "ic-pc"
-                },
-                {
-                  "label": "cpu",
-                  "value": "cpu",
-                  "key": "ic-cpu"
-                },
-                {
-                  "label": "monitor",
-                  "value": "monitor",
-                  "key": "ic-monitor"
-                },
-                {
-                  "label": "game",
-                  "value": "game",
-                  "key": "ic-game"
-                },
-                {
-                  "label": "headset",
-                  "value": "headset",
-                  "key": "ic-headset"
-                },
-                {
-                  "label": "audio",
-                  "value": "audio",
-                  "key": "ic-audio"
-                },
-                {
-                  "label": "watch",
-                  "value": "watch",
-                  "key": "ic-watch"
-                },
-                {
-                  "label": "camera",
-                  "value": "camera",
-                  "key": "ic-camera"
-                },
-                {
-                  "label": "drone",
-                  "value": "drone",
-                  "key": "ic-drone"
-                },
-                {
-                  "label": "tv",
-                  "value": "tv",
-                  "key": "ic-tv"
-                },
-                {
-                  "label": "home",
-                  "value": "home",
-                  "key": "ic-home"
-                },
-                {
-                  "label": "wifi",
-                  "value": "wifi",
-                  "key": "ic-wifi"
-                },
-                {
-                  "label": "bolt",
-                  "value": "bolt",
-                  "key": "ic-bolt"
-                },
-                {
-                  "label": "case",
-                  "value": "case",
-                  "key": "ic-case"
-                },
-                {
-                  "label": "cable",
-                  "value": "cable",
-                  "key": "ic-cable"
-                },
-                {
-                  "label": "printer",
-                  "value": "printer",
-                  "key": "ic-printer"
-                },
-                {
-                  "label": "storage",
-                  "value": "storage",
-                  "key": "ic-storage"
-                },
-                {
-                  "label": "card",
-                  "value": "card",
-                  "key": "ic-card"
-                },
-                {
-                  "label": "software",
-                  "value": "software",
-                  "key": "ic-software"
-                },
-                {
-                  "label": "scooter",
-                  "value": "scooter",
-                  "key": "ic-scooter"
-                },
-                {
-                  "label": "appliance",
-                  "value": "appliance",
-                  "key": "ic-appliance"
-                }
-              ],
-              "selected": [],
-              "multichoice": false,
-              "required": false
-            },
-            {
-              "type": "items",
-              "id": "cats.url",
+              "icon": "sicon-link",
               "label": "الرابط",
-              "format": "variable-list",
-              "source": "custom",
-              "searchable": true,
+              "id": "slides.url",
+              "value": null,
+              "description": null,
               "required": false,
-              "value": [],
+              "format": "variable-list",
+              "searchable": true,
+              "source": "custom",
               "sources": [
-                {
-                  "label": "تصنيف",
-                  "key": "categories",
-                  "value": "categories"
-                },
                 {
                   "label": "منتج",
                   "key": "products",
                   "value": "products"
                 },
                 {
-                  "label": "ماركة",
+                  "label": "منتجات مع وسم",
+                  "key": "products_tags",
+                  "value": "products_tags"
+                },
+                {
+                  "label": "تصنيف",
+                  "key": "categories",
+                  "value": "categories"
+                },
+                {
+                  "label": "ماركة تجارية",
                   "key": "brands",
                   "value": "brands"
                 },
                 {
-                  "label": "صفحة",
+                  "label": "صفحة تعريفية",
                   "key": "pages",
                   "value": "pages"
+                },
+                {
+                  "label": "مقالة",
+                  "key": "blog_articles",
+                  "value": "blog_articles"
+                },
+                {
+                  "label": "تصنيف ضمن المدونة",
+                  "key": "blog_categories",
+                  "value": "blog_categories"
+                },
+                {
+                  "label": "التخفيضات",
+                  "key": "offers_link",
+                  "value": "offers_link"
+                },
+                {
+                  "label": "الماركات التجارية",
+                  "key": "brands_link",
+                  "value": "brands_link"
+                },
+                {
+                  "label": "المدونة",
+                  "key": "blog_link",
+                  "value": "blog_link"
                 },
                 {
                   "label": "رابط خارجي",
@@ -1063,66 +940,19 @@
               ]
             }
           ]
-        },
-        {
-          "id": "gallery",
-          "type": "collection",
-          "format": "collection",
-          "required": false,
-          "minLength": 0,
-          "maxLength": 12,
-          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
-          "item_label": "صورة",
-          "value": [],
-          "fields": [
-            {
-              "type": "string",
-              "id": "gallery.image",
-              "label": "الصورة",
-              "format": "image",
-              "value": null,
-              "required": false,
-              "description": "800×800 WebP"
-            },
-            {
-              "type": "string",
-              "id": "gallery.label",
-              "label": "العنوان",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "string",
-              "id": "gallery.url",
-              "label": "الرابط",
-              "format": "text",
-              "value": null,
-              "required": false
-            }
-          ]
         }
-      ]
+      ],
+      "is_default": true
     },
     {
-      "key": "d2414bb8-213b-56bb-b871-75e58c756819",
+      "key": "b104fbf9-2532-50bc-9016-199a7f7f9616",
       "title": {
-        "ar": "واجهة إنفوجرافيك",
-        "en": "Infographic hero"
+        "ar": "فئات حية",
+        "en": "Live categories"
       },
-      "icon": "sicon-image",
-      "path": "home.tech-hero",
+      "icon": "sicon-layout-grid",
+      "path": "home.oc-categories",
       "fields": [
-        {
-          "type": "string",
-          "id": "chip",
-          "label": "شارة",
-          "format": "text",
-          "value": null,
-          "required": false,
-          "multilanguage": true
-        },
         {
           "type": "string",
           "id": "title",
@@ -1134,17 +964,8 @@
         },
         {
           "type": "string",
-          "id": "description",
+          "id": "subtitle",
           "label": "الوصف",
-          "format": "textarea",
-          "value": null,
-          "required": false,
-          "multilanguage": true
-        },
-        {
-          "type": "string",
-          "id": "button",
-          "label": "نص الزر",
           "format": "text",
           "value": null,
           "required": false,
@@ -1152,640 +973,80 @@
         },
         {
           "type": "items",
-          "id": "url",
-          "label": "الرابط",
-          "format": "variable-list",
-          "source": "custom",
-          "searchable": true,
-          "required": false,
-          "value": [],
-          "sources": [
-            {
-              "label": "تصنيف",
-              "key": "categories",
-              "value": "categories"
-            },
-            {
-              "label": "منتج",
-              "key": "products",
-              "value": "products"
-            },
-            {
-              "label": "ماركة",
-              "key": "brands",
-              "value": "brands"
-            },
-            {
-              "label": "صفحة",
-              "key": "pages",
-              "value": "pages"
-            },
-            {
-              "label": "رابط خارجي",
-              "key": "custom",
-              "value": "custom"
-            }
-          ]
-        },
-        {
-          "type": "string",
-          "id": "image",
-          "label": "الصورة",
-          "format": "image",
-          "value": null,
-          "required": false,
-          "description": "1200×900"
-        },
-        {
-          "id": "stats",
-          "type": "collection",
-          "format": "collection",
-          "required": false,
-          "minLength": 0,
-          "maxLength": 4,
-          "label": "رقم",
-          "item_label": "رقم",
-          "value": [
-            {
-              "stats.value": "24",
-              "stats.unit": "ساعة",
-              "stats.label": "توصيل سريع"
-            },
-            {
-              "stats.value": "2",
-              "stats.unit": "سنة",
-              "stats.label": "ضمان الوكيل"
-            },
-            {
-              "stats.value": "0%",
-              "stats.unit": "",
-              "stats.label": "تقسيط بلا فوائد"
-            }
-          ],
-          "fields": [
-            {
-              "type": "string",
-              "id": "stats.value",
-              "label": "القيمة",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "string",
-              "id": "stats.unit",
-              "label": "الوحدة",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "string",
-              "id": "stats.label",
-              "label": "الوصف",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            }
-          ]
-        },
-        {
-          "id": "gallery",
-          "type": "collection",
-          "format": "collection",
-          "required": false,
-          "minLength": 0,
-          "maxLength": 12,
-          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
-          "item_label": "صورة",
-          "value": [],
-          "fields": [
-            {
-              "type": "string",
-              "id": "gallery.image",
-              "label": "الصورة",
-              "format": "image",
-              "value": null,
-              "required": false,
-              "description": "800×800 WebP"
-            },
-            {
-              "type": "string",
-              "id": "gallery.label",
-              "label": "العنوان",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "string",
-              "id": "gallery.url",
-              "label": "الرابط",
-              "format": "text",
-              "value": null,
-              "required": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "f3d88957-c798-5424-94f7-44c20513d177",
-      "title": {
-        "ar": "منتجات بالأرقام",
-        "en": "Smart products"
-      },
-      "icon": "sicon-chart",
-      "path": "home.tech-smart-products",
-      "fields": [
-        {
-          "type": "string",
-          "id": "kicker",
-          "label": "عنوان صغير",
-          "format": "text",
-          "value": null,
-          "required": false,
-          "multilanguage": true
-        },
-        {
-          "type": "string",
-          "id": "title",
-          "label": "العنوان",
-          "format": "text",
-          "value": null,
-          "required": false,
-          "multilanguage": true
-        },
-        {
-          "type": "string",
-          "id": "description",
-          "label": "الوصف",
-          "format": "textarea",
-          "value": null,
-          "required": false,
-          "multilanguage": true
-        },
-        {
-          "type": "items",
-          "id": "products",
-          "label": "المنتجات (فارغ = الأحدث)",
+          "id": "categories",
+          "label": "تصنيفات (فارغ = تصنيفات متجرك تلقائياً)",
           "format": "dropdown-list",
-          "source": "products",
+          "source": "categories",
           "searchable": true,
           "multichoice": true,
           "selected": [],
           "options": [],
           "value": [],
           "required": false,
-          "maxLength": 8
+          "maxLength": 16
         },
         {
-          "id": "gallery",
-          "type": "collection",
-          "format": "collection",
+          "type": "number",
+          "id": "limit",
+          "label": "العدد",
+          "format": "integer",
+          "value": 8,
           "required": false,
-          "minLength": 0,
-          "maxLength": 12,
-          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
-          "item_label": "صورة",
-          "value": [],
-          "fields": [
-            {
-              "type": "string",
-              "id": "gallery.image",
-              "label": "الصورة",
-              "format": "image",
-              "value": null,
-              "required": false,
-              "description": "800×800 WebP"
-            },
-            {
-              "type": "string",
-              "id": "gallery.label",
-              "label": "العنوان",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "string",
-              "id": "gallery.url",
-              "label": "الرابط",
-              "format": "text",
-              "value": null,
-              "required": false
-            }
-          ]
+          "minimum": 1,
+          "maximum": 24
         }
-      ]
+      ],
+      "is_default": true
     },
     {
-      "key": "e319baeb-1a86-5776-a557-6674625d9a17",
+      "key": "c6abf8a9-b663-5a7b-a01c-ba3608ee8fc3",
       "title": {
-        "ar": "بطاقات رقمية فاخرة",
-        "en": "Digital cards"
+        "ar": "أقسام ذكية من تصنيفات متجرك",
+        "en": "Smart sections from your store"
       },
-      "icon": "sicon-credit-card",
-      "path": "home.tech-digital-cards",
+      "icon": "sicon-layout-grid",
+      "path": "home.oc-smart",
       "fields": [
         {
-          "type": "string",
-          "id": "title",
-          "label": "العنوان",
-          "format": "text",
-          "value": null,
+          "type": "number",
+          "id": "max",
+          "label": "أقصى عدد أقسام",
+          "format": "integer",
+          "value": 15,
+          "minimum": 1,
+          "maximum": 30,
           "required": false,
-          "multilanguage": true
+          "icon": "sicon-list"
         },
         {
-          "id": "cards",
-          "type": "collection",
-          "format": "collection",
+          "type": "number",
+          "id": "limit",
+          "label": "منتجات لكل قسم",
+          "format": "integer",
+          "value": 8,
+          "minimum": 2,
+          "maximum": 16,
           "required": false,
-          "minLength": 0,
-          "maxLength": 12,
-          "label": "بطاقة",
-          "item_label": "بطاقة",
-          "value": [
-            {
-              "cards.brand": "PlayStation",
-              "cards.value": "100 ر.س",
-              "cards.region": "SA",
-              "cards.color": "#1d4ed8"
-            },
-            {
-              "cards.brand": "iTunes",
-              "cards.value": "50 ر.س",
-              "cards.region": "SA",
-              "cards.color": "#9333ea"
-            },
-            {
-              "cards.brand": "Steam",
-              "cards.value": "$20",
-              "cards.region": "Global",
-              "cards.color": "#0f172a"
-            }
-          ],
-          "fields": [
-            {
-              "type": "string",
-              "id": "cards.brand",
-              "label": "الماركة",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "string",
-              "id": "cards.value",
-              "label": "القيمة",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "string",
-              "id": "cards.region",
-              "label": "المنطقة",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "string",
-              "id": "cards.color",
-              "label": "لون البطاقة",
-              "format": "color",
-              "value": "#1f2937",
-              "required": false
-            },
-            {
-              "type": "items",
-              "id": "cards.url",
-              "label": "الرابط",
-              "format": "variable-list",
-              "source": "custom",
-              "searchable": true,
-              "required": false,
-              "value": [],
-              "sources": [
-                {
-                  "label": "تصنيف",
-                  "key": "categories",
-                  "value": "categories"
-                },
-                {
-                  "label": "منتج",
-                  "key": "products",
-                  "value": "products"
-                },
-                {
-                  "label": "ماركة",
-                  "key": "brands",
-                  "value": "brands"
-                },
-                {
-                  "label": "صفحة",
-                  "key": "pages",
-                  "value": "pages"
-                },
-                {
-                  "label": "رابط خارجي",
-                  "key": "custom",
-                  "value": "custom"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "gallery",
-          "type": "collection",
-          "format": "collection",
-          "required": false,
-          "minLength": 0,
-          "maxLength": 12,
-          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
-          "item_label": "صورة",
-          "value": [],
-          "fields": [
-            {
-              "type": "string",
-              "id": "gallery.image",
-              "label": "الصورة",
-              "format": "image",
-              "value": null,
-              "required": false,
-              "description": "800×800 WebP"
-            },
-            {
-              "type": "string",
-              "id": "gallery.label",
-              "label": "العنوان",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "string",
-              "id": "gallery.url",
-              "label": "الرابط",
-              "format": "text",
-              "value": null,
-              "required": false
-            }
-          ]
+          "icon": "sicon-box"
         }
-      ]
+      ],
+      "is_default": true
     },
     {
-      "key": "bc2fbf22-2ebd-58cf-9d7f-35fb925ed773",
+      "key": "3d958316-808a-5b2f-830d-b56953decda6",
       "title": {
-        "ar": "مقارنة جهازين",
-        "en": "Compare"
+        "ar": "إنفوجرافيك المواصفات (6–12 صورة)",
+        "en": "Spec infographic (6–12 images)"
       },
-      "icon": "sicon-swap-stroke",
-      "path": "home.tech-compare",
+      "icon": "sicon-chart-line",
+      "path": "home.oc-spec",
       "fields": [
         {
-          "type": "string",
-          "id": "a_name",
-          "label": "الجهاز الأول",
-          "format": "text",
-          "value": null,
-          "required": false,
-          "multilanguage": true
+          "type": "static",
+          "format": "description",
+          "id": "spec-note",
+          "value": "<div style='background:#f6f3ec;border-radius:8px;padding:10px 14px;color:#3a2f1c;font-size:13px;line-height:1.7'>ارفع من <b>6 إلى 12 صورة</b>. أي خانة فاضية يكملها الثيم تلقائياً من متجرك نفسه (أسماء أقسامك وروابطها وصورها) مع صور تقنية سينمائية مطابقة لنوع متجرك — بدون أرقام أو ادعاءات مخترعة. كل صورة = ميزة: اكتب اسمها ودرجتها (اختياري) ومكان النقطة المضيئة على الصورة (X وY بالنسبة المئوية). اختر منتجاً ليظهر اسمه وسعره الحقيقي ورابطه.</div>"
         },
-        {
-          "type": "string",
-          "id": "b_name",
-          "label": "الجهاز الثاني",
-          "format": "text",
-          "value": null,
-          "required": false,
-          "multilanguage": true
-        },
-        {
-          "id": "rows",
-          "type": "collection",
-          "format": "collection",
-          "required": false,
-          "minLength": 0,
-          "maxLength": 10,
-          "label": "معيار",
-          "item_label": "معيار",
-          "value": [
-            {
-              "rows.label": "الأداء",
-              "rows.a": 92,
-              "rows.b": 88
-            },
-            {
-              "rows.label": "البطارية",
-              "rows.a": 95,
-              "rows.b": 60
-            }
-          ],
-          "fields": [
-            {
-              "type": "string",
-              "id": "rows.label",
-              "label": "المعيار",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "number",
-              "id": "rows.a",
-              "label": "درجة الأول (0-100)",
-              "format": "integer",
-              "value": null,
-              "required": false,
-              "minimum": 0,
-              "maximum": 999
-            },
-            {
-              "type": "number",
-              "id": "rows.b",
-              "label": "درجة الثاني (0-100)",
-              "format": "integer",
-              "value": null,
-              "required": false,
-              "minimum": 0,
-              "maximum": 999
-            }
-          ]
-        },
-        {
-          "type": "string",
-          "id": "verdict",
-          "label": "الخلاصة",
-          "format": "textarea",
-          "value": null,
-          "required": false,
-          "multilanguage": true
-        },
-        {
-          "id": "gallery",
-          "type": "collection",
-          "format": "collection",
-          "required": false,
-          "minLength": 0,
-          "maxLength": 12,
-          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
-          "item_label": "صورة",
-          "value": [],
-          "fields": [
-            {
-              "type": "string",
-              "id": "gallery.image",
-              "label": "الصورة",
-              "format": "image",
-              "value": null,
-              "required": false,
-              "description": "800×800 WebP"
-            },
-            {
-              "type": "string",
-              "id": "gallery.label",
-              "label": "العنوان",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "string",
-              "id": "gallery.url",
-              "label": "الرابط",
-              "format": "text",
-              "value": null,
-              "required": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "850ce180-2531-59c2-aec3-6a6ada593c35",
-      "title": {
-        "ar": "مختبر أداء الألعاب",
-        "en": "FPS lab"
-      },
-      "icon": "sicon-game",
-      "path": "home.tech-gaming-fps",
-      "fields": [
-        {
-          "type": "string",
-          "id": "title",
-          "label": "العنوان",
-          "format": "text",
-          "value": null,
-          "required": false,
-          "multilanguage": true
-        },
-        {
-          "id": "games",
-          "type": "collection",
-          "format": "collection",
-          "required": false,
-          "minLength": 0,
-          "maxLength": 10,
-          "label": "لعبة",
-          "item_label": "لعبة",
-          "value": [
-            {
-              "games.game": "Fortnite",
-              "games.fps": 165
-            },
-            {
-              "games.game": "Warzone",
-              "games.fps": 120
-            }
-          ],
-          "fields": [
-            {
-              "type": "string",
-              "id": "games.game",
-              "label": "اللعبة",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "number",
-              "id": "games.fps",
-              "label": "FPS",
-              "format": "integer",
-              "value": null,
-              "required": false,
-              "minimum": 0,
-              "maximum": 999
-            }
-          ]
-        },
-        {
-          "id": "gallery",
-          "type": "collection",
-          "format": "collection",
-          "required": false,
-          "minLength": 0,
-          "maxLength": 12,
-          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
-          "item_label": "صورة",
-          "value": [],
-          "fields": [
-            {
-              "type": "string",
-              "id": "gallery.image",
-              "label": "الصورة",
-              "format": "image",
-              "value": null,
-              "required": false,
-              "description": "800×800 WebP"
-            },
-            {
-              "type": "string",
-              "id": "gallery.label",
-              "label": "العنوان",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "string",
-              "id": "gallery.url",
-              "label": "الرابط",
-              "format": "text",
-              "value": null,
-              "required": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "7ce165c7-c7fe-5fb5-b058-8c9a987d0604",
-      "title": {
-        "ar": "خطوات الطلب والضمان",
-        "en": "Steps"
-      },
-      "icon": "sicon-list",
-      "path": "home.tech-steps",
-      "fields": [
         {
           "type": "string",
           "id": "kicker",
@@ -1799,6 +1060,858 @@
           "type": "string",
           "id": "title",
           "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "subtitle",
+          "label": "الوصف",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "items",
+          "id": "product",
+          "label": "منتج مرتبط (اختياري)",
+          "format": "dropdown-list",
+          "source": "products",
+          "searchable": true,
+          "multichoice": false,
+          "selected": [],
+          "options": [],
+          "value": [],
+          "required": false,
+          "maxLength": 1
+        },
+        {
+          "id": "shots",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "لقطات المواصفات",
+          "item_label": "لقطة",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "icon": "sicon-image",
+              "id": "shots.image",
+              "label": "الصورة",
+              "format": "image",
+              "value": null,
+              "required": true,
+              "description": "* المقاس المقترح 1200×900 بكسل",
+              "settings": {
+                "width": 1200,
+                "height": 900
+              }
+            },
+            {
+              "type": "string",
+              "id": "shots.label",
+              "label": "اسم الميزة (مثال: معالج A19 Pro)",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "shots.note",
+              "label": "سطر توضيحي",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "number",
+              "id": "shots.value",
+              "label": "الدرجة % (اختياري — اتركه 0 لإخفائه)",
+              "format": "integer",
+              "value": 0,
+              "minimum": 0,
+              "maximum": 100,
+              "required": false
+            },
+            {
+              "type": "number",
+              "id": "shots.x",
+              "label": "موقع النقطة أفقياً %",
+              "format": "integer",
+              "value": 50,
+              "minimum": 0,
+              "maximum": 100,
+              "required": false
+            },
+            {
+              "type": "number",
+              "id": "shots.y",
+              "label": "موقع النقطة عمودياً %",
+              "format": "integer",
+              "value": 50,
+              "minimum": 0,
+              "maximum": 100,
+              "required": false
+            }
+          ]
+        }
+      ],
+      "is_default": true
+    },
+    {
+      "key": "1c80bbb1-601c-5ec7-b892-62eb1d37874d",
+      "title": {
+        "ar": "متجرنا بالأرقام (لوحة ذكية حيّة)",
+        "en": "Store in numbers (live board)"
+      },
+      "icon": "sicon-chart-pie",
+      "path": "home.oc-intel-board",
+      "fields": [
+        {
+          "type": "static",
+          "format": "description",
+          "id": "bd-note",
+          "value": "<div style='background:#f6f3ec;border-radius:8px;padding:10px 14px;color:#3a2f1c;font-size:13px;line-height:1.7'>لوحة إنفوجرافيك تُبنى <b>من بيانات متجرك الحقيقية فقط</b>: عدد الأقسام، نطاق الأسعار والوسيط، جاهزية المخزون، نسبة العروض ومتوسط الخصم، رضا العملاء من التقييمات، تركيبة المعروض، الماركات الأبرز. أي رقم ما له بيانات ما يظهر. ارفع 6–12 صورة خلفية تتحرك ببطء خلف الأرقام.</div>"
+        },
+        {
+          "type": "string",
+          "id": "title",
+          "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "subtitle",
+          "label": "الوصف",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "id": "backdrops",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "صور الخلفية",
+          "item_label": "صورة",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "icon": "sicon-image",
+              "id": "backdrops.image",
+              "label": "الصورة",
+              "format": "image",
+              "value": null,
+              "required": true,
+              "description": "* المقاس المقترح 1200×900 بكسل",
+              "settings": {
+                "width": 1200,
+                "height": 900
+              }
+            }
+          ]
+        }
+      ],
+      "is_default": true
+    },
+    {
+      "key": "6df06853-ad2a-5b3a-9c51-d94e56441a23",
+      "title": {
+        "ar": "مقارنة الطرازات (6–12)",
+        "en": "Model compare (6–12)"
+      },
+      "icon": "sicon-swap-stroke",
+      "path": "home.oc-compare",
+      "fields": [
+        {
+          "type": "static",
+          "format": "description",
+          "id": "cmp-note",
+          "value": "<div style='background:#f6f3ec;border-radius:8px;padding:10px 14px;color:#3a2f1c;font-size:13px;line-height:1.7'>أضف من <b>6 إلى 12 طرازاً</b> بصورها ودرجات مواصفاتها، والعميل يختار حتى 3 للمقارنة. <b>إذا تركته فاضي</b> يقارن الثيم منتجات متجرك الحقيقية تلقائياً على بيانات حقيقية: السعر، التقييم، عدد التقييمات، التوفر، الخصم.</div>"
+        },
+        {
+          "type": "string",
+          "id": "title",
+          "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "subtitle",
+          "label": "الوصف",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "label1",
+          "label": "اسم الصف 1 (مثال: الأداء)",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "label2",
+          "label": "اسم الصف 2 (مثال: البطارية)",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "label3",
+          "label": "اسم الصف 3 (مثال: الكاميرا)",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "label4",
+          "label": "اسم الصف 4 (مثال: الشاشة)",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "id": "models",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "الطرازات",
+          "item_label": "طراز",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "icon": "sicon-image",
+              "id": "models.image",
+              "label": "صورة الطراز",
+              "format": "image",
+              "value": null,
+              "required": true,
+              "description": "* المقاس المقترح 800×600 بكسل",
+              "settings": {
+                "width": 800,
+                "height": 600
+              }
+            },
+            {
+              "type": "string",
+              "id": "models.name",
+              "label": "اسم الطراز",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "models.price",
+              "label": "السعر كما يظهر",
+              "format": "text",
+              "value": null,
+              "required": false
+            },
+            {
+              "type": "items",
+              "icon": "sicon-link",
+              "label": "الرابط",
+              "id": "models.url",
+              "value": null,
+              "description": null,
+              "required": false,
+              "format": "variable-list",
+              "searchable": true,
+              "source": "custom",
+              "sources": [
+                {
+                  "label": "منتج",
+                  "key": "products",
+                  "value": "products"
+                },
+                {
+                  "label": "منتجات مع وسم",
+                  "key": "products_tags",
+                  "value": "products_tags"
+                },
+                {
+                  "label": "تصنيف",
+                  "key": "categories",
+                  "value": "categories"
+                },
+                {
+                  "label": "ماركة تجارية",
+                  "key": "brands",
+                  "value": "brands"
+                },
+                {
+                  "label": "صفحة تعريفية",
+                  "key": "pages",
+                  "value": "pages"
+                },
+                {
+                  "label": "مقالة",
+                  "key": "blog_articles",
+                  "value": "blog_articles"
+                },
+                {
+                  "label": "تصنيف ضمن المدونة",
+                  "key": "blog_categories",
+                  "value": "blog_categories"
+                },
+                {
+                  "label": "التخفيضات",
+                  "key": "offers_link",
+                  "value": "offers_link"
+                },
+                {
+                  "label": "الماركات التجارية",
+                  "key": "brands_link",
+                  "value": "brands_link"
+                },
+                {
+                  "label": "المدونة",
+                  "key": "blog_link",
+                  "value": "blog_link"
+                },
+                {
+                  "label": "رابط خارجي",
+                  "key": "custom",
+                  "value": "custom"
+                }
+              ]
+            },
+            {
+              "type": "number",
+              "id": "models.s1",
+              "label": "درجة الصف 1",
+              "format": "integer",
+              "value": 0,
+              "minimum": 0,
+              "maximum": 100,
+              "required": false
+            },
+            {
+              "type": "number",
+              "id": "models.s2",
+              "label": "درجة الصف 2",
+              "format": "integer",
+              "value": 0,
+              "minimum": 0,
+              "maximum": 100,
+              "required": false
+            },
+            {
+              "type": "number",
+              "id": "models.s3",
+              "label": "درجة الصف 3",
+              "format": "integer",
+              "value": 0,
+              "minimum": 0,
+              "maximum": 100,
+              "required": false
+            },
+            {
+              "type": "number",
+              "id": "models.s4",
+              "label": "درجة الصف 4",
+              "format": "integer",
+              "value": 0,
+              "minimum": 0,
+              "maximum": 100,
+              "required": false
+            }
+          ]
+        }
+      ],
+      "is_default": true
+    },
+    {
+      "key": "9adbfeac-1bf9-5d5c-a511-8fd8b65e25d4",
+      "title": {
+        "ar": "معرض سينمائي (6–12 صورة)",
+        "en": "Cinematic showcase (6–12 images)"
+      },
+      "icon": "sicon-layout-grid",
+      "path": "home.oc-showcase",
+      "fields": [
+        {
+          "type": "static",
+          "format": "description",
+          "id": "show-note",
+          "value": "<div style='background:#f6f3ec;border-radius:8px;padding:10px 14px;color:#3a2f1c;font-size:13px;line-height:1.7'>ارفع من <b>6 إلى 12 صورة</b>. أي خانة فاضية يكملها الثيم تلقائياً من متجرك نفسه (أسماء أقسامك وروابطها وصورها) مع صور تقنية سينمائية مطابقة لنوع متجرك — بدون أرقام أو ادعاءات مخترعة.</div>"
+        },
+        {
+          "type": "string",
+          "id": "title",
+          "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "subtitle",
+          "label": "الوصف",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "id": "tiles",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "البلاطات",
+          "item_label": "صورة",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "icon": "sicon-image",
+              "id": "tiles.image",
+              "label": "الصورة",
+              "format": "image",
+              "value": null,
+              "required": true,
+              "description": "* المقاس المقترح 1200×900 بكسل",
+              "settings": {
+                "width": 1200,
+                "height": 900
+              }
+            },
+            {
+              "type": "string",
+              "id": "tiles.title",
+              "label": "العنوان",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "tiles.caption",
+              "label": "سطر صغير",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "items",
+              "icon": "sicon-link",
+              "label": "الرابط",
+              "id": "tiles.url",
+              "value": null,
+              "description": null,
+              "required": false,
+              "format": "variable-list",
+              "searchable": true,
+              "source": "custom",
+              "sources": [
+                {
+                  "label": "منتج",
+                  "key": "products",
+                  "value": "products"
+                },
+                {
+                  "label": "منتجات مع وسم",
+                  "key": "products_tags",
+                  "value": "products_tags"
+                },
+                {
+                  "label": "تصنيف",
+                  "key": "categories",
+                  "value": "categories"
+                },
+                {
+                  "label": "ماركة تجارية",
+                  "key": "brands",
+                  "value": "brands"
+                },
+                {
+                  "label": "صفحة تعريفية",
+                  "key": "pages",
+                  "value": "pages"
+                },
+                {
+                  "label": "مقالة",
+                  "key": "blog_articles",
+                  "value": "blog_articles"
+                },
+                {
+                  "label": "تصنيف ضمن المدونة",
+                  "key": "blog_categories",
+                  "value": "blog_categories"
+                },
+                {
+                  "label": "التخفيضات",
+                  "key": "offers_link",
+                  "value": "offers_link"
+                },
+                {
+                  "label": "الماركات التجارية",
+                  "key": "brands_link",
+                  "value": "brands_link"
+                },
+                {
+                  "label": "المدونة",
+                  "key": "blog_link",
+                  "value": "blog_link"
+                },
+                {
+                  "label": "رابط خارجي",
+                  "key": "custom",
+                  "value": "custom"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "is_default": true
+    },
+    {
+      "key": "159fbbac-ed03-51a1-be40-15207cd1c5cf",
+      "title": {
+        "ar": "ابنِ إعدادك (6–12 عنصر)",
+        "en": "Build your setup (6–12 items)"
+      },
+      "icon": "sicon-puzzle",
+      "path": "home.oc-setup",
+      "fields": [
+        {
+          "type": "static",
+          "format": "description",
+          "id": "setup-note",
+          "value": "<div style='background:#f6f3ec;border-radius:8px;padding:10px 14px;color:#3a2f1c;font-size:13px;line-height:1.7'>كل عنصر = صورة + اسم + كلمة بحث. العميل يضغط العنصر فيظهر له منتجات متجرك المطابقة، ويختار منها ويشوف <b>الإجمالي الحقيقي</b> بعملة متجرك. الفاضي يكمَّل من ملحقات نوع متجرك.</div>"
+        },
+        {
+          "type": "string",
+          "id": "title",
+          "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "subtitle",
+          "label": "الوصف",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "id": "items",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "العناصر",
+          "item_label": "عنصر",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "icon": "sicon-image",
+              "id": "items.image",
+              "label": "الصورة",
+              "format": "image",
+              "value": null,
+              "required": true,
+              "description": "* المقاس المقترح 800×600 بكسل",
+              "settings": {
+                "width": 800,
+                "height": 600
+              }
+            },
+            {
+              "type": "string",
+              "id": "items.label",
+              "label": "الاسم",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "items.keyword",
+              "label": "كلمة البحث في منتجاتك",
+              "format": "text",
+              "value": null,
+              "required": false
+            }
+          ]
+        }
+      ],
+      "is_default": true
+    },
+    {
+      "key": "8318ecdb-5d59-5d58-9f92-23e3722be80d",
+      "title": {
+        "ar": "جدار الماركات (6–12 شعار)",
+        "en": "Brands wall (6–12 logos)"
+      },
+      "icon": "sicon-award-ribbon",
+      "path": "home.oc-brands-wall",
+      "fields": [
+        {
+          "type": "static",
+          "format": "description",
+          "id": "brw-note",
+          "value": "<div style='background:#f6f3ec;border-radius:8px;padding:10px 14px;color:#3a2f1c;font-size:13px;line-height:1.7'>ارفع من <b>6 إلى 12 شعاراً</b> (PNG شفاف). بدون شعارات يعرض الثيم الماركات الموجودة فعلاً في أسماء منتجاتك وأقسامك فقط.</div>"
+        },
+        {
+          "type": "string",
+          "id": "title",
+          "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "subtitle",
+          "label": "الوصف",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "id": "brands",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "الماركات",
+          "item_label": "ماركة",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "icon": "sicon-image",
+              "id": "brands.logo",
+              "label": "الشعار",
+              "format": "image",
+              "value": null,
+              "required": true,
+              "description": "* المقاس المقترح 400×200 بكسل",
+              "settings": {
+                "width": 400,
+                "height": 200
+              }
+            },
+            {
+              "type": "string",
+              "id": "brands.name",
+              "label": "اسم الماركة",
+              "format": "text",
+              "value": null,
+              "required": false
+            },
+            {
+              "type": "items",
+              "icon": "sicon-link",
+              "label": "الرابط",
+              "id": "brands.url",
+              "value": null,
+              "description": null,
+              "required": false,
+              "format": "variable-list",
+              "searchable": true,
+              "source": "custom",
+              "sources": [
+                {
+                  "label": "منتج",
+                  "key": "products",
+                  "value": "products"
+                },
+                {
+                  "label": "منتجات مع وسم",
+                  "key": "products_tags",
+                  "value": "products_tags"
+                },
+                {
+                  "label": "تصنيف",
+                  "key": "categories",
+                  "value": "categories"
+                },
+                {
+                  "label": "ماركة تجارية",
+                  "key": "brands",
+                  "value": "brands"
+                },
+                {
+                  "label": "صفحة تعريفية",
+                  "key": "pages",
+                  "value": "pages"
+                },
+                {
+                  "label": "مقالة",
+                  "key": "blog_articles",
+                  "value": "blog_articles"
+                },
+                {
+                  "label": "تصنيف ضمن المدونة",
+                  "key": "blog_categories",
+                  "value": "blog_categories"
+                },
+                {
+                  "label": "التخفيضات",
+                  "key": "offers_link",
+                  "value": "offers_link"
+                },
+                {
+                  "label": "الماركات التجارية",
+                  "key": "brands_link",
+                  "value": "brands_link"
+                },
+                {
+                  "label": "المدونة",
+                  "key": "blog_link",
+                  "value": "blog_link"
+                },
+                {
+                  "label": "رابط خارجي",
+                  "key": "custom",
+                  "value": "custom"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "is_default": true
+    },
+    {
+      "key": "335be796-4e7c-5649-affe-a8662737aedc",
+      "title": {
+        "ar": "مؤشر ثقة المتجر",
+        "en": "Store trust gauges"
+      },
+      "icon": "sicon-shield",
+      "path": "home.oc-trust",
+      "fields": [
+        {
+          "type": "string",
+          "id": "title",
+          "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "id": "items",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 6,
+          "label": "بطاقة ثقة",
+          "item_label": "بطاقة ثقة",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "id": "items.title",
+              "label": "العنوان",
+              "format": "text",
+              "value": null,
+              "required": false
+            },
+            {
+              "type": "number",
+              "id": "items.value",
+              "label": "النسبة %",
+              "format": "integer",
+              "value": 95,
+              "required": false,
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "type": "string",
+              "id": "items.note",
+              "label": "الوصف",
+              "format": "text",
+              "value": null,
+              "required": false
+            }
+          ]
+        }
+      ],
+      "is_default": true
+    },
+    {
+      "key": "7d956954-d1cc-53d9-8210-72ada742fec8",
+      "title": {
+        "ar": "رحلتك بعد الشراء (6–12 خطوة)",
+        "en": "After-sale journey (6–12 steps)"
+      },
+      "icon": "sicon-shipping",
+      "path": "home.oc-services",
+      "fields": [
+        {
+          "type": "static",
+          "format": "description",
+          "id": "svc-note",
+          "value": "<div style='background:#f6f3ec;border-radius:8px;padding:10px 14px;color:#3a2f1c;font-size:13px;line-height:1.7'>خطوات مصورة (6–12). الخطوات الافتراضية تربط تلقائياً بصفحات سياساتك المنشورة في أسفل المتجر (الشحن، الضمان، الاسترجاع، الدفع، التواصل) — الثيم ما يكتب شروطاً نيابة عنك.</div>"
+        },
+        {
+          "type": "string",
+          "id": "title",
+          "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "subtitle",
+          "label": "الوصف",
           "format": "text",
           "value": null,
           "required": false,
@@ -1810,28 +1923,25 @@
           "format": "collection",
           "required": false,
           "minLength": 0,
-          "maxLength": 6,
-          "label": "خطوة",
+          "maxLength": 12,
+          "label": "الخطوات",
           "item_label": "خطوة",
-          "value": [
-            {
-              "steps.title": "اطلب",
-              "steps.text": "ادفع بأمان أو قسّط"
-            },
-            {
-              "steps.title": "نجهّز",
-              "steps.text": "فحص وتغليف خلال ساعات"
-            },
-            {
-              "steps.title": "نوصّل",
-              "steps.text": "تتبّع لحظي"
-            },
-            {
-              "steps.title": "ضمان",
-              "steps.text": "دعم وضمان بعد البيع"
-            }
-          ],
+          "value": [],
           "fields": [
+            {
+              "type": "string",
+              "icon": "sicon-image",
+              "id": "steps.image",
+              "label": "الصورة",
+              "format": "image",
+              "value": null,
+              "required": true,
+              "description": "* المقاس المقترح 800×600 بكسل",
+              "settings": {
+                "width": 800,
+                "height": 600
+              }
+            },
             {
               "type": "string",
               "id": "steps.title",
@@ -1849,32 +1959,260 @@
               "value": null,
               "required": false,
               "multilanguage": true
+            },
+            {
+              "type": "items",
+              "icon": "sicon-link",
+              "label": "الرابط",
+              "id": "steps.url",
+              "value": null,
+              "description": null,
+              "required": false,
+              "format": "variable-list",
+              "searchable": true,
+              "source": "custom",
+              "sources": [
+                {
+                  "label": "منتج",
+                  "key": "products",
+                  "value": "products"
+                },
+                {
+                  "label": "منتجات مع وسم",
+                  "key": "products_tags",
+                  "value": "products_tags"
+                },
+                {
+                  "label": "تصنيف",
+                  "key": "categories",
+                  "value": "categories"
+                },
+                {
+                  "label": "ماركة تجارية",
+                  "key": "brands",
+                  "value": "brands"
+                },
+                {
+                  "label": "صفحة تعريفية",
+                  "key": "pages",
+                  "value": "pages"
+                },
+                {
+                  "label": "مقالة",
+                  "key": "blog_articles",
+                  "value": "blog_articles"
+                },
+                {
+                  "label": "تصنيف ضمن المدونة",
+                  "key": "blog_categories",
+                  "value": "blog_categories"
+                },
+                {
+                  "label": "التخفيضات",
+                  "key": "offers_link",
+                  "value": "offers_link"
+                },
+                {
+                  "label": "الماركات التجارية",
+                  "key": "brands_link",
+                  "value": "brands_link"
+                },
+                {
+                  "label": "المدونة",
+                  "key": "blog_link",
+                  "value": "blog_link"
+                },
+                {
+                  "label": "رابط خارجي",
+                  "key": "custom",
+                  "value": "custom"
+                }
+              ]
             }
           ]
+        }
+      ],
+      "is_default": true
+    },
+    {
+      "key": "0a368402-5080-5c82-945a-1009f8d0501f",
+      "title": {
+        "ar": "هيرو سينمائي بالمؤشرات",
+        "en": "Cinematic gauge hero"
+      },
+      "icon": "sicon-image",
+      "path": "home.oc-hero",
+      "fields": [
+        {
+          "type": "string",
+          "id": "kicker",
+          "label": "عنوان صغير",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
         },
         {
-          "id": "gallery",
+          "type": "string",
+          "id": "title",
+          "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "subtitle",
+          "label": "العنوان الفرعي",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "description",
+          "label": "الوصف",
+          "format": "textarea",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "image",
+          "label": "صورة المنتج البطل (PNG شفاف)",
+          "format": "image",
+          "value": null,
+          "required": false
+        },
+        {
+          "type": "string",
+          "id": "cta",
+          "label": "نص الزر",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "url",
+          "label": "رابط الزر",
+          "format": "text",
+          "value": null,
+          "required": false
+        },
+        {
+          "id": "stats",
           "type": "collection",
           "format": "collection",
           "required": false,
           "minLength": 0,
-          "maxLength": 12,
-          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
-          "item_label": "صورة",
+          "maxLength": 6,
+          "label": "مؤشر",
+          "item_label": "مؤشر",
           "value": [],
           "fields": [
             {
               "type": "string",
-              "id": "gallery.image",
-              "label": "الصورة",
-              "format": "image",
+              "id": "stats.label",
+              "label": "العنوان",
+              "format": "text",
               "value": null,
+              "required": false
+            },
+            {
+              "type": "number",
+              "id": "stats.value",
+              "label": "النسبة %",
+              "format": "integer",
+              "value": 90,
               "required": false,
-              "description": "800×800 WebP"
+              "minimum": 0,
+              "maximum": 100
             },
             {
               "type": "string",
-              "id": "gallery.label",
+              "id": "stats.note",
+              "label": "ملاحظة",
+              "format": "text",
+              "value": null,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "8c2d8d69-3ebd-59c3-b4c7-bc34b3588a80",
+      "title": {
+        "ar": "بنر إعلاني (صورة + عنوان + رابط)",
+        "en": "Promo banner (image + title + link)"
+      },
+      "icon": "sicon-image",
+      "path": "home.oc-banner",
+      "fields": [
+        {
+          "id": "height",
+          "type": "items",
+          "format": "dropdown-list",
+          "label": "ارتفاع البنر · Height",
+          "selected": [
+            {
+              "label": "متوسط",
+              "value": "md"
+            }
+          ],
+          "options": [
+            {
+              "label": "قصير",
+              "value": "sm"
+            },
+            {
+              "label": "متوسط",
+              "value": "md"
+            },
+            {
+              "label": "عالي",
+              "value": "lg"
+            }
+          ],
+          "source": "Manual",
+          "required": false,
+          "multichoice": false
+        },
+        {
+          "id": "banners",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 1,
+          "maxLength": 12,
+          "label": "البنرات (حتى 12)",
+          "item_label": "بنر",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "id": "banners.image",
+              "label": "صورة البنر (سطح المكتب 1920×640)",
+              "format": "image",
+              "value": null,
+              "required": false
+            },
+            {
+              "type": "string",
+              "id": "banners.image_mobile",
+              "label": "صورة الجوال (اختياري 800×800)",
+              "format": "image",
+              "value": null,
+              "required": false
+            },
+            {
+              "type": "string",
+              "id": "banners.title",
               "label": "العنوان",
               "format": "text",
               "value": null,
@@ -1883,7 +2221,25 @@
             },
             {
               "type": "string",
-              "id": "gallery.url",
+              "id": "banners.subtitle",
+              "label": "النص الفرعي",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "banners.cta",
+              "label": "نص الزر",
+              "format": "text",
+              "value": null,
+              "required": false,
+              "multilanguage": true
+            },
+            {
+              "type": "string",
+              "id": "banners.url",
               "label": "الرابط",
               "format": "text",
               "value": null,
@@ -1894,13 +2250,171 @@
       ]
     },
     {
-      "key": "f3ded524-66b7-5be1-b0b5-670f65e1fe6b",
+      "key": "98f45197-0701-50f1-8753-9709d39eadbd",
       "title": {
-        "ar": "مؤشر الثقة والرضا",
-        "en": "Smart trust"
+        "ar": "إطلاق بعدّاد تنازلي (6–12 صورة)",
+        "en": "Launch countdown (6–12 images)"
       },
-      "icon": "sicon-shield",
-      "path": "home.tech-trust",
+      "icon": "sicon-time",
+      "path": "home.oc-launch",
+      "fields": [
+        {
+          "type": "static",
+          "format": "description",
+          "id": "launch-note",
+          "value": "<div style='background:#f6f3ec;border-radius:8px;padding:10px 14px;color:#3a2f1c;font-size:13px;line-height:1.7'>عدّاد تنازلي حقيقي لموعد الإطلاق مع 6–12 صورة تشويقية. اكتب التاريخ بهذا الشكل: <b>2026-12-01 20:00</b>. بدون تاريخ يظهر «قريباً»، وبعد الموعد «متاح الآن».</div>"
+        },
+        {
+          "type": "string",
+          "id": "kicker",
+          "label": "عنوان صغير",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "title",
+          "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "subtitle",
+          "label": "الوصف",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "date",
+          "label": "موعد الإطلاق",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "placeholder": "2026-12-01 20:00"
+        },
+        {
+          "type": "string",
+          "id": "cta",
+          "label": "نص الزر",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "items",
+          "icon": "sicon-link",
+          "label": "الرابط",
+          "id": "url",
+          "value": null,
+          "description": null,
+          "required": false,
+          "format": "variable-list",
+          "searchable": true,
+          "source": "custom",
+          "sources": [
+            {
+              "label": "منتج",
+              "key": "products",
+              "value": "products"
+            },
+            {
+              "label": "منتجات مع وسم",
+              "key": "products_tags",
+              "value": "products_tags"
+            },
+            {
+              "label": "تصنيف",
+              "key": "categories",
+              "value": "categories"
+            },
+            {
+              "label": "ماركة تجارية",
+              "key": "brands",
+              "value": "brands"
+            },
+            {
+              "label": "صفحة تعريفية",
+              "key": "pages",
+              "value": "pages"
+            },
+            {
+              "label": "مقالة",
+              "key": "blog_articles",
+              "value": "blog_articles"
+            },
+            {
+              "label": "تصنيف ضمن المدونة",
+              "key": "blog_categories",
+              "value": "blog_categories"
+            },
+            {
+              "label": "التخفيضات",
+              "key": "offers_link",
+              "value": "offers_link"
+            },
+            {
+              "label": "الماركات التجارية",
+              "key": "brands_link",
+              "value": "brands_link"
+            },
+            {
+              "label": "المدونة",
+              "key": "blog_link",
+              "value": "blog_link"
+            },
+            {
+              "label": "رابط خارجي",
+              "key": "custom",
+              "value": "custom"
+            }
+          ]
+        },
+        {
+          "id": "teasers",
+          "type": "collection",
+          "format": "collection",
+          "required": false,
+          "minLength": 0,
+          "maxLength": 12,
+          "label": "الصور التشويقية",
+          "item_label": "صورة",
+          "value": [],
+          "fields": [
+            {
+              "type": "string",
+              "icon": "sicon-image",
+              "id": "teasers.image",
+              "label": "الصورة",
+              "format": "image",
+              "value": null,
+              "required": true,
+              "description": "* المقاس المقترح 1200×900 بكسل",
+              "settings": {
+                "width": 1200,
+                "height": 900
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "fb6a509c-9cb5-5fca-9475-bcce864d72a2",
+      "title": {
+        "ar": "منتجات هولوغرام",
+        "en": "Hologram products"
+      },
+      "icon": "sicon-box",
+      "path": "home.oc-products",
       "fields": [
         {
           "type": "string",
@@ -1912,88 +2426,701 @@
           "multilanguage": true
         },
         {
-          "id": "metrics",
-          "type": "collection",
-          "format": "collection",
+          "type": "string",
+          "id": "subtitle",
+          "label": "الوصف",
+          "format": "text",
+          "value": null,
           "required": false,
-          "minLength": 0,
-          "maxLength": 6,
-          "label": "مؤشر",
-          "item_label": "مؤشر",
-          "value": [
-            {
-              "metrics.label": "رضا العملاء",
-              "metrics.value": 96
-            },
-            {
-              "metrics.label": "توصيل في الموعد",
-              "metrics.value": 94
-            },
-            {
-              "metrics.label": "يعيدون الشراء",
-              "metrics.value": 81
-            }
-          ],
-          "fields": [
-            {
-              "type": "string",
-              "id": "metrics.label",
-              "label": "المؤشر",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "number",
-              "id": "metrics.value",
-              "label": "النسبة %",
-              "format": "integer",
-              "value": null,
-              "required": false,
-              "minimum": 0,
-              "maximum": 999
-            }
-          ]
+          "multilanguage": true
         },
         {
-          "id": "gallery",
-          "type": "collection",
-          "format": "collection",
-          "required": false,
-          "minLength": 0,
-          "maxLength": 12,
-          "label": "صور القسم (6–12) — اتركها فارغة لتظهر صور منتجات متجرك تلقائياً",
-          "item_label": "صورة",
+          "type": "items",
+          "id": "products",
+          "label": "منتجات محددة (فارغ = تلقائي)",
+          "format": "dropdown-list",
+          "source": "products",
+          "searchable": true,
+          "multichoice": true,
+          "selected": [],
+          "options": [],
           "value": [],
-          "fields": [
+          "required": false,
+          "maxLength": 12
+        },
+        {
+          "type": "items",
+          "id": "category",
+          "label": "تصنيفات (فارغ = تصنيفات متجرك تلقائياً)",
+          "format": "dropdown-list",
+          "source": "categories",
+          "searchable": true,
+          "multichoice": true,
+          "selected": [],
+          "options": [],
+          "value": [],
+          "required": false,
+          "maxLength": 16
+        },
+        {
+          "type": "number",
+          "id": "limit",
+          "label": "العدد",
+          "format": "integer",
+          "value": 8,
+          "required": false,
+          "minimum": 1,
+          "maximum": 24
+        }
+      ]
+    },
+    {
+      "key": "ac015b9d-f04a-5cf1-82a3-010d4ecf99db",
+      "title": {
+        "ar": "مختارات الفئة",
+        "en": "Vertical featured"
+      },
+      "icon": "sicon-star",
+      "path": "home.oc-v-featured",
+      "fields": [
+        {
+          "type": "string",
+          "id": "title",
+          "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "subtitle",
+          "label": "الوصف",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "items",
+          "id": "vertical",
+          "label": "الفئة",
+          "format": "dropdown-list",
+          "selected": [
             {
-              "type": "string",
-              "id": "gallery.image",
-              "label": "الصورة",
-              "format": "image",
-              "value": null,
-              "required": false,
-              "description": "800×800 WebP"
-            },
-            {
-              "type": "string",
-              "id": "gallery.label",
-              "label": "العنوان",
-              "format": "text",
-              "value": null,
-              "required": false,
-              "multilanguage": true
-            },
-            {
-              "type": "string",
-              "id": "gallery.url",
-              "label": "الرابط",
-              "format": "text",
-              "value": null,
-              "required": false
+              "label": "تلقائي (من منتجات وقوائم المتجر)",
+              "value": "auto",
+              "key": "v-auto"
             }
-          ]
+          ],
+          "options": [
+            {
+              "label": "تلقائي (من منتجات وقوائم المتجر)",
+              "value": "auto",
+              "key": "v-auto"
+            },
+            {
+              "label": "الإلكترونيات",
+              "value": "electronics",
+              "key": "v-electronics"
+            },
+            {
+              "label": "الجوالات",
+              "value": "phones",
+              "key": "v-phones"
+            },
+            {
+              "label": "الساعات الذكية",
+              "value": "watches",
+              "key": "v-watches"
+            },
+            {
+              "label": "الكمبيوتر",
+              "value": "computers",
+              "key": "v-computers"
+            },
+            {
+              "label": "الألعاب",
+              "value": "gaming",
+              "key": "v-gaming"
+            },
+            {
+              "label": "الصوتيات",
+              "value": "audio",
+              "key": "v-audio"
+            },
+            {
+              "label": "البطاقات الرقمية",
+              "value": "digital_cards",
+              "key": "v-digital_cards"
+            },
+            {
+              "label": "المنزل الذكي",
+              "value": "smarthome",
+              "key": "v-smarthome"
+            },
+            {
+              "label": "الكاميرات",
+              "value": "cameras",
+              "key": "v-cameras"
+            },
+            {
+              "label": "الإكسسوارات",
+              "value": "accessories",
+              "key": "v-accessories"
+            },
+            {
+              "label": "البرمجيات",
+              "value": "software",
+              "key": "v-software"
+            }
+          ],
+          "value": "auto",
+          "required": false
+        },
+        {
+          "type": "items",
+          "id": "category",
+          "label": "تصنيفات (فارغ = تصنيفات متجرك تلقائياً)",
+          "format": "dropdown-list",
+          "source": "categories",
+          "searchable": true,
+          "multichoice": true,
+          "selected": [],
+          "options": [],
+          "value": [],
+          "required": false,
+          "maxLength": 16
+        },
+        {
+          "type": "number",
+          "id": "limit",
+          "label": "العدد",
+          "format": "integer",
+          "value": 12,
+          "required": false,
+          "minimum": 1,
+          "maximum": 24
+        }
+      ]
+    },
+    {
+      "key": "bf81855f-7522-5489-a69e-84ba87526b46",
+      "title": {
+        "ar": "الأكثر مبيعاً في الفئة",
+        "en": "Vertical bestsellers"
+      },
+      "icon": "sicon-fire",
+      "path": "home.oc-v-bestsellers",
+      "fields": [
+        {
+          "type": "string",
+          "id": "title",
+          "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "subtitle",
+          "label": "الوصف",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "items",
+          "id": "vertical",
+          "label": "الفئة",
+          "format": "dropdown-list",
+          "selected": [
+            {
+              "label": "تلقائي (من منتجات وقوائم المتجر)",
+              "value": "auto",
+              "key": "v-auto"
+            }
+          ],
+          "options": [
+            {
+              "label": "تلقائي (من منتجات وقوائم المتجر)",
+              "value": "auto",
+              "key": "v-auto"
+            },
+            {
+              "label": "الإلكترونيات",
+              "value": "electronics",
+              "key": "v-electronics"
+            },
+            {
+              "label": "الجوالات",
+              "value": "phones",
+              "key": "v-phones"
+            },
+            {
+              "label": "الساعات الذكية",
+              "value": "watches",
+              "key": "v-watches"
+            },
+            {
+              "label": "الكمبيوتر",
+              "value": "computers",
+              "key": "v-computers"
+            },
+            {
+              "label": "الألعاب",
+              "value": "gaming",
+              "key": "v-gaming"
+            },
+            {
+              "label": "الصوتيات",
+              "value": "audio",
+              "key": "v-audio"
+            },
+            {
+              "label": "البطاقات الرقمية",
+              "value": "digital_cards",
+              "key": "v-digital_cards"
+            },
+            {
+              "label": "المنزل الذكي",
+              "value": "smarthome",
+              "key": "v-smarthome"
+            },
+            {
+              "label": "الكاميرات",
+              "value": "cameras",
+              "key": "v-cameras"
+            },
+            {
+              "label": "الإكسسوارات",
+              "value": "accessories",
+              "key": "v-accessories"
+            },
+            {
+              "label": "البرمجيات",
+              "value": "software",
+              "key": "v-software"
+            }
+          ],
+          "value": "auto",
+          "required": false
+        },
+        {
+          "type": "items",
+          "id": "category",
+          "label": "تصنيفات (فارغ = تصنيفات متجرك تلقائياً)",
+          "format": "dropdown-list",
+          "source": "categories",
+          "searchable": true,
+          "multichoice": true,
+          "selected": [],
+          "options": [],
+          "value": [],
+          "required": false,
+          "maxLength": 16
+        },
+        {
+          "type": "number",
+          "id": "limit",
+          "label": "العدد",
+          "format": "integer",
+          "value": 12,
+          "required": false,
+          "minimum": 1,
+          "maximum": 24
+        }
+      ]
+    },
+    {
+      "key": "4c63fac5-5d3e-524a-9246-f694373e44ab",
+      "title": {
+        "ar": "وصل حديثاً في الفئة",
+        "en": "Vertical new arrivals"
+      },
+      "icon": "sicon-sparkles",
+      "path": "home.oc-v-new",
+      "fields": [
+        {
+          "type": "string",
+          "id": "title",
+          "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "subtitle",
+          "label": "الوصف",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "items",
+          "id": "vertical",
+          "label": "الفئة",
+          "format": "dropdown-list",
+          "selected": [
+            {
+              "label": "تلقائي (من منتجات وقوائم المتجر)",
+              "value": "auto",
+              "key": "v-auto"
+            }
+          ],
+          "options": [
+            {
+              "label": "تلقائي (من منتجات وقوائم المتجر)",
+              "value": "auto",
+              "key": "v-auto"
+            },
+            {
+              "label": "الإلكترونيات",
+              "value": "electronics",
+              "key": "v-electronics"
+            },
+            {
+              "label": "الجوالات",
+              "value": "phones",
+              "key": "v-phones"
+            },
+            {
+              "label": "الساعات الذكية",
+              "value": "watches",
+              "key": "v-watches"
+            },
+            {
+              "label": "الكمبيوتر",
+              "value": "computers",
+              "key": "v-computers"
+            },
+            {
+              "label": "الألعاب",
+              "value": "gaming",
+              "key": "v-gaming"
+            },
+            {
+              "label": "الصوتيات",
+              "value": "audio",
+              "key": "v-audio"
+            },
+            {
+              "label": "البطاقات الرقمية",
+              "value": "digital_cards",
+              "key": "v-digital_cards"
+            },
+            {
+              "label": "المنزل الذكي",
+              "value": "smarthome",
+              "key": "v-smarthome"
+            },
+            {
+              "label": "الكاميرات",
+              "value": "cameras",
+              "key": "v-cameras"
+            },
+            {
+              "label": "الإكسسوارات",
+              "value": "accessories",
+              "key": "v-accessories"
+            },
+            {
+              "label": "البرمجيات",
+              "value": "software",
+              "key": "v-software"
+            }
+          ],
+          "value": "auto",
+          "required": false
+        },
+        {
+          "type": "items",
+          "id": "category",
+          "label": "تصنيفات (فارغ = تصنيفات متجرك تلقائياً)",
+          "format": "dropdown-list",
+          "source": "categories",
+          "searchable": true,
+          "multichoice": true,
+          "selected": [],
+          "options": [],
+          "value": [],
+          "required": false,
+          "maxLength": 16
+        },
+        {
+          "type": "number",
+          "id": "limit",
+          "label": "العدد",
+          "format": "integer",
+          "value": 12,
+          "required": false,
+          "minimum": 1,
+          "maximum": 24
+        }
+      ]
+    },
+    {
+      "key": "8e3296e8-1f0b-5b13-ad46-544a72c04433",
+      "title": {
+        "ar": "عروض الفئة",
+        "en": "Vertical deals"
+      },
+      "icon": "sicon-discount-calculator",
+      "path": "home.oc-v-deals",
+      "fields": [
+        {
+          "type": "string",
+          "id": "title",
+          "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "subtitle",
+          "label": "الوصف",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "items",
+          "id": "vertical",
+          "label": "الفئة",
+          "format": "dropdown-list",
+          "selected": [
+            {
+              "label": "تلقائي (من منتجات وقوائم المتجر)",
+              "value": "auto",
+              "key": "v-auto"
+            }
+          ],
+          "options": [
+            {
+              "label": "تلقائي (من منتجات وقوائم المتجر)",
+              "value": "auto",
+              "key": "v-auto"
+            },
+            {
+              "label": "الإلكترونيات",
+              "value": "electronics",
+              "key": "v-electronics"
+            },
+            {
+              "label": "الجوالات",
+              "value": "phones",
+              "key": "v-phones"
+            },
+            {
+              "label": "الساعات الذكية",
+              "value": "watches",
+              "key": "v-watches"
+            },
+            {
+              "label": "الكمبيوتر",
+              "value": "computers",
+              "key": "v-computers"
+            },
+            {
+              "label": "الألعاب",
+              "value": "gaming",
+              "key": "v-gaming"
+            },
+            {
+              "label": "الصوتيات",
+              "value": "audio",
+              "key": "v-audio"
+            },
+            {
+              "label": "البطاقات الرقمية",
+              "value": "digital_cards",
+              "key": "v-digital_cards"
+            },
+            {
+              "label": "المنزل الذكي",
+              "value": "smarthome",
+              "key": "v-smarthome"
+            },
+            {
+              "label": "الكاميرات",
+              "value": "cameras",
+              "key": "v-cameras"
+            },
+            {
+              "label": "الإكسسوارات",
+              "value": "accessories",
+              "key": "v-accessories"
+            },
+            {
+              "label": "البرمجيات",
+              "value": "software",
+              "key": "v-software"
+            }
+          ],
+          "value": "auto",
+          "required": false
+        },
+        {
+          "type": "items",
+          "id": "category",
+          "label": "تصنيفات (فارغ = تصنيفات متجرك تلقائياً)",
+          "format": "dropdown-list",
+          "source": "categories",
+          "searchable": true,
+          "multichoice": true,
+          "selected": [],
+          "options": [],
+          "value": [],
+          "required": false,
+          "maxLength": 16
+        },
+        {
+          "type": "number",
+          "id": "limit",
+          "label": "العدد",
+          "format": "integer",
+          "value": 12,
+          "required": false,
+          "minimum": 1,
+          "maximum": 24
+        }
+      ]
+    },
+    {
+      "key": "302cddb4-b0bd-5a2b-a84a-98d9979db03c",
+      "title": {
+        "ar": "طقم الفئة (حزمة)",
+        "en": "Vertical bundle"
+      },
+      "icon": "sicon-box-bankers",
+      "path": "home.oc-v-bundle",
+      "fields": [
+        {
+          "type": "string",
+          "id": "title",
+          "label": "العنوان",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "string",
+          "id": "subtitle",
+          "label": "الوصف",
+          "format": "text",
+          "value": null,
+          "required": false,
+          "multilanguage": true
+        },
+        {
+          "type": "items",
+          "id": "vertical",
+          "label": "الفئة",
+          "format": "dropdown-list",
+          "selected": [
+            {
+              "label": "تلقائي (من منتجات وقوائم المتجر)",
+              "value": "auto",
+              "key": "v-auto"
+            }
+          ],
+          "options": [
+            {
+              "label": "تلقائي (من منتجات وقوائم المتجر)",
+              "value": "auto",
+              "key": "v-auto"
+            },
+            {
+              "label": "الإلكترونيات",
+              "value": "electronics",
+              "key": "v-electronics"
+            },
+            {
+              "label": "الجوالات",
+              "value": "phones",
+              "key": "v-phones"
+            },
+            {
+              "label": "الساعات الذكية",
+              "value": "watches",
+              "key": "v-watches"
+            },
+            {
+              "label": "الكمبيوتر",
+              "value": "computers",
+              "key": "v-computers"
+            },
+            {
+              "label": "الألعاب",
+              "value": "gaming",
+              "key": "v-gaming"
+            },
+            {
+              "label": "الصوتيات",
+              "value": "audio",
+              "key": "v-audio"
+            },
+            {
+              "label": "البطاقات الرقمية",
+              "value": "digital_cards",
+              "key": "v-digital_cards"
+            },
+            {
+              "label": "المنزل الذكي",
+              "value": "smarthome",
+              "key": "v-smarthome"
+            },
+            {
+              "label": "الكاميرات",
+              "value": "cameras",
+              "key": "v-cameras"
+            },
+            {
+              "label": "الإكسسوارات",
+              "value": "accessories",
+              "key": "v-accessories"
+            },
+            {
+              "label": "البرمجيات",
+              "value": "software",
+              "key": "v-software"
+            }
+          ],
+          "value": "auto",
+          "required": false
+        },
+        {
+          "type": "items",
+          "id": "category",
+          "label": "تصنيفات (فارغ = تصنيفات متجرك تلقائياً)",
+          "format": "dropdown-list",
+          "source": "categories",
+          "searchable": true,
+          "multichoice": true,
+          "selected": [],
+          "options": [],
+          "value": [],
+          "required": false,
+          "maxLength": 16
+        },
+        {
+          "type": "number",
+          "id": "limit",
+          "label": "العدد",
+          "format": "integer",
+          "value": 12,
+          "required": false,
+          "minimum": 1,
+          "maximum": 24
         }
       ]
     },
@@ -2006,7 +3133,6 @@
       "icon": "sicon-image-carousel",
       "path": "home.enhanced-slider",
       "image": "https://cdn.salla.network/images/themes/raed/preview-images/images-slider-enhancement.png?v=1.1",
-      "is_default": true,
       "fields": [
         {
           "type": "static",
@@ -2108,7 +3234,6 @@
       "icon": "sicon-layout-grid-rearrange",
       "path": "home.main-links",
       "image": "https://cdn.salla.network/images/themes/raed/main-links-with-bg.jpg?v=1.1",
-      "is_default": true,
       "fields": [
         {
           "type": "static",
@@ -2517,7 +3642,6 @@
       "icon": "sicon-image",
       "path": "home.enhanced-square-banners",
       "image": "https://cdn.salla.network/images/themes/raed/preview-images/square-images.png?v=1.1",
-      "is_default": true,
       "fields": [
         {
           "type": "static",
@@ -2745,7 +3869,6 @@
       "icon": "sicon-chat-bubbles",
       "path": "home.custom-testimonials",
       "image": "https://cdn.salla.network/images/themes/raed/preview-images/custom-testimonials.png?v=1.1",
-      "is_default": true,
       "fields": [
         {
           "type": "static",
