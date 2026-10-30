@@ -36,6 +36,8 @@ export function demoPack(v) {
 }
 
 const money = n => `${Math.round(n).toLocaleString('en-US')} ${ar() ? 'ر.س' : 'SAR'}`;
+/* keep the demo store's own price format (currency symbol, position) and swap only the number */
+const like = (el, n) => { const t = (el && el.textContent || '').trim(); return /[\d٠-٩]/.test(t) ? t.replace(/[\d٠-٩][\d٠-٩.,]*/, Math.round(n).toLocaleString('en-US')) : money(n); };
 /* the preview's store type: picker choice (?oc_type / session) → merchant setting → electronics. Never the fashion demo store's own words. */
 export const demoV = () => { let v = ''; try { v = new URLSearchParams(location.search).get('oc_type') || sessionStorage.getItem('oc_type') || ''; } catch (e) {  }
   const set = B.dataset.ocVertical; return VERTICALS[v] ? v : VERTICALS[set] ? set : 'electronics'; };
@@ -58,10 +60,12 @@ function skinCards(pack) {
 function skinMenu(pack) {
   document.querySelectorAll('.main-menu').forEach(menu => {
     /* Salla renders each category twice (mobile + desktop <li>) with the same id: map by id so both get the same tech category */
-    const ids = []; [...menu.children].forEach(li => { if (li.tagName === 'LI' && li.id && li.id !== 'offers' && !ids.includes(li.id)) ids.push(li.id); });
+    const key = li => li.id || (li.querySelector(':scope > a, :scope > span') || li).textContent.trim();
+    const skip = li => li.tagName !== 'LI' || li.id === 'offers' || li.id === 'more-menu-dropdown' || /^(تخفيضات|العروض|المزيد|offers|more)$/i.test(key(li));
+    const ids = []; [...menu.children].forEach(li => { if (!skip(li) && key(li) && !ids.includes(key(li))) ids.push(key(li)); });
     [...menu.children].forEach(li => {
-      if (li.tagName !== 'LI' || li.id === 'offers') return;
-      const k = li.id ? ids.indexOf(li.id) : -1; if (k < 0) return;
+      if (skip(li)) return;
+      const k = ids.indexOf(key(li)); if (k < 0) return;
       const c = pack.cats[k];
       if (!c) { li.dataset.ocHide = '1'; li.style.display = 'none'; return; }
       const label = li.querySelector(':scope > a span') || li.querySelector(':scope > a') || li.querySelector(':scope > span');
@@ -94,16 +98,19 @@ function sweep(pack) {
 }
 /* product page in preview: one tech demo product (stable per URL) */
 function skinProduct(pack) {
-  const h1 = document.querySelector('.product-single h1, .product-entry__title, main h1'); if (!h1 || !document.querySelector('salla-add-product-button, .product-form, [class*="product-single"]')) return;
-  if (B.dataset.ocDemoPdp) return; B.dataset.ocDemoPdp = '1';
+  const h1 = document.querySelector('[data-testid="store-product-title"], .product-single h1, .product-entry__title, main h1'); if (!h1 || !document.querySelector('salla-add-product-button, .product-form, [class*="product-single"]')) return;
+  const once = e => !e || e.dataset.ocDemo ? false : (e.dataset.ocDemo = '1', true); // each element is skinned once (late renders still get theirs)
   let h = 0; for (const ch of location.pathname) h = (h * 31 + ch.charCodeAt(0)) >>> 0; const k = h % pack.ps.length, p = pack.ps[k], V = VERTICALS[pack.v] || VERTICALS.electronics;
-  h1.textContent = p.name; document.title = p.name;
-  const gal = document.querySelector('.product-single__images, salla-slider.details-slider, .product-single salla-slider, .product-slider, .product__images') || document.querySelector('main');
+  if (once(h1)) { h1.textContent = p.name; document.title = p.name; }
+  const gal = document.querySelector('salla-slider.details-slider, .details-slider, .product-single__images, .product-single salla-slider, .product__images') || document.querySelector('main');
   let i = 0; gal.querySelectorAll('img').forEach(img => { if (themeImg(img.getAttribute('src'))) return; img.src = pack.ps[(k + i++) % pack.ps.length].img; img.removeAttribute('srcset'); img.alt = p.name; img.dataset.ocSwept = '1'; });
-  document.querySelectorAll('.product-single .total-price, .product-price, .price-wrapper .total-price, .product-entry__price, [class*="product"] .price').forEach(e => { e.textContent = money(p.price); });
-  document.querySelectorAll('.product-single .before-price, .product-price-before, del').forEach(e => { if (p.was) e.textContent = money(p.was); else e.remove(); });
-  const desc = document.querySelector('.product__description, .product-single__description, .article--main');
-  if (desc) desc.innerHTML = `<p>${vt(V.hero)}</p><ul>${(V.specs || []).map(([l]) => `<li>${vt(l)}</li>`).join('')}</ul>`;
+  /* prices: the title price block, the form / sticky bar prices; old price only when the demo product has an offer */
+  document.querySelectorAll('[data-testid="store-product-price"] p, .total-price, .product-entry__price, .sticky-product-bar .total-price').forEach(e => { if (once(e)) e.textContent = like(e, p.price); });
+  document.querySelectorAll('[data-testid="store-product-price"] .line-through, .before-price').forEach(e => { if (once(e)) { if (p.was) e.textContent = like(e, p.was); else e.style.display = 'none'; } });
+  /* sub-title / sku / sizes copied from the fashion product */
+  document.querySelectorAll('.product-entry__sub-title').forEach(e => { if (once(e)) e.textContent = vt(V.hero); });
+  const desc = document.querySelector('.product__description .article--main, .product__description, .product-single__description');
+  if (once(desc)) desc.innerHTML = `<p>${vt(V.hero)}</p><ul>${(V.specs || []).map(([l]) => `<li>${vt(l)}</li>`).join('')}</ul>`;
   document.querySelectorAll('salla-product-options, .s-product-options-wrapper, .product-options, [data-size-guide]').forEach(e => { e.style.display = 'none'; });
 }
 
