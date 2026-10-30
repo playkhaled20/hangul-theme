@@ -66,6 +66,10 @@ function buildPicker(){
   if(sessionStorage.getItem('oc_pbg')) B.dataset.ocBg=sessionStorage.getItem('oc_pbg');
   const fab = el.querySelector('.oc-pk__fab');
   fab.onclick = () => { const o = el.classList.toggle('is-open'); fab.setAttribute('aria-expanded', o); };
+  /* mobile product page: the sticky cart bar takes the bottom edge, so the picker rides just above it (never over quantity / add to cart) */
+  const lift = () => { const bar = document.querySelector('.is-sticky-product-bar .sticky-product-bar'), r = bar && getComputedStyle(bar).position === 'fixed' ? bar.getBoundingClientRect() : null;
+    el.style.insetBlockEnd = r && r.height && r.top < innerHeight - 4 ? `${Math.ceil(innerHeight - r.top + 12)}px` : ''; };
+  ['scroll', 'resize'].forEach(e => addEventListener(e, lift, { passive: true })); document.addEventListener('transitionend', lift); lift(); setTimeout(lift, 900);
   el.querySelectorAll('[data-k]').forEach(b => b.onclick = () => {
     const k = b.dataset.k==='__auto' ? detect(currentTexts()) : b.dataset.k; b.dataset.k==='__auto' ? sessionStorage.removeItem('oc_type') : sessionStorage.setItem('oc_type', k); applyVertical(k); B.classList.add('oc-swap'); setTimeout(()=>B.classList.remove('oc-swap'),600);
     el.querySelectorAll('[data-k]').forEach(x=>x.classList.toggle('is-on', x.dataset.k===k)); fab.querySelector('span').innerHTML = ICONS[k]; list.querySelector('select').value=k; document.dispatchEvent(new CustomEvent('oc:type',{detail:k}));

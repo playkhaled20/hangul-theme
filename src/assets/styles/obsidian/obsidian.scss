@@ -10,6 +10,8 @@ body.oc{
   &[data-oc-accent=ice]{--oc-acc:#9fd4ff;--oc-glow:rgba(159,212,255,.32)}
   &[data-oc-accent=store]{--oc-acc:var(--color-primary);--oc-glow:color-mix(in srgb,var(--color-primary) 40%,transparent)}
   .bg-white,.bg-gray-50,.bg-gray-100{background:transparent!important}
+  /* the mobile sticky cart bar floats over the page: it needs a solid backdrop, or the trust/stock rings show through the quantity box */
+  @media (max-width:640px){&.is-sticky-product-bar .sticky-product-bar,.is-sticky-product-bar .sticky-product-bar{background:color-mix(in srgb,var(--oc-bg) 96%,transparent)!important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--oc-line);z-index:30}}
   .text-gray-500,.text-gray-400{color:var(--oc-mut)!important}
   .text-gray-800,.text-gray-900,h1,h2,h3{color:var(--oc-txt)}
   .border-gray-200,.border-gray-100{border-color:var(--oc-line)!important}
