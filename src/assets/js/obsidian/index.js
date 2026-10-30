@@ -1,8 +1,10 @@
-import { vt, VERTICALS, ICONS, detect } from './verticals';
+import { vt, VERTICALS, ICONS, detect, norm, scores } from './verticals';
 import { customerColor, PALETTES } from './colors';
 import { bindBrand } from './brand';
 import { buildSmart } from './smart';
 import { mountAddons } from './addons';
+import { mountSections } from './sections';
+import { money, brain } from './brain';
 const B = document.body, isAr = (document.documentElement.lang || 'ar').startsWith('ar');
 const tr = (ar,en) => isAr ? ar : en;
 
@@ -22,7 +24,7 @@ function applyVertical(v){
   B.dataset.ocV = v; B.style.setProperty('--oc-v-acc', B.dataset.ocInk==='1'?'var(--oc-ink)':V.acc);
   document.querySelectorAll('[data-oc-hero-art]').forEach(el => el.innerHTML = ICONS[v] || ICONS.electronics);
   document.querySelectorAll('[data-oc-hero-sub]').forEach(el => { if(!el.dataset.custom) el.textContent = vt(V.hero); });
-  document.querySelectorAll('[data-oc-hud]').forEach(el => el.innerHTML = (V.specs||[]).map(([l,n],i)=>`<div class="oc-hud__row" style="--w:${n}%;--d:${i*.15}s"><span>${vt(l)}</span><i></i><b>${n}</b></div>`).join(''));
+  document.querySelectorAll('[data-oc-hud]').forEach(el => el.innerHTML = (V.specs||[]).map(([l,n],i)=>`<div class="oc-hud__row" style="--w:${n}%;--d:${i*.15}s"><span>${vt(l)}</span><i></i></div>`).join(''));
   document.querySelectorAll('[data-oc-vname]').forEach(el => el.textContent = isAr ? V.ar : V.en);
   const ML = {featured:tr('مختارات','Featured'),bestsellers:tr('الأكثر مبيعاً في','Bestsellers ·'),new:tr('وصل حديثاً في','New in'),deals:tr('عروض','Deals ·'),bundle:tr('أكمل طقم','Complete the kit ·')};
   document.querySelectorAll('[data-oc-vtitle]').forEach(el => { if(!el.dataset.custom) el.textContent = `${ML[el.dataset.ocVtitle]||''} ${isAr?V.ar:V.en}`; });
@@ -38,12 +40,13 @@ function resolveVertical(){
 /* ---------- preview picker (white system) — only on demo/preview hosts or ?oc_preview=1 ---------- */
 function isPreview(){
   const h = location.hostname, q = new URLSearchParams(location.search);
-  return q.has('oc_preview') || /salla\.design|demo|preview|localhost/.test(h) || window.salla?.config?.get?.('store.preview');
+  // merchant-facing picker: Salla's own preview (theme.mode / salla.design) or an explicit ?oc_preview — never a live store
+  // just because its domain happens to contain "demo" or "preview"
+  return q.has('oc_preview') || B.dataset.ocMode === 'preview' || /(^|\.)salla\.design$/.test(h) || h === 'localhost' || !!window.salla?.config?.get?.('store.preview');
 }
 function buildPicker(){
   if (!isPreview() || document.querySelector('.oc-pk')) return;
-  const counts = {}; const titles = currentTexts().join(' ').toLowerCase();
-  for (const [k,v] of Object.entries(VERTICALS)) counts[k] = v.kw.reduce((n,w)=>n+(titles.split(w.toLowerCase()).length-1),0);
+  const counts = scores(currentTexts());
   const el = document.createElement('div'); el.className='oc-pk'; el.setAttribute('dir', isAr?'rtl':'ltr');
   el.innerHTML = `<button class="oc-pk__fab" aria-expanded="false"><span>${ICONS[B.dataset.ocV]||''}</span>${tr('نوع المتجر','Store type')}</button>
   <div class="oc-pk__sheet" role="dialog" aria-label="${tr('معاينة نوع المتجر','Preview store type')}">
@@ -72,10 +75,11 @@ function buildPicker(){
 function filterCards(sec){
   const V = VERTICALS[sec.dataset.ocVfilter === 'auto' ? B.dataset.ocV : sec.dataset.ocVfilter]; if(!V) return;
   const cards = [...sec.querySelectorAll('custom-salla-product-card')];
-  const hit = cards.filter(c => V.kw.some(w => (c.textContent||'').toLowerCase().includes(w.toLowerCase())));
+  const hit = cards.filter(c => { const tx = norm(c.textContent); return V.kw.some(w => tx.includes(norm(w).trim())); });
   cards.forEach(c => c.style.display = hit.length && !hit.includes(c) ? 'none' : '');
   const tot = sec.querySelector('[data-oc-bundle-total]');
-  if (tot) { const sum = (hit.length?hit:cards).reduce((n,c)=>n+(+(c.product?.price?.amount ?? c.product?.price ?? 0)||0),0); tot.textContent = sum ? `${tr('الطقم','Kit')} ${Math.round(sum*.9).toLocaleString('en')} ${tr('ر.س','SAR')} · ${tr('وفّر','save')} 10%` : ''; }
+  // real sum of the shown products in the store currency — no invented discount
+  if (tot) { const sum = (hit.length?hit:cards).reduce((n,c)=>n+(+(c.product?.price?.amount ?? c.product?.price ?? 0)||0),0); tot.textContent = sum ? `${tr('إجمالي الطقم','Kit total')} ${money(sum, window.ocStore?.sig?.currency || B.dataset.ocCur || 'SAR')}` : ''; }
 }
 
 /* ---------- smart product cards: trust ring + stock meter instead of stars/raw qty ---------- */
@@ -127,8 +131,10 @@ function packs(){
 
 async function boot(){
   if(B.dataset.ocBg) B.dataset.ocBg=B.dataset.ocBg.replace(/^bg-/,'');
-  customerColor(isAr); applySquares(); window.ocApplySquares=applySquares;
+  customerColor(isAr); applySquares(); window.ocApplySquares=applySquares; B.classList.toggle('oc-preview', !!isPreview());
   let st=null; try{ st=await buildSmart(isAr); }catch(e){}
+  try{ st=(await mountSections())||st; }catch(e){}
+  try{ st=st||await brain(); }catch(e){}
   // live: if merchant left vertical on auto, the dominant type comes from the real store read
   applyVertical(isPreview()||B.dataset.ocVertical!=='auto'||!st ? resolveVertical() : st.main); buildPicker(); autoCats(); iconize(); packs();
   try{ mountAddons(st, isAr); }catch(e){}

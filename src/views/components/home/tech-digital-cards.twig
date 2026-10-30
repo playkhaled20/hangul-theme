@@ -1,0 +1,7 @@
+<section component-id="{{ componentId }}" class="s-block ts container" data-testid="tech-digital-cards">
+  <div class="ts-h"><div><span class="ig-kicker">تسليم فوري</span><h2>{{ component.title ?: 'البطاقات الرقمية' }}</h2></div></div>
+  <div class="ts-dc">{% for c in component.cards %}{% set u = c.url is iterable ? (c.url.url ?? '') : c.url %}
+    <a class="ts-card" href="{{ u ?: '#' }}" style="--c:{{ c.color ?: '#1f2937' }}"><div class="flex justify-between"><span class="chip"></span><small>{{ c.region }}</small></div><div><small>{{ c.brand }}</small><b>{{ c.value }}</b></div></a>
+  {% endfor %}</div>
+  {% include 'pages.partials.tech-gallery' with {gallery: component.gallery, q: 'بطاقة,card,شحن,اشتراك,ستور', n: 6} %}
+</section>

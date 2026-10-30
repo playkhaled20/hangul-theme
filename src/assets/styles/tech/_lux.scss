@@ -1,0 +1,19 @@
+// Natural premium tech skin over Raed (setting tech_lux). Neutral, realistic retail look; accent = merchant --color-primary. No external fonts/CDNs.
+body.tech-lux{
+  --lx-ink:#0f1115;--lx-text:#1d2026;--lx-mute:#6b7280;--lx-line:#e7e9ee;--lx-soft:#f6f7f9;--lx-card:#fff;
+  background:var(--lx-soft);color:var(--lx-text);
+  .store-header .top-navbar{background:var(--lx-ink);color:#d7dbe2;font-size:12.5px}
+  .main-nav-container{background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--lx-line)}
+  .s-block__title h2,.s-block__title h3{color:var(--lx-ink);font-weight:700;letter-spacing:-.2px}
+  .s-product-card-entry{background:var(--lx-card);border:1px solid var(--lx-line);border-radius:14px;overflow:hidden;transition:box-shadow .25s,border-color .25s}
+  .s-product-card-entry:hover{border-color:#d5d9e0;box-shadow:0 10px 30px -14px rgba(15,17,21,.25)}
+  .s-product-card-image{background:#fff}
+  .s-product-card-image img{object-fit:contain;padding:8%}
+  .s-product-card-content-title a{color:var(--lx-text);font-weight:600}
+  .s-product-card-price{color:var(--lx-ink);font-weight:700}
+  .s-product-card-sale-price h4{color:#c2410c}
+  .btn--primary,.s-button-primary{background:var(--color-primary)!important;border:0;border-radius:10px}
+  .store-footer{background:var(--lx-ink);color:#aab1bd}
+  input,select,textarea{border-color:var(--lx-line);border-radius:10px}
+}
+@media (prefers-reduced-motion:reduce){body.tech-lux *{transition:none!important}}

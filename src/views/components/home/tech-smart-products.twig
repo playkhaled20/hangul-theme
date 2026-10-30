@@ -1,0 +1,6 @@
+{# Products with infographic header; cards keep Salla's salla-products-list (cart, wishlist, options stay native). #}
+<section component-id="{{ componentId }}" class="s-block ts container" data-testid="tech-smart-products">
+  <div class="ts-h"><div><span class="ig-kicker">{{ component.kicker ?: 'الأعلى تقييماً' }}</span><h2>{{ component.title ?: 'الأجهزة بالأرقام' }}</h2><p>{{ component.description }}</p></div></div>
+  <salla-products-list source="{{ component.products|length ? 'selected' : 'latest' }}" {% if component.products|length %}source-value="[{{ component.products|map(p => p.id)|join(',') }}]"{% endif %} limit="8"></salla-products-list>
+  {% include 'pages.partials.tech-gallery' with {gallery: component.gallery, q: '', n: 8} %}
+</section>
