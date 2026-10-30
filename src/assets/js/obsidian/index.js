@@ -4,7 +4,7 @@ import { bindBrand } from './brand';
 import { buildSmart } from './smart';
 import { mountAddons } from './addons';
 import { mountSections } from './sections';
-import { initDemo, demoV } from './demo';
+import { initDemo, demoV, demoPack } from './demo';
 import { money, brain } from './brain';
 const B = document.body, isAr = (document.documentElement.lang || 'ar').startsWith('ar');
 const tr = (ar,en) => isAr ? ar : en;
@@ -108,6 +108,10 @@ function decorate(card){
 /* ---------- live category auto-bind from the merchant's real categories ---------- */
 async function autoCats(){
   for (const grid of document.querySelectorAll('[data-oc-autocats="1"]')) {
+    if (isPreview()) { // preview only: the fashion demo store's categories are swapped for the tech demo categories of the chosen type
+      const D = demoPack(demoV()).cats.slice(0, +grid.dataset.limit || 8);
+      grid.innerHTML = D.map(c => `<a class="oc-cat" href="#"><span class="oc-cat__ic">${ICONS[c.v] || ICONS.electronics}</span><b>${c.name}</b></a>`).join(''); continue;
+    }
     try {
       const r = await salla.api.request('categories', {}, 'get'); const list = (r?.data || []).slice(0, +grid.dataset.limit || 8);
       grid.innerHTML = list.map(c => `<a class="oc-cat" href="${c.url}"><span class="oc-cat__ic" data-oc-icon="${c.name}"></span><b>${c.name}</b></a>`).join('');
