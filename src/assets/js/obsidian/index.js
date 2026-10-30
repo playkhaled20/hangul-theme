@@ -4,6 +4,7 @@ import { bindBrand } from './brand';
 import { buildSmart } from './smart';
 import { mountAddons } from './addons';
 import { mountSections } from './sections';
+import { initDemo, demoV } from './demo';
 import { money, brain } from './brain';
 const B = document.body, isAr = (document.documentElement.lang || 'ar').startsWith('ar');
 const tr = (ar,en) => isAr ? ar : en;
@@ -33,8 +34,8 @@ function applyVertical(v){
 function currentTexts(){ return [...document.querySelectorAll('.main-menu a, .oc-cat b, .s-product-card-content-title, h1')].map(e=>e.textContent); }
 function resolveVertical(){
   const set = B.dataset.ocVertical;
-  const pv = isPreview() && (new URLSearchParams(location.search).get('oc_type') || sessionStorage.getItem('oc_type'));
-  return pv || (set && set !== 'auto' ? set : detect(currentTexts()));
+  if (isPreview()) return demoV(); // preview runs on Salla's fashion demo store: never detect from its words
+  return set && set !== 'auto' ? set : detect(currentTexts());
 }
 
 /* ---------- preview picker (white system) — only on demo/preview hosts or ?oc_preview=1 ---------- */
@@ -132,6 +133,7 @@ function packs(){
 async function boot(){
   if(B.dataset.ocBg) B.dataset.ocBg=B.dataset.ocBg.replace(/^bg-/,'');
   customerColor(isAr); applySquares(); window.ocApplySquares=applySquares; B.classList.toggle('oc-preview', !!isPreview());
+  try{ initDemo(); }catch(e){}
   let st=null; try{ st=await buildSmart(isAr); }catch(e){}
   try{ st=(await mountSections())||st; }catch(e){}
   try{ st=st||await brain(); }catch(e){}
