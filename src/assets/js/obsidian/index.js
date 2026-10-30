@@ -137,8 +137,9 @@ function packs(){
 /* mobile product page: the sticky cart bar takes the bottom edge, so every floating button (store-type picker, assistant,
    command centre) rides just above it (--oc-lift) and never covers quantity, add to cart or buy now */
 function liftFloaters(){
-  const lift = () => { const bar = document.querySelector('.is-sticky-product-bar .sticky-product-bar'), r = bar && getComputedStyle(bar).position === 'fixed' ? bar.getBoundingClientRect() : null;
-    B.style.setProperty('--oc-lift', r && r.height && r.top < innerHeight - 4 ? `${Math.ceil(innerHeight - r.top + 8)}px` : '0px'); };
+  /* measured from the bar's own height (not its sliding position), so the buttons sit in their final place from the first frame */
+  const lift = () => { const bar = document.querySelector('.is-sticky-product-bar .sticky-product-bar'), cs = bar && getComputedStyle(bar), h = cs && cs.position === 'fixed' && cs.display !== 'none' ? bar.offsetHeight : 0;
+    B.style.setProperty('--oc-lift', h ? `${h + 8}px` : '0px'); B.classList.toggle('oc-lifted', !!h); };
   ['scroll', 'resize'].forEach(e => addEventListener(e, lift, { passive: true })); document.addEventListener('transitionend', lift); lift(); setTimeout(lift, 900); setTimeout(lift, 2500);
 }
 async function boot(){

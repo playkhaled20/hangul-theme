@@ -161,10 +161,11 @@ export function initDemo() {
   if (!isPreview()) return;
   B.classList.add('oc-demo');
   if (!document.getElementById('oc-demo-css')) { const st = document.createElement('style'); st.id = 'oc-demo-css';
-    st.textContent = '.oc-demo .oc-hide{display:none!important}.oc-demo-logo{display:inline-grid;line-height:1;text-align:center;gap:3px}.oc-demo-logo b{font-weight:900;letter-spacing:.32em;font-size:20px;background:linear-gradient(180deg,#f3e2bd,#d9b779 55%,#8a6a3a);-webkit-background-clip:text;background-clip:text;color:transparent}.oc-demo-logo small{font-size:10px;letter-spacing:.12em;opacity:.75}.oc-demo{padding-bottom:88px}.oc-demo-links{display:grid;gap:.6rem;margin:0;padding:0;list-style:none}';
+    st.textContent = '.oc-demo .oc-hide{display:none!important}.oc-demo-logo{display:inline-grid;line-height:1;text-align:center;gap:3px}.oc-demo-logo b{font-weight:900;letter-spacing:.32em;font-size:20px;background:linear-gradient(180deg,#f3e2bd,#d9b779 55%,#8a6a3a);-webkit-background-clip:text;background-clip:text;color:transparent}.oc-demo-logo small{font-size:10px;letter-spacing:.12em;opacity:.75}.oc-demo{padding-bottom:88px}.oc-demo-links{display:grid;gap:.6rem;margin:0;padding:0;list-style:none}.oc-demo.product-single salla-breadcrumb:not([data-oc-demo]){visibility:hidden}';
     document.head.appendChild(st); }
   let t = 0; const run = () => { const pack = demoPack(vOf()); skinLogo(pack); skinCards(pack); skinMenu(pack); try { skinFooter(); skinProduct(pack); sweep(pack); } catch (e) {  } };
   run(); setTimeout(run, 600); setTimeout(run, 2000);
+  setTimeout(() => document.querySelectorAll('salla-breadcrumb').forEach(b => { b.dataset.ocDemo = b.dataset.ocDemo || '1'; }), 4000); // never keep a breadcrumb hidden
   new MutationObserver(() => { clearTimeout(t); t = setTimeout(run, 160); }).observe(B, { childList: true, subtree: true });
   /* a different type picked in the preview picker: reload so every section reads the new demo store cleanly */
   document.addEventListener('oc:type', () => setTimeout(() => location.reload(), 350));

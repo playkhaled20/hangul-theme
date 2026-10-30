@@ -20,6 +20,12 @@ body.oc{
   .product-form .s-button-primary,.sticky-product-bar .s-button-primary{background:linear-gradient(135deg,var(--oc-acc),var(--oc-gold2))!important;color:#111!important}
   .s-add-product-button-mini-checkout{border:1px solid var(--oc-acc)!important;border-radius:10px;color:var(--oc-txt)!important;background:transparent!important;opacity:1!important}
   .s-add-product-button-mini-checkout-content,.s-add-product-button-mini-checkout-content *{color:var(--oc-txt)!important;fill:currentColor}
+  /* phones: the cart bar arrives at once (no staged fade of quantity / buttons), and the floating buttons shrink to
+     icons above it so they hide less of the product photos */
+  @media (max-width:640px){&.is-sticky-product-bar .sticky-product-bar{transition-duration:.3s!important;transition-delay:0s!important}
+    &.is-sticky-product-bar .sticky-product-bar :is(.sticky-product-bar__quantity,salla-add-product-button){transition:none!important;transform:none!important;opacity:1!important}
+    &.oc-lifted .oc-pk__fab{width:46px;height:46px;padding:0!important;justify-content:center;font-size:0;gap:0;&::before{display:none}}
+    &.oc-lifted .oc-ai__fab{width:46px;height:46px;padding:0!important;font-size:0;display:grid;place-items:center;&::before{content:"✦";font-size:1.15rem}}}
   /* add to cart + buy now share one row: on phones they stack, so neither label is cut */
   @media (max-width:640px){.sticky-product-bar .s-add-product-button-main{flex-wrap:wrap;gap:.5rem}.sticky-product-bar .s-add-product-button-main>*{flex:1 1 100%;min-width:0;width:100%}
     .sticky-product-bar .s-button-text{white-space:nowrap}}
