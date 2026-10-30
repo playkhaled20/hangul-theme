@@ -57,12 +57,18 @@ function skinCards(pack) {
 }
 function skinMenu(pack) {
   document.querySelectorAll('.main-menu').forEach(menu => {
-    const items = [...menu.children].filter(li => li.tagName === 'LI' && !li.id);
-    let k = 0;
-    items.forEach(li => { const c = pack.cats[k]; const label = li.querySelector(':scope > a span') || li.querySelector(':scope > span') || li.querySelector(':scope > a');
-      if (!label || /more|المزيد/i.test(li.textContent) && li.querySelector('ul')) return;
-      if (!c) { li.hidden = true; return; }
-      label.textContent = c.name; li.hidden = false; li.querySelectorAll('img').forEach(i => { i.src = c.img; i.alt = c.name; }); k++; });
+    /* Salla renders each category twice (mobile + desktop <li>) with the same id: map by id so both get the same tech category */
+    const ids = []; [...menu.children].forEach(li => { if (li.tagName === 'LI' && li.id && li.id !== 'offers' && !ids.includes(li.id)) ids.push(li.id); });
+    [...menu.children].forEach(li => {
+      if (li.tagName !== 'LI' || li.id === 'offers') return;
+      const k = li.id ? ids.indexOf(li.id) : -1; if (k < 0) return;
+      const c = pack.cats[k];
+      if (!c) { li.dataset.ocHide = '1'; li.style.display = 'none'; return; }
+      const label = li.querySelector(':scope > a span') || li.querySelector(':scope > a') || li.querySelector(':scope > span');
+      if (label) label.textContent = c.name;
+      const a = li.querySelector(':scope > a'); if (a) a.setAttribute('aria-label', c.name);
+      li.querySelectorAll('img').forEach(i => { i.src = c.img; i.alt = c.name; });
+    });
   });
 }
 
