@@ -5,6 +5,7 @@ import { buildSmart } from './smart';
 import { mountAddons } from './addons';
 import { mountSections } from './sections';
 import { initDemo, demoV, demoPack } from './demo';
+import { initUx } from './ux';
 import { money, brain } from './brain';
 const B = document.body, isAr = (document.documentElement.lang || 'ar').startsWith('ar');
 const tr = (ar,en) => isAr ? ar : en;
@@ -149,6 +150,7 @@ async function boot(){
   customerColor(isAr); applySquares(); window.ocApplySquares=applySquares; B.classList.toggle('oc-preview', !!isPreview());
   try{ initDemo(); }catch(e){}
   try{ liftFloaters(); }catch(e){}
+  try{ initUx(); }catch(e){}
   let st=null; try{ st=await buildSmart(isAr); }catch(e){}
   try{ st=(await mountSections())||st; }catch(e){}
   try{ st=st||await brain(); }catch(e){}
