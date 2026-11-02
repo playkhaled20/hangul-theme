@@ -165,3 +165,6 @@ body.oc[data-oc-v=phones] .oc-hero__stage{grid-template-columns:1fr 1.2fr}
 @import "./v12";
 @import "./v13";
 @import "./ux";
+
+/* cinema slides sit on dark photos: titles stay light whatever the palette */
+body.oc .oc-cine__copy h2,body.oc .oc-cine__copy .oc-metal{color:#fff!important}
