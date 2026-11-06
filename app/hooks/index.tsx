@@ -2,6 +2,8 @@ import { hookRegistry, HookName, type HookContext } from '@salla.sa/twilight-the
 import type { Product } from '@salla.sa/twilight-theme-engine/types';
 import { AddProductToast } from '../components/cart';
 import { DigitalFilesSettings } from '../components/product';
+import { SmartPanel } from '../addons/SmartPanel';
+import { ColourPicker } from '../addons/ColourPicker';
 
 export function registerThemeHooks() {
   // Register AddProductToast at body:end hook slot. Default on (twilight.json
@@ -27,4 +29,9 @@ export function registerThemeHooks() {
     },
     50
   );
+
+  // «إضافاتي الذكية»: the floating panel of twelve helpers for the store's type.
+  hookRegistry.register(HookName.BODY_END, () => <SmartPanel />, 60);
+  // The customer's own page colour, when the merchant allows it.
+  hookRegistry.register(HookName.BODY_END, () => <ColourPicker />, 61);
 }
