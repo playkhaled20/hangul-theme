@@ -121,7 +121,8 @@ export interface BliskDesign {
 export function resolveDesign(settings: Settings, storeText: string): BliskDesign {
   const vertical = resolveVertical(settings, storeText);
   const bgKey = settingValue(settings?.oc_bg);
-  const background = BACKGROUNDS[bgKey] ? bgKey : 'graphite';
+  // Hangul's own look: a clean light «cloud» page with an electric-blue accent.
+  const background = BACKGROUNDS[bgKey] ? bgKey : 'cloud';
   const [bg, bg2, bg3] = BACKGROUNDS[background];
   let light = LIGHT_BACKGROUNDS.includes(background);
 
@@ -144,12 +145,12 @@ export function resolveDesign(settings: Settings, storeText: string): BliskDesig
 
   // Accent: merchant ink > chosen metal > the vertical's own metal. On a light
   // background the default gold is darkened so it reads.
-  const accentKey = settingValue(settings?.oc_accent) || 'champagne';
+  const accentKey = settingValue(settings?.oc_accent) || 'ice';
   let acc =
     accentKey === 'store'
       ? 'var(--color-primary)'
       : (ACCENTS[accentKey] ?? VERTICALS[vertical].acc);
-  if (light && accentKey === 'champagne') acc = `color-mix(in srgb, ${acc}, #000 38%)`;
+  if (light && (accentKey === 'champagne' || accentKey === 'ice')) acc = `color-mix(in srgb, ${acc}, #000 38%)`;
   const ink = settingValue(settings?.oc_ink_color) || String(settings?.oc_ink_color ?? '');
   if (settingOn(settings?.oc_ink_on, false) && HEX.test(ink)) acc = ink;
   vars['oc-acc'] = acc;

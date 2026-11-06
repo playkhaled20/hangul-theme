@@ -360,5 +360,5 @@ export const LIGHT_BACKGROUNDS = ["ivory", "sand", "pearl", "softblue", "mint", 
 export const ACCENTS: Record<string, string> = {
   titanium: '#c9ccd1',
   rose: '#e0a98f',
-  ice: '#e8b4b8',
+  ice: '#4d8dff',
 };

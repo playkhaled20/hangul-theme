@@ -59,7 +59,7 @@ function productImageRatio(raw: unknown): ImgRatio {
   const first = Array.isArray(raw) ? raw[0] : raw;
   const value =
     typeof first === 'string' ? first : (first as { value?: string } | undefined)?.value;
-  return (IMG_RATIOS as readonly string[]).includes(value ?? '') ? (value as ImgRatio) : 'auto';
+  return (IMG_RATIOS as readonly string[]).includes(value ?? '') ? (value as ImgRatio) : 'square';
 }
 
 /** Whether the merchant's `squar_photo_bg_image_size` dropdown asks for cover. */

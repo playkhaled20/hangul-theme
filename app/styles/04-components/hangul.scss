@@ -1,0 +1,55 @@
+/*
+ * Hangul's own look on top of the shared «Obsidian Cinema» layer, so it does
+ * not read as a copy of Bliska: square product shots on a white plate (phones,
+ * headphones and devices are shot that way), rounder cards, and a centred
+ * hero with the product large under the title.
+ */
+body.theme-blisk {
+  // Product cards: the device sits whole on a white plate, never cropped.
+  .s-product-card-entry {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .s-product-card-vertical .s-product-card-image {
+    background: #fff;
+  }
+  .s-product-card-vertical .s-product-card-image img {
+    object-fit: contain;
+    padding: 0.75rem;
+  }
+  .s-product-card-content-title,
+  .s-product-card-content-title a {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  // Headings: tighter and heavier, a technical feel.
+  h1,
+  h2,
+  .s-block__title h2 {
+    letter-spacing: -0.02em;
+  }
+}
+
+// Hero: title first and centred, the product large underneath.
+body.theme-blisk .blisk-hero {
+  &__stage {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__copy {
+    order: -1;
+    justify-items: center;
+  }
+  &__desc {
+    margin-inline: auto;
+  }
+  &__media img {
+    max-height: 460px;
+  }
+}

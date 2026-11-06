@@ -26,7 +26,7 @@ export function BliskDesign() {
         ? [
             'theme-blisk',
             design.light ? 'blisk-light' : 'blisk-dark',
-            ...(settingOn(settings?.oc_grain) ? ['blisk-grain'] : []),
+            ...(settingOn(settings?.oc_grain, false) ? ['blisk-grain'] : []),
           ]
         : [],
       'data-blisk-v': design.vertical,

@@ -34,11 +34,17 @@ describe('vertical', () => {
 });
 
 describe('resolveDesign', () => {
-  it('defaults to the graphite background and the vertical accent', () => {
+  it("defaults to Hangul's light cloud page and the electric-blue accent", () => {
     const d = resolveDesign({ oc_vertical: 'gaming' }, '');
-    expect(d.background).toBe('graphite');
+    expect(d.background).toBe('cloud');
+    expect(d.light).toBe(true);
+    expect(d.css).toContain('--oc-bg:#f2f4f6');
+    expect(d.css).toContain('--oc-acc:color-mix(in srgb, #4d8dff, #000 38%)');
+  });
+
+  it("keeps the vertical's own accent when the merchant picks champagne", () => {
+    const d = resolveDesign({ oc_vertical: 'gaming', oc_accent: 'champagne', oc_bg: 'graphite' }, '');
     expect(d.light).toBe(false);
-    expect(d.css).toContain('--oc-bg:#0b0b0d');
     expect(d.css).toContain('--oc-acc:#8cff7a');
   });
 

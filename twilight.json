@@ -63,8 +63,8 @@
       "label": "حبيبات الفيلم · Film grain",
       "description": "طبقة خفيفة ثابتة بدون حركة.",
       "icon": "sicon-star",
-      "value": true,
-      "selected": true,
+      "value": false,
+      "selected": false,
       "required": false
     },
     {
@@ -155,14 +155,14 @@
       "icon": "sicon-paint-bucket",
       "selected": [
         {
-          "label": "شامبين (يتبع الفئة)",
-          "value": "champagne",
-          "key": "v-champagne"
+          "label": "أزرق كهربائي",
+          "value": "ice",
+          "key": "v-ice"
         }
       ],
       "options": [
         {
-          "label": "شامبين (يتبع الفئة)",
+          "label": "شامبين",
           "value": "champagne",
           "key": "v-champagne"
         },
@@ -177,7 +177,7 @@
           "key": "v-rose"
         },
         {
-          "label": "أزرق جليدي",
+          "label": "أزرق كهربائي",
           "value": "ice",
           "key": "v-ice"
         },
@@ -187,7 +187,7 @@
           "key": "v-store"
         }
       ],
-      "value": "champagne",
+      "value": "ice",
       "required": false
     },
     {
@@ -199,9 +199,9 @@
       "icon": "sicon-paint-bucket",
       "selected": [
         {
-          "label": "◼ جرافيت · Graphite",
-          "value": "graphite",
-          "key": "bg-graphite"
+          "label": "◻ سحابي · Cloud",
+          "value": "cloud",
+          "key": "bg-cloud"
         }
       ],
       "options": [
@@ -296,7 +296,7 @@
           "key": "bg-cloud"
         }
       ],
-      "value": "graphite",
+      "value": "cloud",
       "required": false
     },
     {
@@ -400,9 +400,9 @@
       "required": true,
       "selected": [
         {
-          "label": "حسب شكل الصورة",
-          "value": "auto",
-          "key": "product-card-img-ratio-auto"
+          "label": "مربعة (1:1)",
+          "value": "square",
+          "key": "product-card-img-ratio-square"
         }
       ],
       "options": [
@@ -426,7 +426,8 @@
           "value": "portrait",
           "key": "product-card-img-ratio-portrait"
         }
-      ]
+      ],
+      "value": "square"
     },
     {
       "type": "static",
